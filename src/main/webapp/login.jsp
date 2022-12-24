@@ -49,7 +49,7 @@
       <input
               type="password"
               id="password"
-              name="email"
+              name="password"
               placeholder="Nhập mật khẩu của bạn"
               required
               class="w-[300px] border-gray-200 border px-4 py-2 bg-gray-100 rounded-full"
@@ -58,6 +58,7 @@
     <!-- button section -->
     <div class="flex flex-col gap-y-4">
       <!-- login button -->
+
       <button
               type="submit"
               class="bg-blue-500 text-white font-bold rounded-full py-2 w-[300px] text-center mt-4 hover:opacity-50"
@@ -65,11 +66,11 @@
         Đăng nhập
       </button>
       <!-- submit button -->
-      <button
-              class="bg-blue-50 text-blue-900 font-bold rounded-full py-2 w-[300px] text-center hover:opacity-50"
-      >
-        Chưa có tài khoản
-      </button>
+
+        <a href="register"   class="bg-blue-50 text-blue-900 font-bold rounded-full py-2 w-[300px] text-center hover:opacity-50">
+          <span>Tạo tài khoản</span>
+        </a>
+
     </div>
 
   </div>

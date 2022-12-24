@@ -55,7 +55,7 @@
       <input
               type="password"
               id="password"
-              name="email"
+              name="password"
               placeholder="Nhập mật khẩu của bạn"
               required
               class="w-[300px] border-gray-200 border px-4 py-2 bg-gray-100 rounded-full"
@@ -73,6 +73,18 @@
               class="w-[300px] border-gray-200 border px-4 py-2 bg-gray-100 rounded-full"
       />
     </div>
+    <div class="flex flex-col gap-y-1">
+      <p class="text-gray-600 font-bold ml-2">Bạn là ?</p>
+      <select
+              name="roles"
+              required
+              id="cars"
+              class="w-[300px] bg-gray-100 border border-gray-200 px-4 py-2 rounded-full"
+      >
+        <option value="guest">Người đọc bài</option>
+        <option value="writer">Người viết bài</option>
+      </select>
+    </div>
     <!-- button section -->
     <div class="flex flex-col gap-y-4">
       <!-- login button -->
@@ -83,11 +95,11 @@
         Đăng ký ngay
       </button>
       <!-- submit button -->
-      <button
+      <a href="login"
               class="bg-blue-50 text-blue-900 font-bold rounded-full py-2 w-[300px] text-center hover:opacity-50"
       >
         Chuyển sang đăng nhập
-      </button>
+      </a>
     </div>
   </div>
 </form>
@@ -101,8 +113,9 @@
           email: true,
         },
         name: "required",
-        confirmPassword: "requireed",
+        confirmPassword: "required",
         password: "required",
+        roles: "required",
       },
 
       messages: {

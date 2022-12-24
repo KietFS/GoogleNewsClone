@@ -23,8 +23,9 @@ public class Register extends HttpServlet {
         String email = request.getParameter("email");
         String name = request.getParameter("name");
         String password = request.getParameter("password");
+        String role = request.getParameter("roles");
 
-        request.setAttribute("message", "Đăng ký không thành công");
+        request.setAttribute("message", email + ", " + name + ", " + password + ", " + role );
         request.getRequestDispatcher("/register.jsp").forward(request, response);
     }
 
