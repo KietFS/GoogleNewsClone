@@ -1,6 +1,7 @@
-package controller;
+package com.example.googlenewsclone.controller;
 
-import java.io.*;
+import com.example.googlenewsclone.utils.ServletUtils;
+
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
@@ -17,7 +18,7 @@ public class Register extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.getRequestDispatcher("/register.jsp").forward(request, response);
+        ServletUtils.forward("/register.jsp", request, response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
@@ -26,7 +27,7 @@ public class Register extends HttpServlet {
         String role = request.getParameter("roles");
 
         request.setAttribute("message", email + ", " + name + ", " + password + ", " + role );
-        request.getRequestDispatcher("/register.jsp").forward(request, response);
+        ServletUtils.forward("/register.jsp", request, response);
     }
 
 }

@@ -1,6 +1,7 @@
-package controller;
+package com.example.googlenewsclone.controller;
 
-import java.io.*;
+import com.example.googlenewsclone.utils.ServletUtils;
+
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
@@ -16,14 +17,12 @@ public class Login extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        request.getRequestDispatcher("/login.jsp").forward(request, response);
+        ServletUtils.forward("/login.jsp", request, response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         request.setAttribute("message", "Email hoặc mật khẩu không đúng");
-        request.getRequestDispatcher("/login.jsp").forward(request, response);
+        ServletUtils.forward("/login.jsp", request, response);
     }
-
 }
