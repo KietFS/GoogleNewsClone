@@ -483,19 +483,19 @@
                         class="px-2 py-8 border-t border-b-1 border-gray-200 w-full h-[320px] flex items-center gap-x-5"
                 >
                     <!-- Main articles -->
-                    <div class="w-2/5">
+                    <div class="w-2/5 flex flex-col gap-y-2">
                         <img
                                 src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
                                 width="250"
                                 height="200"
                                 class="rounded-lg"
                         />
-                        <h1
-                                class="text-sm md:text-lg lg:text-xl text-gray-500 font-semibold mt-4 cursor-pointer"
+                        <a href="article?id=1"
+                                class="text-sm md:text-lg lg:text-xl hover:underline text-gray-500 font-semibold cursor-pointer"
                         >
                             HLV Park phát biểu sau khi nhận huân chương Heungin
-                        </h1>
-                        <div class="flex justify-between items-center w-full mt-2">
+                        </a>
+                        <div class="flex justify-between items-center w-full">
                             <p class="text-gray-500 mt-1 text-sm">12 giờ trước</p>
                             <p
                                     class="text-white rounded-full px-2 py-1 bg-blue-500 w-fit text-xs"
@@ -503,6 +503,7 @@
                                 Premium
                             </p>
                         </div>
+                        <p class="text-sm text-red-500 font-bold">Chính trị</p>
                     </div>
                     <!-- List articles -->
                     <div class="flex flex-col gap-y-4">
@@ -584,19 +585,19 @@
                         class="px-2 py-4 border-t border-b-2 border-gray-200 w-full h-[320px] flex items-center gap-x-5"
                 >
                     <!-- Main articles -->
-                    <div class="w-2/5">
+                    <div class="w-2/5 flex flex-col gap-y-2">
                         <img
                                 src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
                                 width="250"
                                 height="200"
                                 class="rounded-lg"
                         />
-                        <h1
-                                class="text-sm md:text-lg lg:text-xl text-gray-500 font-semibold mt-4 cursor-pointer"
+                        <a href="article?id=1"
+                                class="text-sm md:text-lg lg:text-xl text-gray-500 font-semibold cursor-pointer"
                         >
                             HLV Park phát biểu sau khi nhận huân chương Heungin
-                        </h1>
-                        <div class="flex justify-between items-center w-full mt-2">
+                        </a>
+                        <div class="flex justify-between items-center w-full">
                             <p class="text-gray-500 mt-1 text-sm">12 giờ trước</p>
                             <p
                                     class="text-white rounded-full px-2 py-1 bg-blue-500 w-fit text-xs"
@@ -604,6 +605,7 @@
                                 Premium
                             </p>
                         </div>
+                        <p class="text-sm text-red-500 font-bold">Chính trị</p>
                     </div>
                     <!-- List articles -->
                     <div class="flex flex-col gap-y-4">
