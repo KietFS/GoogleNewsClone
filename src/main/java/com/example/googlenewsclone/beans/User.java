@@ -1,37 +1,47 @@
 package com.example.googlenewsclone.beans;
+import jdk.vm.ci.meta.Local;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class User {
-    private int id;
+    private int userID;
     private String username;
     private String password;
-    private String name;
-    private String date;
+    private String firstName;
+    private String lastName;
+    private LocalDateTime date;
+    private int expiration;
+    private int roleID;
+    private LocalDateTime dob;
+    private String email;
+    private String otp;
+    private LocalDateTime otp_exp;
 
+    public User(int userID, String username, String password, String firstName, String lastName, LocalDateTime date, int expiration, int roleID, LocalDateTime dob, String email, String otp, LocalDateTime otp_exp) {
+        this.userID = userID;
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.date = date;
+        this.expiration = expiration;
+        this.roleID = roleID;
+        this.dob = dob;
+        this.email = email;
+        this.otp = otp;
+        this.otp_exp = otp_exp;
+    }
 
     public User() {
     }
 
-    public User(int id, String username, String password, String name, String date) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.date = date;
-    }
-    public User(String username, String password, String name, String date) {
-        this.id = -1;
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.date = date;
+    public int getUserID() {
+        return userID;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
     public String getUsername() {
@@ -50,20 +60,91 @@ public class User {
         this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getDate() {
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
+    }
+
+    public int getExpiration() {
+        return expiration;
+    }
+
+    public void setExpiration(int expiration) {
+        this.expiration = expiration;
+    }
+
+    public int getRoleID() {
+        return roleID;
+    }
+
+    public void setRoleID(int roleID) {
+        this.roleID = roleID;
+    }
+
+    public LocalDateTime getDob() {
+        return dob;
+    }
+
+    public void setDob(LocalDateTime dob) {
+        this.dob = dob;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getOtp() {
+        return otp;
+    }
+
+    public void setOtp(String otp) {
+        this.otp = otp;
+    }
+
+    public LocalDateTime getOtp_exp() {
+        return otp_exp;
+    }
+
+    public void setOtp_exp(LocalDateTime otp_exp) {
+        this.otp_exp = otp_exp;
+    }
+
+    public User(String username, String password, String firstName, String lastName, LocalDateTime date, int expiration, int roleID, LocalDateTime dob, String email, String otp, LocalDateTime otp_exp) {
+        this.userID = -1;
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.date = date;
+        this.expiration = expiration;
+        this.roleID = roleID;
+        this.dob = dob;
+        this.email = email;
+        this.otp = otp;
+        this.otp_exp = otp_exp;
     }
 
 }
