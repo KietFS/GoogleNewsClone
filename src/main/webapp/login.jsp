@@ -20,10 +20,12 @@
   <div
           class="flex flex-col items-center justify-center h-screen w-screen gap-y-5"
   >
+    <a href="/GoogleNewsClone">
     <img
             src="./assets/images/Logo.png"
             class="w-[300px] h-[60px] cursor-pointer hover:opacity-50"
     />
+    </a>
     <div class="text-2xl text-gray-500 font-semibold text-left">
       Trang đăng nhập
     </div>
