@@ -16,13 +16,13 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-<form id="formAuthentication" action="login" method="post">
+<form id="formAuthentication" action="Login" method="post">
   <div
           class="flex flex-col items-center justify-center h-screen w-screen gap-y-5"
   >
     <a href="/GoogleNewsClone">
     <img
-            src="./assets/images/Logo.png"
+            src="${pageContext.request.contextPath}/assets/images/Logo.png"
             class="w-[300px] h-[60px] cursor-pointer hover:opacity-50"
     />
     </a>
@@ -69,7 +69,7 @@
       </button>
       <!-- submit button -->
 
-        <a href="register"   class="bg-blue-50 text-blue-900 font-bold rounded-full py-2 w-[300px] text-center hover:opacity-50">
+        <a href="${pageContext.request.contextPath}/Home/Register" class="bg-blue-50 text-blue-900 font-bold rounded-full py-2 w-[300px] text-center hover:opacity-50">
           <span>Tạo tài khoản</span>
         </a>
 

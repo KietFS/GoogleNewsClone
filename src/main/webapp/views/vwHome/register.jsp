@@ -9,12 +9,12 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-<form id="formRegister" action="register" method="post">
+<form id="formRegister" action="Register" method="post">
   <div
           class="flex flex-col items-center justify-center h-screen w-screen gap-y-5"
   >
     <img
-            src="./assets/images/Logo.png"
+            src="${pageContext.request.contextPath}/assets/images/Logo.png"
             class="w-[300px] h-[60px] cursor-pointer hover:opacity-50"
     />
     <div class="text-2xl text-gray-500 font-semibold text-left">
@@ -95,7 +95,7 @@
         Đăng ký ngay
       </button>
       <!-- submit button -->
-      <a href="login"
+      <a href="${pageContext.request.contextPath}/Home/Login"
               class="bg-blue-50 text-blue-900 font-bold rounded-full py-2 w-[300px] text-center hover:opacity-50"
       >
         Chuyển sang đăng nhập
