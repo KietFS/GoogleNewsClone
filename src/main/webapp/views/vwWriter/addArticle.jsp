@@ -60,7 +60,7 @@
 <div>
   <header class="px-4 pt-4 border-b border-b-gray-200">
     <div class="w-full flex justify-between items-center mb-2">
-      <img src="./assets/images/Logo.png" width="160" height="40" />
+      <img src="${pageContext.request.contextPath}/assets/images/Logo.png" width="160" height="40" />
       <!-- input search -->
       <div
               class="w-[180px] md:w-[300px] lg:w-[600px] border border-gray-200 h-12 rounded-full pl-4 flex items-center bg-gray-100"
@@ -88,13 +88,13 @@
 
       <div class="hidden lg:flex justify-between items-center gap-x-2">
         <a
-                href="register"
+                href="${pageContext.request.contextPath}/Home/Register"
                 class="bg-transparent text-blue-700 font-semibold hover:opacity-50 py-2 px-4 border border-blue-500 rounded"
         >
           Đăng ký
         </a>
         <a
-                href="login"
+                href="${pageContext.request.contextPath}/Home/Login"
                 class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded"
         >
           Đăng nhập
@@ -105,13 +105,13 @@
             class="flex lg:hidden justify-between w-fit items-center gap-x-2 mt-4"
     >
       <a
-              href="register"
+              href="${pageContext.request.contextPath}/Home/Register"
               class="bg-transparent text-blue-700 font-semibold hover:opacity-50 py-2 px-4 border border-blue-500 rounded"
       >
         Đăng ký
       </a>
       <a
-              href="login"
+              href="${pageContext.request.contextPath}/Home/Login"
               class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded"
       >
         Đăng nhập
