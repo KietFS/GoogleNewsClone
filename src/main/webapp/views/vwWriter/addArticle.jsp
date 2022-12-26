@@ -465,7 +465,7 @@
   </header>
   <div>${content}</div>
   <div class="px-4 md:px-8 lg:px-56 py-10">
-  <form action="addArticle" method="post">
+  <form action="AddArticle" method="post">
     <div class="flex flex-col gap-y-5">
     <div class="flex flex-col gap-y-2">
       <p class="text-lg font-bold text-gray-500">Tiêu đề bài viết</p>
