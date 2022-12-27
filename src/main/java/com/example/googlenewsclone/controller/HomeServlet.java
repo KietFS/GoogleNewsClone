@@ -1,10 +1,15 @@
 package com.example.googlenewsclone.controller;
 
+import com.example.googlenewsclone.beans.Category;
+import com.example.googlenewsclone.beans.ParentCategory;
+import com.example.googlenewsclone.services.CategoryService;
+import com.example.googlenewsclone.services.ParentCategoryService;
 import com.example.googlenewsclone.utils.ServletUtils;
 
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.List;
 import  javax.servlet.ServletException;
 
 
@@ -18,6 +23,10 @@ public class HomeServlet extends HttpServlet {
         }
         switch (path) {
             case "/Index":
+                List<ParentCategory> parentList = ParentCategoryService.findAll();
+                List<Category> catList = CategoryService.findAll();
+                request.setAttribute("parentCategories", parentList);
+                request.setAttribute("categories", catList);
                 ServletUtils.forward("/views/vwHome/index.jsp", request, response);
                 break;
             case "/Login":
