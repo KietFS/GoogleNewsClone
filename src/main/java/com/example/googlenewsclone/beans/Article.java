@@ -13,8 +13,9 @@ public class Article {
     private boolean premium;
     private int writterID;
     private int statusID;
+    private String thumbsImg;
 
-    public Article(int articleID, String title, LocalDateTime publish_date, int views, String subContent, String content, int catID, boolean premium, int writterID, int statusID) {
+    public Article(int articleID, String title, LocalDateTime publish_date, int views, String subContent, String content, int catID, boolean premium, int writterID, int statusID, String thumbsImg) {
         this.articleID = articleID;
         this.title = title;
         this.publish_date = publish_date;
@@ -25,11 +26,12 @@ public class Article {
         this.premium = premium;
         this.writterID = writterID;
         this.statusID = statusID;
+        this.thumbsImg = thumbsImg;
     }
 
     public Article() {
     }
-    public Article(String title, LocalDateTime publish_date, int views, String subContent, String content, int catID, boolean premium, int writterID, int statusID) {
+    public Article(String title, LocalDateTime publish_date, int views, String subContent, String content, int catID, boolean premium, int writterID, int statusID, String thumbsImg) {
         this.articleID = -1;
         this.title = title;
         this.publish_date = publish_date;
@@ -40,8 +42,15 @@ public class Article {
         this.premium = premium;
         this.writterID = writterID;
         this.statusID = statusID;
+        this.thumbsImg = thumbsImg;
+    }
+    public String getThumbsImg() {
+        return thumbsImg;
     }
 
+    public void setThumbsImg(String thumbsImg) {
+        this.thumbsImg = thumbsImg;
+    }
     public int getArticleID() {
         return articleID;
     }
