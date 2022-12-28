@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +21,7 @@
   <div
           class="flex flex-col items-center justify-center h-screen w-screen gap-y-5"
   >
+
     <a href="/GoogleNewsClone">
     <img
             src="${pageContext.request.contextPath}/assets/images/Logo.png"
@@ -34,12 +36,12 @@
     </div>
     <!-- input email -->
     <div class="flex flex-col gap-y-1">
-      <p class="text-gray-600 font-bold ml-2">Email</p>
+      <p class="text-gray-600 font-bold ml-2">Tài khoản</p>
       <input
               type="text"
-              id="email"
-              name="email"
-              placeholder="Email của bạn"
+              id="username"
+              name="username"
+              placeholder="Tài khoản của bạn"
               autofocus
               required
               class="w-[300px] border-gray-200 border px-4 py-2 bg-gray-100 rounded-full"
@@ -88,7 +90,7 @@
           required: true,
           email: true
         },
-
+        username: "required",
         password: "required",
       },
 

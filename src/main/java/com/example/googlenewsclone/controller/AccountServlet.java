@@ -77,9 +77,47 @@ public class AccountServlet extends HttpServlet {
     }
 
     private static void loginUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String email = request.getParameter("email");
+        String username = request.getParameter("username");
         String password = request.getParameter("password");
-        request.setAttribute("message", "Email hoặc mật khẩu không đúng");
-        ServletUtils.forward("/views/vwHome/login.jsp", request, response);
+        String url = "/Home";
+
+        User u = UserService.findByUsername(username);
+        if(u != null){
+            boolean isAuthenticated = BCrypt.checkpw(password, u.getPassword());
+            int perm = u.getRoleID();
+            if(!isAuthenticated){
+                request.setAttribute("hasError", true);
+                request.setAttribute("message", "Mật khẩu không chính xác. Vui lòng thử lại");
+                ServletUtils.forward("/views/vwAccount/login.jsp", request, response);
+            } else if(perm == 1){
+                HttpSession session = request.getSession();
+                session.setAttribute("auth", true);
+                session.setAttribute("authUser", u);
+
+                ServletUtils.redirect(url, request, response);
+            } else if(perm == 2){
+                HttpSession session = request.getSession();
+                session.setAttribute("auth", true);
+                session.setAttribute("authUser", u);
+                url = "/Staff/AddArticle";
+                ServletUtils.redirect(url, request, response);
+            } else if (perm == 3){
+                HttpSession session = request.getSession();
+                session.setAttribute("auth", true);
+                session.setAttribute("authUser", u);
+                url = "/Staff/Publish";
+                ServletUtils.redirect(url, request, response);
+            } else if(perm == 4){
+                HttpSession session = request.getSession();
+                session.setAttribute("auth", true);
+                session.setAttribute("authUser", u);
+                url = "/Staff/Admin";
+                ServletUtils.redirect(url, request, response);
+            }
+        } else{
+            request.setAttribute("hasError", true);
+            request.setAttribute("message", "Không tìm thấy tài khoản. Vui lòng thử lại");
+            ServletUtils.forward("/views/vwAccount/login.jsp", request, response);
+        }
     }
 }

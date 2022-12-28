@@ -17,21 +17,21 @@ public class UserService {
     }
     public static User findByUsername (String username){
         try (Connection con = DbUtils.getConnection()) {
-            final String query = "select * from users where username = :username;";
+            final String query = "select username, password, roleID from users where username = :username;";
 
             List<User> list = con.createQuery(query)
                     .addParameter("username", username)
+                    .throwOnMappingFailure(false)
                     .executeAndFetch(User.class);
-            if (list.size() == 0) {
+            if(list.size() == 0)
                 return null;
-            }
             return list.get(0);
         }
     }
     public static void add(User u) {
 
         try (Connection con = DbUtils.getConnection()) {
-            final String query = "INSERT INTO users (username, password, first_name, issue_at, role_id, email, otp, otp_exp, expiration) VALUES (:username,:password,:first_name,:issue_at,:role_id,:email,:otp,:otp_exp,:expiration)";
+            final String query = "INSERT INTO users (username, password, firstName, issueAt, roleID, email, expiration) VALUES (:username,:password,:first_name,:issue_at,:role_id,:email,:expiration)";
             con.createQuery(query)
                     .addParameter("username", u.getUsername())
                     .addParameter("password", u.getPassword())
@@ -40,8 +40,6 @@ public class UserService {
                     .addParameter("email", u.getUsername())
                     .addParameter("expiration", u.getExpiration())
                     .addParameter("issue_at", u.getDate())
-                    .addParameter("otp", u.getOtp())
-                    .addParameter("otp_exp", u.getOtp_exp())
                     .executeUpdate();
         }
 
