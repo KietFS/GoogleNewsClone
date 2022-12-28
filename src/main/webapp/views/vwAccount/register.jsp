@@ -36,6 +36,18 @@
               class="w-[300px] border-gray-200 border px-4 py-2 bg-gray-100 rounded-full"
       />
     </div>
+    <div class="flex flex-col gap-y-1">
+      <p class="text-gray-600 font-bold ml-2">Tài khoản đăng nhập</p>
+      <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Tên tài khoản"
+              autofocus
+              required
+              class="w-[300px] border-gray-200 border px-4 py-2 bg-gray-100 rounded-full"
+      />
+    </div>
     <!-- input email -->
     <div class="flex flex-col gap-y-1">
       <p class="text-gray-600 font-bold ml-2">Email</p>
@@ -81,8 +93,8 @@
               id="cars"
               class="w-[300px] bg-gray-100 border border-gray-200 px-4 py-2 rounded-full"
       >
-        <option value="guest">Người đọc bài</option>
-        <option value="writer">Người viết bài</option>
+        <option value="1">Người đọc bài</option>
+        <option value="2">Người viết bài</option>
       </select>
     </div>
     <!-- button section -->

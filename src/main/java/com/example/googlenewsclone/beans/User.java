@@ -130,19 +130,14 @@ public class User {
         this.otp_exp = otp_exp;
     }
 
-    public User(String username, String password, String firstName, String lastName, LocalDateTime date, int expiration, int roleID, LocalDateTime dob, String email, String otp, LocalDateTime otp_exp) {
+    public User(String username, String password, String firstName, LocalDateTime date, int expiration, int roleID, String email) {
         this.userID = -1;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
-        this.lastName = lastName;
         this.date = date;
         this.expiration = expiration;
         this.roleID = roleID;
-        this.dob = dob;
         this.email = email;
-        this.otp = otp;
-        this.otp_exp = otp_exp;
     }
-
 }
