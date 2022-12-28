@@ -1,9 +1,13 @@
 package com.example.googlenewsclone.controller;
 
+import com.example.googlenewsclone.beans.Article;
 import com.example.googlenewsclone.beans.Category;
 import com.example.googlenewsclone.beans.ParentCategory;
+import com.example.googlenewsclone.beans.User;
+import com.example.googlenewsclone.services.ArticleService;
 import com.example.googlenewsclone.services.CategoryService;
 import com.example.googlenewsclone.services.ParentCategoryService;
+import com.example.googlenewsclone.services.UserService;
 import com.example.googlenewsclone.utils.ServletUtils;
 
 import javax.servlet.http.*;
@@ -21,16 +25,36 @@ public class HomeServlet extends HttpServlet {
         if (path == null || path.equals("/")) {
             path = "/Index";
         }
+        List<ParentCategory> parentList = ParentCategoryService.findAll();
+        List<Category> catList = CategoryService.findAll();
+        List<User> userList = UserService.findAll();
+        List<Article> articleList = ArticleService.findAll();
         switch (path) {
             case "/Index":
-                List<ParentCategory> parentList = ParentCategoryService.findAll();
-                List<Category> catList = CategoryService.findAll();
                 request.setAttribute("parentCategories", parentList);
                 request.setAttribute("categories", catList);
+                request.setAttribute("articles", articleList);
                 ServletUtils.forward("/views/vwHome/index.jsp", request, response);
                 break;
             case "/Article":
-                ServletUtils.forward("/views/vwHome/article.jsp", request, response);
+                int id = 0;
+                try{
+                    id = Integer.parseInt(request.getParameter("id"));
+                }catch (NumberFormatException e){
+
+                }
+                Article a = ArticleService.findByID(id);
+                if(a != null){
+                    User user = UserService.findByID(a.getWritterID());
+                    Category cat = CategoryService.findByID(a.getCatID());
+                    request.setAttribute("article", a);
+                    request.setAttribute("parentCategories", parentList);
+                    request.setAttribute("category", cat);
+                    request.setAttribute("user", user);
+                    ServletUtils.forward("/views/vwHome/article.jsp", request, response);
+                } else{
+                    ServletUtils.redirect("/Home", request, response);
+                }
                 break;
             default:
                 ServletUtils.forward("../../404.jsp", request, response);

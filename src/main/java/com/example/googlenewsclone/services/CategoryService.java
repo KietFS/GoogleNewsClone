@@ -15,4 +15,13 @@ public class CategoryService {
                     .executeAndFetch(Category.class);
         }
     }
+    public static Category findByID(int id){
+        try (Connection con = DbUtils.getConnection()) {
+            final String query = "select * from categories where catID := catid;";
+
+            return con.createQuery(query)
+                    .addParameter("catid", id)
+                    .executeAndFetchFirst(Category.class);
+        }
+    }
 }

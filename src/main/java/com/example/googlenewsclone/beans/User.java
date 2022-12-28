@@ -8,7 +8,7 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
-    private LocalDateTime date;
+    private LocalDateTime issueAt;
     private int expiration;
     private int roleID;
     private LocalDateTime dob;
@@ -16,13 +16,13 @@ public class User {
     private String otp;
     private LocalDateTime otp_exp;
 
-    public User(int userID, String username, String password, String firstName, String lastName, LocalDateTime date, int expiration, int roleID, LocalDateTime dob, String email, String otp, LocalDateTime otp_exp) {
+    public User(int userID, String username, String password, String firstName, String lastName, LocalDateTime issueAt, int expiration, int roleID, LocalDateTime dob, String email, String otp, LocalDateTime otp_exp) {
         this.userID = userID;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.date = date;
+        this.issueAt = issueAt;
         this.expiration = expiration;
         this.roleID = roleID;
         this.dob = dob;
@@ -74,12 +74,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public LocalDateTime getDate() {
-        return date;
+    public LocalDateTime getIssueAt() {
+        return issueAt;
     }
 
-    public void setDate(LocalDateTime date) {
-        this.date = date;
+    public void setIssueAt(LocalDateTime issueAt) {
+        this.issueAt = issueAt;
     }
 
     public int getExpiration() {
@@ -130,12 +130,12 @@ public class User {
         this.otp_exp = otp_exp;
     }
 
-    public User(String username, String password, String firstName, LocalDateTime date, int expiration, int roleID, String email) {
+    public User(String username, String password, String firstName, LocalDateTime issueAt, int expiration, int roleID, String email) {
         this.userID = -1;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
-        this.date = date;
+        this.issueAt = issueAt;
         this.expiration = expiration;
         this.roleID = roleID;
         this.email = email;

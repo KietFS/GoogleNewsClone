@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
+<%--<jsp:useBean id="articles" scope="request" type="java.util.List<com.example.googlenewsclone.beans.Article>"/>--%>
 
 <t:main>
     <jsp:body>
@@ -2041,4 +2042,3 @@
         </div>
     </jsp:body>
 </t:main>
-</html>

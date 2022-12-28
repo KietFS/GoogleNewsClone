@@ -13,9 +13,9 @@ public class Article {
     private boolean premium;
     private int writterID;
     private int statusID;
-    private String thumbsImg;
+    private String thumbs_img;
 
-    public Article(int articleID, String title, LocalDateTime publish_date, int views, String subContent, String content, int catID, boolean premium, int writterID, int statusID, String thumbsImg) {
+    public Article(int articleID, String title, LocalDateTime publish_date, int views, String subContent, String content, int catID, boolean premium, int writterID, int statusID, String thumbs_img) {
         this.articleID = articleID;
         this.title = title;
         this.publish_date = publish_date;
@@ -26,12 +26,12 @@ public class Article {
         this.premium = premium;
         this.writterID = writterID;
         this.statusID = statusID;
-        this.thumbsImg = thumbsImg;
+        this.thumbs_img = thumbs_img;
     }
 
     public Article() {
     }
-    public Article(String title, LocalDateTime publish_date, int views, String subContent, String content, int catID, boolean premium, int writterID, int statusID, String thumbsImg) {
+    public Article(String title, LocalDateTime publish_date, int views, String subContent, String content, int catID, boolean premium, int writterID, int statusID, String thumbs_img) {
         this.articleID = -1;
         this.title = title;
         this.publish_date = publish_date;
@@ -42,14 +42,14 @@ public class Article {
         this.premium = premium;
         this.writterID = writterID;
         this.statusID = statusID;
-        this.thumbsImg = thumbsImg;
+        this.thumbs_img = thumbs_img;
     }
-    public String getThumbsImg() {
-        return thumbsImg;
+    public String getThumbs_img() {
+        return thumbs_img;
     }
 
-    public void setThumbsImg(String thumbsImg) {
-        this.thumbsImg = thumbsImg;
+    public void setThumbs_img(String thumbsImg) {
+        this.thumbs_img = thumbsImg;
     }
     public int getArticleID() {
         return articleID;
