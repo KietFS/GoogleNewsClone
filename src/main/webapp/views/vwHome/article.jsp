@@ -44,7 +44,7 @@
 <body>
 <header class="px-4 pt-4 border-b border-b-gray-200">
     <div class="w-full flex justify-between items-center mb-2">
-        <img src="./assets/images/Logo.png" width="160" height="40" />
+        <img src="${pageContext.request.contextPath}/assets/images/Logo.png" width="160" height="40" />
         <!-- input search -->
         <div
                 class="w-[180px] md:w-[300px] lg:w-[600px] border border-gray-200 h-12 rounded-full pl-4 flex items-center bg-gray-100"
@@ -700,7 +700,7 @@
 <div class="py-10 px-8 lg:px-28 bg-white h-fit mt-10">
     <div class="space-y-5">
         <div>
-            <img src="./assets/images/Logo.png" width="300" height="60" />
+            <img src="${pageContext.request.contextPath}/assets/images/Logo.png" width="300" height="60" />
             <p class="text-lg text-gray-500 font-normal text-left">
                 Mang cả thế giới đến cho bạn
             </p>
