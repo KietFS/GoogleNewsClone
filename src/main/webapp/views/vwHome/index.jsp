@@ -45,7 +45,7 @@
                                         height="200"
                                         class="rounded-lg"
                                 />
-                                <a href="article?id=1"
+                                <a href="${pageContext.request.contextPath}/Home/Article?id=1"
                                    class="text-sm md:text-lg lg:text-xl hover:underline text-gray-500 font-semibold cursor-pointer"
                                 >
                                     HLV Park phát biểu sau khi nhận huân chương Heungin

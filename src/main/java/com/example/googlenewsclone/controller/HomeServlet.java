@@ -29,6 +29,9 @@ public class HomeServlet extends HttpServlet {
                 request.setAttribute("categories", catList);
                 ServletUtils.forward("/views/vwHome/index.jsp", request, response);
                 break;
+            case "/Article":
+                ServletUtils.forward("/views/vwHome/article.jsp", request, response);
+                break;
             default:
                 ServletUtils.forward("../../404.jsp", request, response);
                 break;
