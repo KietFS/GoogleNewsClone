@@ -1,7 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<%--<jsp:useBean id="parentCat" scope="request" type="com.example.googlenewsclone.beans.ParentCategory"/>--%>
 <jsp:useBean id="parentCategories" scope="request" type="java.util.List<com.example.googlenewsclone.beans.ParentCategory>"/>
 <jsp:useBean id="categories" scope="request" type="java.util.List<com.example.googlenewsclone.beans.Category>"/>
 
@@ -35,13 +34,13 @@
 
     <div class="hidden lg:flex justify-between items-center gap-x-2">
       <a
-              href="${pageContext.request.contextPath}/Home/Register"
+              href="${pageContext.request.contextPath}/Account/Register"
               class="bg-transparent text-blue-700 font-semibold hover:opacity-50 py-2 px-4 border border-blue-500 rounded"
       >
         Đăng ký
       </a>
       <a
-              href="${pageContext.request.contextPath}/Home/Login"
+              href="${pageContext.request.contextPath}/Account/Login"
               class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded"
       >
         Đăng nhập
