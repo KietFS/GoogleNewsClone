@@ -6,7 +6,9 @@
 
 <header class="px-4 pt-4 border-b border-b-gray-200">
   <div class="w-full flex justify-between items-center mb-2">
-    <img src="${pageContext.request.contextPath}/assets/images/Logo.png" width="160" height="40" />
+    <a href="${pageContext.request.contextPath}/Home">
+      <img src="${pageContext.request.contextPath}/assets/images/Logo.png" width="160" height="40" />
+    </a>
     <!-- input search -->
     <div
             class="w-[180px] md:w-[300px] lg:w-[600px] border border-gray-200 h-12 rounded-full pl-4 flex items-center bg-gray-100"

@@ -3,7 +3,9 @@
 <div class="py-10 px-8 lg:px-28 bg-white h-fit mt-10">
     <div class="space-y-5">
         <div>
-            <img src="${pageContext.request.contextPath}/assets/images/Logo.png" width="300" height="60" />
+            <a href="${pageContext.request.contextPath}/Home">
+                <img src="${pageContext.request.contextPath}/assets/images/Logo.png" width="300" height="60" />
+            </a>
             <p class="text-lg text-gray-500 font-normal text-left">
                 Mang cả thế giới đến cho bạn
             </p>
