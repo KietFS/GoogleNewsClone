@@ -1,6 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
-<%--<jsp:useBean id="articles" scope="request" type="java.util.List<com.example.googlenewsclone.beans.Article>"/>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:useBean id="articles" scope="request" type="java.util.List<com.example.googlenewsclone.beans.Article>"/>
+<jsp:useBean id="topArticles" scope="request" type="java.util.List<com.example.googlenewsclone.beans.Article>"/>
+<jsp:useBean id="newestArticles" scope="request" type="java.util.List<com.example.googlenewsclone.beans.Article>"/>
 
 <t:main>
     <jsp:body>
@@ -335,14 +338,13 @@
             </div>
             <div>
                 <h1 class="text-gray-500 font-bold text-3xl">
-                    Bài viết được xem nhiều
+                    Bài viết được xem nhiều nhất
                 </h1>
                 <p class="text-gray-500">Mọi chuyên mục</p>
                 <div
                         class="mt-5 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 items-center gap-x-4 gap-y-10"
                 >
                     <!-- Right Side ( width 1/3) -->
-
                     <div
                             class="p-2 border-gray-100 rounded-lg border w-full h-fit bg-white shadow-sm p-4"
                     >
@@ -365,168 +367,38 @@
                             </svg>
                         </div>
 
-                        <div class="flex flex-col mt-5">
+                        <div class="flex flex-col mt-3">
                             <!-- List articles right side -->
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
+                            <c:forEach items="${topArticles}" var="tA" begin="0" end="2">
+                                <div
+                                        class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
+                                >
+                                    <div class="flex flex-col gap-y-1">
+                                        <div class="flex items-center gap-x-1">
+                                            <img
+                                                    src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
+                                                    width="15"
+                                                    height="15"
+                                                    class="rounded-full mr-0.5"
+                                            />
+                                        </div>
+                                        <p
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                        >
+                                                ${tA.title}
+                                        </p>
+                                        <p
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                        >
+                                                ${tA.publish_date}
                                         </p>
                                     </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
+                                    <img
+                                            src="${tA.thumbs_img}"
+                                            class="rounded-lg h-[80px] w-[100px]"
+                                    />
                                 </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
+                            </c:forEach>
                         </div>
                     </div>
                     <div
@@ -551,168 +423,38 @@
                             </svg>
                         </div>
 
-                        <div class="flex flex-col mt-5">
+                        <div class="flex flex-col mt-3">
                             <!-- List articles right side -->
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
+                            <c:forEach items="${topArticles}" var="tA" begin="3" end="5">
+                                <div
+                                        class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
+                                >
+                                    <div class="flex flex-col gap-y-1">
+                                        <div class="flex items-center gap-x-1">
+                                            <img
+                                                    src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
+                                                    width="15"
+                                                    height="15"
+                                                    class="rounded-full mr-0.5"
+                                            />
+                                        </div>
+                                        <p
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                        >
+                                                ${tA.title}
+                                        </p>
+                                        <p
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                        >
+                                                ${tA.publish_date}
                                         </p>
                                     </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
+                                    <img
+                                            src="${tA.thumbs_img}"
+                                            class="rounded-lg h-[80px] w-[100px]"
+                                    />
                                 </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
+                            </c:forEach>
                         </div>
                     </div>
                     <div
@@ -737,168 +479,38 @@
                             </svg>
                         </div>
 
-                        <div class="flex flex-col mt-5">
+                        <div class="flex flex-col mt-3">
                             <!-- List articles right side -->
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
+                            <c:forEach items="${topArticles}" var="tA" begin="6" end="8">
+                                <div
+                                        class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
+                                >
+                                    <div class="flex flex-col gap-y-1">
+                                        <div class="flex items-center gap-x-1">
+                                            <img
+                                                    src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
+                                                    width="15"
+                                                    height="15"
+                                                    class="rounded-full mr-0.5"
+                                            />
+                                        </div>
+                                        <p
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                        >
+                                                ${tA.title}
+                                        </p>
+                                        <p
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                        >
+                                                ${tA.publish_date}
                                         </p>
                                     </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
+                                    <img
+                                            src="${tA.thumbs_img}"
+                                            class="rounded-lg h-[80px] w-[100px]"
+                                    />
                                 </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
@@ -933,168 +545,39 @@
                             </svg>
                         </div>
 
-                        <div class="flex flex-col mt-5">
+                        <div class="flex flex-col mt-3">
                             <!-- List articles right side -->
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
+                            <c:forEach items="${newestArticles}" var="nA" begin="0" end="2">
+                                <div
+                                        class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
+                                >
+                                    <div class="flex flex-col gap-y-1">
+                                        <div class="flex items-center gap-x-1">
+                                            <img
+                                                    src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
+                                                    width="15"
+                                                    height="15"
+                                                    class="rounded-full mr-0.5"
+                                            />
+                                        </div>
+                                        <p
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                        >
+                                                ${nA.title}
+                                        </p>
+                                        <p
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                        >
+                                                ${nA.publish_date}
                                         </p>
                                     </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
+                                    <img
+                                            src="${nA.thumbs_img}"
+                                            class="rounded-lg h-[80px] w-[100px]"
+                                    />
                                 </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
+                            </c:forEach>
+                        </div>
                         </div>
                     </div>
                     <div
@@ -1119,168 +602,38 @@
                             </svg>
                         </div>
 
-                        <div class="flex flex-col mt-5">
+                        <div class="flex flex-col mt-3">
                             <!-- List articles right side -->
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
+                            <c:forEach items="${newestArticles}" var="nA" begin="3" end="5">
+                                <div
+                                        class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
+                                >
+                                    <div class="flex flex-col gap-y-1">
+                                        <div class="flex items-center gap-x-1">
+                                            <img
+                                                    src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
+                                                    width="15"
+                                                    height="15"
+                                                    class="rounded-full mr-0.5"
+                                            />
+                                        </div>
+                                        <p
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                        >
+                                                ${nA.title}
+                                        </p>
+                                        <p
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                        >
+                                                ${nA.publish_date}
                                         </p>
                                     </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
+                                    <img
+                                            src="${nA.thumbs_img}"
+                                            class="rounded-lg h-[80px] w-[100px]"
+                                    />
                                 </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
+                            </c:forEach>
                         </div>
                     </div>
                     <div
@@ -1305,168 +658,38 @@
                             </svg>
                         </div>
 
-                        <div class="flex flex-col mt-5">
+                        <div class="flex flex-col mt-3">
                             <!-- List articles right side -->
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
+                            <c:forEach items="${newestArticles}" var="nA" begin="6" end="8">
+                                <div
+                                        class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
+                                >
+                                    <div class="flex flex-col gap-y-1">
+                                        <div class="flex items-center gap-x-1">
+                                            <img
+                                                    src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
+                                                    width="15"
+                                                    height="15"
+                                                    class="rounded-full mr-0.5"
+                                            />
+                                        </div>
+                                        <p
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                        >
+                                                ${nA.title}
+                                        </p>
+                                        <p
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                        >
+                                                ${nA.publish_date}
                                         </p>
                                     </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
+                                    <img
+                                            src="${nA.thumbs_img}"
+                                            class="rounded-lg h-[80px] w-[100px]"
+                                    />
                                 </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>

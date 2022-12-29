@@ -24,7 +24,7 @@
                         <h1 class="text-gray-500 font-bold text-3xl w-full">
                             ${article.title}
                         </h1>
-                        <p class="text-gray-500 mt-1">Báo lao động, ${article.publish_date}</p>
+                        <p class="text-gray-500 mt-1">${article.publish_date}</p>
                         <p class="text-blue-500 mt-1 font-semibold">${user.firstName}</p>
                         <p class="text-red-500 mt-1 font-semibold">Chuyên mục - ${category.catName}</p>
                         <div class="flex w-fit gap-x-2 flex-wrap items-center mt-1">
@@ -103,17 +103,17 @@
                                             class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
                                     >
                                         <div class="flex flex-col gap-y-1">
-                                            <div class="flex items-center gap-x-1">
-                                                <img
-                                                        src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                        width="15"
-                                                        height="15"
-                                                        class="rounded-full mr-0.5"
-                                                />
-                                                <p class="text-gray-500 text-xs font-semibold">
-                                                    Báo lao động
-                                                </p>
-                                            </div>
+<%--                                            <div class="flex items-center gap-x-1">--%>
+<%--                                                <img--%>
+<%--                                                        src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"--%>
+<%--                                                        width="15"--%>
+<%--                                                        height="15"--%>
+<%--                                                        class="rounded-full mr-0.5"--%>
+<%--                                                />--%>
+<%--                                                <p class="text-gray-500 text-xs font-semibold">--%>
+<%--                                                    Báo lao động--%>
+<%--                                                </p>--%>
+<%--                                            </div>--%>
                                             <p
                                                     class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
                                             >

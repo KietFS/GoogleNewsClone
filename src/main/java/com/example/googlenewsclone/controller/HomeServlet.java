@@ -19,13 +19,25 @@ public class HomeServlet extends HttpServlet {
         if (path == null || path.equals("/")) {
             path = "/Index";
         }
+        //Tìm tất cả Parent Cat
         List<ParentCategory> parentList = ParentCategoryService.findAll();
+        //Tìm tất cả Category
         List<Category> catList = CategoryService.findAll();
+        //Tìm tất cả bài viết
         List<Article> articleList = ArticleService.findAll();
         switch (path) {
             case "/Index":
                 request.setAttribute("parentCategories", parentList);           //Cho header
                 request.setAttribute("categories", catList);                    //Cho header
+
+                //Tìm top 9 bài viết có nhiều lượt views cao nhất
+                List<Article> topViews = ArticleService.sortbyView();
+                request.setAttribute("topArticles", topViews);
+
+                //Tìm 9 bài viết xuất bản mới nhất
+                List<Article> newestDate = ArticleService.sortbyView();
+                request.setAttribute("newestArticles", newestDate);
+
                 request.setAttribute("articles", articleList);
                 ServletUtils.forward("/views/vwHome/index.jsp", request, response);
                 break;
@@ -36,13 +48,20 @@ public class HomeServlet extends HttpServlet {
                 }catch (NumberFormatException e){
 
                 }
+                //Truy xuất thông tin chi tiết của bài báo
                 Article a = ArticleService.findByID(id);
                 if(a != null){
+                    //Tìm tác giả viết bài theo Writter ID
                     User user = UserService.findByID(a.getWritterID());
+                    //Tìm chuyên mục của bài viết
                     Category cat = CategoryService.findByID(a.getCatID());
+                    //Tìm các tag của bài viết đó
                     List<Tag> tagList = TagService.findByArticle(a.getArticleID());
+                    //Truy xuất các bài liên quan (cùng chuyên mục)
                     List<Article> revArticles = ArticleService.findByCatID(a.getCatID());
+                    //Tìm username của từng người dùng comment
                     List<Comment> comList = CommentService.findAllCommentinArticle(a.getArticleID());
+                    //Truy xuất thông tin các comment trong bài viết
                     List<User> userComList = UserService.findAllUsernameCommentinArticle(a.getArticleID());
                     request.setAttribute("article", a);
                     request.setAttribute("parentCategories", parentList);           //Cho header
