@@ -1,25 +1,25 @@
 package com.example.googlenewsclone.beans;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 public class Comment {
     private int commentID;
     private String content;
-    private LocalDateTime date;
+    private Date date;
     private int userID;
     private int articleID;
 
     public Comment() {
     }
 
-    public Comment(int commentID, String content, LocalDateTime date, int userID, int articleID) {
+    public Comment(int commentID, String content, Date date, int userID, int articleID) {
         this.commentID = commentID;
         this.content = content;
         this.date = date;
         this.userID = userID;
         this.articleID = articleID;
     }
-    public Comment(String content, LocalDateTime date, int userID, int articleID) {
+    public Comment(String content, Date date, int userID, int articleID) {
         this.commentID = -1;
         this.content = content;
         this.date = date;
@@ -43,11 +43,11 @@ public class Comment {
         this.content = content;
     }
 
-    public LocalDateTime getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

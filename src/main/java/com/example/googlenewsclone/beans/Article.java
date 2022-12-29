@@ -1,11 +1,11 @@
 package com.example.googlenewsclone.beans;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 public class Article {
     private int articleID;
     private String title;
-    private LocalDateTime publish_date;
+    private Date publish_date;
     private int views;
     private String subContent;
     private String content;
@@ -15,7 +15,7 @@ public class Article {
     private int statusID;
     private String thumbs_img;
 
-    public Article(int articleID, String title, LocalDateTime publish_date, int views, String subContent, String content, int catID, boolean premium, int writterID, int statusID, String thumbs_img) {
+    public Article(int articleID, String title, Date publish_date, int views, String subContent, String content, int catID, boolean premium, int writterID, int statusID, String thumbs_img) {
         this.articleID = articleID;
         this.title = title;
         this.publish_date = publish_date;
@@ -31,7 +31,7 @@ public class Article {
 
     public Article() {
     }
-    public Article(String title, LocalDateTime publish_date, int views, String subContent, String content, int catID, boolean premium, int writterID, int statusID, String thumbs_img) {
+    public Article(String title, Date publish_date, int views, String subContent, String content, int catID, boolean premium, int writterID, int statusID, String thumbs_img) {
         this.articleID = -1;
         this.title = title;
         this.publish_date = publish_date;
@@ -67,11 +67,11 @@ public class Article {
         this.title = title;
     }
 
-    public LocalDateTime getPublish_date() {
+    public Date getPublish_date() {
         return publish_date;
     }
 
-    public void setPublish_date(LocalDateTime publish_date) {
+    public void setPublish_date(Date publish_date) {
         this.publish_date = publish_date;
     }
 

@@ -1,5 +1,6 @@
 package com.example.googlenewsclone.services;
 
+import com.example.googlenewsclone.beans.Comment;
 import com.example.googlenewsclone.beans.User;
 import com.example.googlenewsclone.utils.DbUtils;
 import org.sql2o.Connection;
@@ -28,6 +29,32 @@ public class UserService {
             return list.get(0);
         }
     }
+    public static User findByID (int id){
+        try (Connection con = DbUtils.getConnection()) {
+            final String query = "select * from users where userid = :id;";
+
+            List<User> list = con.createQuery(query)
+                    .addParameter("id", id)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(User.class);
+            if(list.size() == 0)
+                return null;
+            return list.get(0);
+        }
+    }
+    public static List<User> findAllUsernameCommentinArticle(int articleid){
+        try (Connection con = DbUtils.getConnection()) {
+            final String query = "select u.userid, username from comments inner join users u on u.userid = comments.userid where articleid = :articleid;";
+
+            List<User> list = con.createQuery(query)
+                    .addParameter("articleid", articleid)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(User.class);
+            if(list.size() == 0)
+                return null;
+            return list;
+        }
+    }
     public static void add(User u) {
 
         try (Connection con = DbUtils.getConnection()) {
@@ -39,7 +66,7 @@ public class UserService {
                     .addParameter("role_id", u.getRoleID())
                     .addParameter("email", u.getUsername())
                     .addParameter("expiration", u.getExpiration())
-                    .addParameter("issue_at", u.getDate())
+                    .addParameter("issue_at", u.getIssueAt())
                     .executeUpdate();
         }
 

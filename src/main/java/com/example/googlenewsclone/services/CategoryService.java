@@ -17,10 +17,10 @@ public class CategoryService {
     }
     public static Category findByID(int id){
         try (Connection con = DbUtils.getConnection()) {
-            final String query = "select * from categories where catID := catid;";
+            final String query = "select * from categories where catID = :id;";
 
             return con.createQuery(query)
-                    .addParameter("catid", id)
+                    .addParameter("id", id)
                     .executeAndFetchFirst(Category.class);
         }
     }

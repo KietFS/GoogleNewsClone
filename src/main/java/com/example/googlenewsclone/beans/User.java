@@ -1,6 +1,6 @@
 package com.example.googlenewsclone.beans;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 public class User {
     private int userID;
@@ -8,15 +8,15 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
-    private LocalDateTime issueAt;
+    private Date issueAt;
     private int expiration;
     private int roleID;
-    private LocalDateTime dob;
+    private Date dob;
     private String email;
     private String otp;
-    private LocalDateTime otp_exp;
+    private Date otp_exp;
 
-    public User(int userID, String username, String password, String firstName, String lastName, LocalDateTime issueAt, int expiration, int roleID, LocalDateTime dob, String email, String otp, LocalDateTime otp_exp) {
+    public User(int userID, String username, String password, String firstName, String lastName, Date issueAt, int expiration, int roleID, Date dob, String email, String otp, Date otp_exp) {
         this.userID = userID;
         this.username = username;
         this.password = password;
@@ -74,11 +74,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public LocalDateTime getIssueAt() {
+    public Date getIssueAt() {
         return issueAt;
     }
 
-    public void setIssueAt(LocalDateTime issueAt) {
+    public void setIssueAt(Date issueAt) {
         this.issueAt = issueAt;
     }
 
@@ -98,11 +98,11 @@ public class User {
         this.roleID = roleID;
     }
 
-    public LocalDateTime getDob() {
+    public Date getDob() {
         return dob;
     }
 
-    public void setDob(LocalDateTime dob) {
+    public void setDob(Date dob) {
         this.dob = dob;
     }
 
@@ -122,15 +122,15 @@ public class User {
         this.otp = otp;
     }
 
-    public LocalDateTime getOtp_exp() {
+    public Date getOtp_exp() {
         return otp_exp;
     }
 
-    public void setOtp_exp(LocalDateTime otp_exp) {
+    public void setOtp_exp(Date otp_exp) {
         this.otp_exp = otp_exp;
     }
 
-    public User(String username, String password, String firstName, LocalDateTime issueAt, int expiration, int roleID, String email) {
+    public User(String username, String password, String firstName, Date issueAt, int expiration, int roleID, String email) {
         this.userID = -1;
         this.username = username;
         this.password = password;

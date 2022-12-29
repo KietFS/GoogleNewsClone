@@ -27,4 +27,16 @@ public class ArticleService {
             return list.get(0);
         }
     }
+    public static List<Article> findByCatID(int id){
+        try(Connection con = DbUtils.getConnection()){
+            final String query = "select * from articles where catid = :id;";
+            List<Article> list = con.createQuery(query)
+                    .addParameter("id", id)
+                    .executeAndFetch(Article.class);
+            if(list.size() == 0){
+                return null;
+            }
+            return list;
+        }
+    }
 }

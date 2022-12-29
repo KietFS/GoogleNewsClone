@@ -1,13 +1,7 @@
 package com.example.googlenewsclone.controller;
 
-import com.example.googlenewsclone.beans.Article;
-import com.example.googlenewsclone.beans.Category;
-import com.example.googlenewsclone.beans.ParentCategory;
-import com.example.googlenewsclone.beans.User;
-import com.example.googlenewsclone.services.ArticleService;
-import com.example.googlenewsclone.services.CategoryService;
-import com.example.googlenewsclone.services.ParentCategoryService;
-import com.example.googlenewsclone.services.UserService;
+import com.example.googlenewsclone.beans.*;
+import com.example.googlenewsclone.services.*;
 import com.example.googlenewsclone.utils.ServletUtils;
 
 import javax.servlet.http.*;
@@ -27,12 +21,11 @@ public class HomeServlet extends HttpServlet {
         }
         List<ParentCategory> parentList = ParentCategoryService.findAll();
         List<Category> catList = CategoryService.findAll();
-        List<User> userList = UserService.findAll();
         List<Article> articleList = ArticleService.findAll();
         switch (path) {
             case "/Index":
-                request.setAttribute("parentCategories", parentList);
-                request.setAttribute("categories", catList);
+                request.setAttribute("parentCategories", parentList);           //Cho header
+                request.setAttribute("categories", catList);                    //Cho header
                 request.setAttribute("articles", articleList);
                 ServletUtils.forward("/views/vwHome/index.jsp", request, response);
                 break;
@@ -47,10 +40,19 @@ public class HomeServlet extends HttpServlet {
                 if(a != null){
                     User user = UserService.findByID(a.getWritterID());
                     Category cat = CategoryService.findByID(a.getCatID());
+                    List<Tag> tagList = TagService.findByArticle(a.getArticleID());
+                    List<Article> revArticles = ArticleService.findByCatID(a.getCatID());
+                    List<Comment> comList = CommentService.findAllCommentinArticle(a.getArticleID());
+                    List<User> userComList = UserService.findAllUsernameCommentinArticle(a.getArticleID());
                     request.setAttribute("article", a);
-                    request.setAttribute("parentCategories", parentList);
+                    request.setAttribute("parentCategories", parentList);           //Cho header
+                    request.setAttribute("categories", catList);                    //Cho header
+                    request.setAttribute("tags", tagList);
                     request.setAttribute("category", cat);
                     request.setAttribute("user", user);
+                    request.setAttribute("revelantArticles", revArticles);
+                    request.setAttribute("comments", comList);
+                    request.setAttribute("userComts", userComList);
                     ServletUtils.forward("/views/vwHome/article.jsp", request, response);
                 } else{
                     ServletUtils.redirect("/Home", request, response);

@@ -10,6 +10,8 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @WebServlet(name = "AccountServlet", value = "/Account/*")
@@ -68,7 +70,8 @@ public class AccountServlet extends HttpServlet {
         String password = BCrypt.hashpw(request.getParameter("password"), BCrypt.gensalt());
         String username = request.getParameter("username");
         int role = Integer.parseInt(request.getParameter("roles"));
-        LocalDateTime issue_at = LocalDateTime.now();
+
+        Date issue_at = Date.valueOf(LocalDate.now());
         int expiration = 10080; // 7 days
 
         User u = new User(username, password, name, issue_at, expiration, role, email);
