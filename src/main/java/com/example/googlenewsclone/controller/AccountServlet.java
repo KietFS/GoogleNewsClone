@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @WebServlet(name = "AccountServlet", value = "/Account/*")
 public class AccountServlet extends HttpServlet {
@@ -22,18 +21,33 @@ public class AccountServlet extends HttpServlet {
         if(path == null || path.equals("/")){
             path = "/Index";
         }
+        HttpSession session;
         switch (path){
             case "/Login":
-                ServletUtils.forward("/views/vwAccount/login.jsp", request, response);
+                session = request.getSession();
+                if((boolean) session.getAttribute("auth")){
+                    ServletUtils.redirect("/Home", request, response);
+                } else ServletUtils.forward("/views/vwAccount/login.jsp", request, response);
                 break;
             case "/Register":
                 ServletUtils.forward("/views/vwAccount/register.jsp", request, response);
                 break;
             case "/Profile":
                 //Check xem user da login chua
+                session = request.getSession();
+                if(!((boolean) session.getAttribute("auth"))){
+                    ServletUtils.redirect("/Account/Login", request, response);
+                } else {
+                    int id = 0;
+                    try{
+                        id = Integer.parseInt(request.getParameter("id"));
+                    }catch (NumberFormatException e){
 
-
-                ServletUtils.forward("/views/vwAccount/profile.jsp", request, response);
+                    }
+                    User user = UserService.findByID(id);
+                    request.setAttribute("profileUser", user);
+                    ServletUtils.forward("/views/vwAccount/profile.jsp", request, response);
+                }
                 break;
             case "/IsAvailable":
                 String user = request.getParameter("user");
