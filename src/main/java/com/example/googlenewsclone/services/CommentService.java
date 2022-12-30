@@ -15,9 +15,19 @@ public class CommentService{
                     .addParameter("articleid", articleid)
                     .throwOnMappingFailure(false)
                     .executeAndFetch(Comment.class);
-            if(list.size() == 0)
-                return null;
             return list;
+        }
+    }
+    public static void add(Comment c){
+        try (Connection con = DbUtils.getConnection()) {
+            final String query = "INSERT INTO comments (date, articleid, userid, content) VALUES (:date,:articleid,:userid,:content);";
+
+            con.createQuery(query)
+                    .addParameter("date", c.getDate())
+                    .addParameter("articleid", c.getArticleID())
+                    .addParameter("userid", c.getUserID())
+                    .addParameter("content", c.getContent())
+                    .executeUpdate();
         }
     }
 }
