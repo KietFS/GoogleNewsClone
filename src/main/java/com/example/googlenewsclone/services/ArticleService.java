@@ -15,6 +15,14 @@ public class ArticleService {
             return list;
         }
     }
+    public static List<Article> findArticlesbyRandom(){
+        try (Connection con = DbUtils.getConnection()) {
+            final String query = "select * from articles where publish_date IS NOT NULL ORDER BY RANDOM() LIMIT 15;";
+            List<Article> list = con.createQuery(query)
+                    .executeAndFetch(Article.class);
+            return list;
+        }
+    }
     public static Article findByID(int id){
         try(Connection con = DbUtils.getConnection()){
             final String query = "select * from articles where articleID = :articleid;";
