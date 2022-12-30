@@ -8,7 +8,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
-import  javax.servlet.ServletException;
+import javax.servlet.ServletException;
 
 
 @WebServlet(name = "HomeServlet", value = "/Home/*")
@@ -19,23 +19,17 @@ public class HomeServlet extends HttpServlet {
         if (path == null || path.equals("/")) {
             path = "/Index";
         }
-        //Tìm tất cả Parent Cat
-        List<ParentCategory> parentList = ParentCategoryService.findAll();
-        //Tìm tất cả Category
-        List<Category> catList = CategoryService.findAll();
         //Tìm tất cả bài viết
         List<Article> articleList = ArticleService.findAll();
         switch (path) {
             case "/Index":
-                request.setAttribute("parentCategories", parentList);           //Cho header
-                request.setAttribute("categories", catList);                    //Cho header
 
                 //Tìm top 9 bài viết có nhiều lượt views cao nhất
                 List<Article> topViews = ArticleService.sortbyView();
                 request.setAttribute("topArticles", topViews);
 
                 //Tìm 9 bài viết xuất bản mới nhất
-                List<Article> newestDate = ArticleService.sortbyView();
+                List<Article> newestDate = ArticleService.sortByDate();
                 request.setAttribute("newestArticles", newestDate);
 
                 request.setAttribute("articles", articleList);
@@ -64,8 +58,6 @@ public class HomeServlet extends HttpServlet {
                     //Truy xuất thông tin các comment trong bài viết
                     List<User> userComList = UserService.findAllUsernameCommentinArticle(a.getArticleID());
                     request.setAttribute("article", a);
-                    request.setAttribute("parentCategories", parentList);           //Cho header
-                    request.setAttribute("categories", catList);                    //Cho header
                     request.setAttribute("tags", tagList);
                     request.setAttribute("category", cat);
                     request.setAttribute("user", user);
@@ -76,6 +68,17 @@ public class HomeServlet extends HttpServlet {
                 } else{
                     ServletUtils.redirect("/Home", request, response);
                 }
+                break;
+            case "/Category":
+                int catID = 0;
+                try{
+                    catID = Integer.parseInt(request.getParameter("id"));
+                }catch (NumberFormatException e){
+
+                }
+                List<Article> articleByCat = ArticleService.findByCatID(catID);
+                request.setAttribute("articlesByCat", articleByCat);
+                ServletUtils.forward("/views/vwHome/byCat.jsp", request, response);
                 break;
             default:
                 ServletUtils.forward("../../404.jsp", request, response);

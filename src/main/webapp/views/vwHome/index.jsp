@@ -518,7 +518,7 @@
             </div>
             <div>
                 <h1 class="text-gray-500 font-bold text-3xl">
-                    Bài viết được xem nhiều nhất
+                    Bài viết mới nhất
                 </h1>
                 <p class="text-gray-500">Mọi chuyên mục</p>
                 <div
@@ -549,7 +549,7 @@
 
                         <div class="flex flex-col mt-3">
                             <!-- List articles right side -->
-                            <c:forEach items="${topArticles}" var="tA" begin="0" end="2">
+                            <c:forEach items="${newestArticles}" var="nA" begin="0" end="2">
                                 <div
                                         class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
                                 >
@@ -565,16 +565,16 @@
                                         <p
                                                 class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
                                         >
-                                                ${tA.title}
+                                                ${nA.title}
                                         </p>
                                         <p
                                                 class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
                                         >
-                                                ${tA.publish_date}
+                                                ${nA.publish_date}
                                         </p>
                                     </div>
                                     <img
-                                            src="${tA.thumbs_img}"
+                                            src="${nA.thumbs_img}"
                                             class="rounded-lg h-[80px] w-[100px]"
                                     />
                                 </div>
@@ -605,7 +605,7 @@
 
                         <div class="flex flex-col mt-3">
                             <!-- List articles right side -->
-                            <c:forEach items="${topArticles}" var="tA" begin="3" end="5">
+                            <c:forEach items="${newestArticles}" var="nA" begin="3" end="5">
                                 <div
                                         class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
                                 >
@@ -621,16 +621,16 @@
                                         <p
                                                 class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
                                         >
-                                                ${tA.title}
+                                                ${nA.title}
                                         </p>
                                         <p
                                                 class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
                                         >
-                                                ${tA.publish_date}
+                                                ${nA.publish_date}
                                         </p>
                                     </div>
                                     <img
-                                            src="${tA.thumbs_img}"
+                                            src="${nA.thumbs_img}"
                                             class="rounded-lg h-[80px] w-[100px]"
                                     />
                                 </div>
@@ -661,7 +661,7 @@
 
                         <div class="flex flex-col mt-3">
                             <!-- List articles right side -->
-                            <c:forEach items="${topArticles}" var="tA" begin="6" end="8">
+                            <c:forEach items="${newestArticles}" var="nA" begin="6" end="8">
                                 <div
                                         class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
                                 >
@@ -677,16 +677,16 @@
                                         <p
                                                 class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
                                         >
-                                                ${tA.title}
+                                                ${nA.title}
                                         </p>
                                         <p
                                                 class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
                                         >
-                                                ${tA.publish_date}
+                                                ${nA.publish_date}
                                         </p>
                                     </div>
                                     <img
-                                            src="${tA.thumbs_img}"
+                                            src="${nA.thumbs_img}"
                                             class="rounded-lg h-[80px] w-[100px]"
                                     />
                                 </div>

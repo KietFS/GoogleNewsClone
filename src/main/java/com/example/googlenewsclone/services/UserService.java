@@ -18,7 +18,7 @@ public class UserService {
     }
     public static User findByUsername (String username){
         try (Connection con = DbUtils.getConnection()) {
-            final String query = "select username, password, roleID from users where username = :username;";
+            final String query = "select userid, username, password, roleID from users where username = :username;";
 
             List<User> list = con.createQuery(query)
                     .addParameter("username", username)

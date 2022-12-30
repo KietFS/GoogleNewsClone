@@ -30,6 +30,9 @@ public class AccountServlet extends HttpServlet {
                 ServletUtils.forward("/views/vwAccount/register.jsp", request, response);
                 break;
             case "/Profile":
+                //Check xem user da login chua
+
+
                 ServletUtils.forward("/views/vwAccount/profile.jsp", request, response);
                 break;
             case "/IsAvailable":
@@ -57,8 +60,14 @@ public class AccountServlet extends HttpServlet {
             case "/Login":
                 loginUser(request, response);
                 break;
+            case "/Logout":
+                logoutUser(request, response);
+                break;
             case "/Register":
                 registerUser(request, response);
+            case "/Edit":
+//                editAccount(request, response);             //Edit dob, firstname, lastname, email, upload avatar
+                break;
             default:
                 ServletUtils.forward("../../views/404.jsp", request, response);
                 break;
@@ -102,13 +111,13 @@ public class AccountServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("auth", true);
                 session.setAttribute("authUser", u);
-                url = "/Staff/AddArticle";
+                url = "/Staff/Writer";
                 ServletUtils.redirect(url, request, response);
             } else if (perm == 3){
                 HttpSession session = request.getSession();
                 session.setAttribute("auth", true);
                 session.setAttribute("authUser", u);
-                url = "/Staff/Publish";
+                url = "/Staff/Editor";
                 ServletUtils.redirect(url, request, response);
             } else if(perm == 4){
                 HttpSession session = request.getSession();
@@ -122,5 +131,12 @@ public class AccountServlet extends HttpServlet {
             request.setAttribute("message", "Không tìm thấy tài khoản. Vui lòng thử lại");
             ServletUtils.forward("/views/vwAccount/login.jsp", request, response);
         }
+    }
+    private static void logoutUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        session.setAttribute("auth", false);
+        session.setAttribute("authUser", new User());
+        String url ="/Home";
+        ServletUtils.redirect(url, request, response);
     }
 }
