@@ -19,7 +19,7 @@
                 <div class="mt-5 flex flex-col lg:flex-row gap-x-4 gap-y-5">
                     <!-- Left Side ( width 2/3) -->
                     <div
-                            class="p-2 border-gray-100 rounded-lg border w-full lg:w-2/3 h-fit bg-white shadow-sm p-4 gap-y-1 flex flex-col shadow-lg"
+                            class="p-2 border-gray-100 rounded-lg border w-full  h-fit bg-white shadow-sm p-4 gap-y-1 flex flex-col shadow-lg"
                     >
                         <h1 class="text-gray-500 font-bold text-3xl w-full">
                             ${article.title}
@@ -74,10 +74,10 @@
                     </div>
                     <!-- Right Side ( width 1/3) -->
                     <div
-                            class="border-gray-100 rounded-lg border w-full lg:w-1/3 h-fit bg-white shadow-lg p-4"
+                            class="border-gray-100 rounded-lg border w-full  h-fit bg-white shadow-lg p-4"
                     >
                         <!-- Title trong the bao noi bat -->
-                        <div class="flex items-center gap-x-1 w-fit cursor-pointer">
+                        <div class="flex items-center gap-x-1 w-fit cursor-pointer mt-12">
                             <h1 class="text-xl text-red-500">Bài viết liên quan</h1>
                             <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +100,7 @@
                             <c:forEach items="${revelantArticles}" var="rA">
                                 <c:if test="${rA.articleID != article.articleID}">
                                     <div
-                                            class="flex flex-row gap-x-4 h-fit border-t border-gray-100 py-4"
+                                            class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
                                     >
                                         <div class="flex flex-col gap-y-1">
 <%--                                            <div class="flex items-center gap-x-1">--%>
@@ -137,7 +137,7 @@
                 </div>
             </div>
             <!-- phan binh luan -->
-            <div>
+            <div class="lg:px-56 md:px-8 px-4 mt-10">
                 <p class="text-lg text-gray-600 font-semibold mb-4">
                     Bình luận của người dùng
                 </p>
@@ -147,7 +147,7 @@
                         <c:forEach items="${userComts}" var="uC">
                             <c:if test="${uC.userID == com.userID}">
                                 <div
-                                class="flex gap-x-4 w-full border border-gray-100 shadow-lg bg-white w-full lg:w-2/3 px-4 py-2 rounded-lg"
+                                class="flex gap-x-4 w-full border border-gray-100 shadow-lg bg-white w-full px-4 py-2 rounded-lg"
                                 >
                                 <img
                                         src="https://pbs.twimg.com/profile_images/1564398871996174336/M-hffw5a_400x400.jpg"
@@ -171,7 +171,7 @@
                     <!-- Them binh luan cua ban -->
                     <form>
                         <div
-                                class="flex gap-x-4 w-full border border-gray-100 shadow-lg bg-white w-full lg:w-2/3 px-4 py-2 rounded-lg"
+                                class="flex gap-x-4 w-full border border-gray-100 shadow-lg bg-white w-full px-4 py-2 rounded-lg"
                         >
                             <img
                                     src="https://pbs.twimg.com/profile_images/1564398871996174336/M-hffw5a_400x400.jpg"

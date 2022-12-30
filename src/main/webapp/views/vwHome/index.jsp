@@ -1250,7 +1250,7 @@
                                     USD
                                 </p>
                                 <p
-                                        class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                        class="text-gray-600 text-xs lg:text-sm hover:un derline cursor-pointer"
                                 >
                                     1 giờ trước
                                 </p>
