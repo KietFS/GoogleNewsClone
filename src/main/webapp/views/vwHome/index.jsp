@@ -60,7 +60,7 @@
                                     <a href="${pageContext.request.contextPath}/Home/Article?id=${tA.articleID}"
                                        class="text-sm md:text-lg lg:text-xl hover:underline text-gray-500 font-semibold cursor-pointer"
                                     >
-                                        ${tA.title}
+                                            ${tA.title}
                                     </a>
                                     <div class="flex justify-between items-center w-full">
                                         <p class="text-gray-500 mt-1 text-sm">${tA.publish_date}</p>
@@ -97,17 +97,17 @@
                                                     </p>
                                                 </c:otherwise>
                                             </c:choose>
-                                        <p
-                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                        >
-                                            ${tA.title}
-                                        </p>
-                                        <p
-                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                        >
-                                            ${tA.publish_date}
-                                        </p>
-                                    </div>
+                                            <p
+                                                    class="text-gray-600 text-xs lg:text-sm hover:underline font-semibold cursor-pointer"
+                                            >
+                                                    ${tA.title}
+                                            </p>
+                                            <p
+                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                            >
+                                                    ${tA.publish_date}
+                                            </p>
+                                        </div>
                                     </c:forEach>
                                 </div>
                             </div>
@@ -156,14 +156,14 @@
                                             </c:otherwise>
                                         </c:choose>
                                         <p
-                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer font-semibold"
                                         >
-                                            ${tA.title}
+                                                ${tA.title}
                                         </p>
                                         <p
                                                 class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
                                         >
-                                            ${tA.publish_date}
+                                                ${tA.publish_date}
                                         </p>
                                     </div>
                                     <img
@@ -230,7 +230,7 @@
                                                 </c:choose>
                                             </div>
                                             <p
-                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer font-semibold"
                                             >
                                                     ${tA.title}
                                             </p>
@@ -294,7 +294,7 @@
                                                 </c:choose>
                                             </div>
                                             <p
-                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer font-semibold"
                                             >
                                                     ${tA.title}
                                             </p>
@@ -358,7 +358,7 @@
                                                 </c:choose>
                                             </div>
                                             <p
-                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer font-semibold"
                                             >
                                                     ${tA.title}
                                             </p>
@@ -433,7 +433,7 @@
                                                 </c:choose>
                                             </div>
                                             <p
-                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer font-semibold"
                                             >
                                                     ${nA.title}
                                             </p>
@@ -497,7 +497,7 @@
                                                 </c:choose>
                                             </div>
                                             <p
-                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer font-semibold"
                                             >
                                                     ${nA.title}
                                             </p>
@@ -561,7 +561,7 @@
                                                 </c:choose>
                                             </div>
                                             <p
-                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer font-semibold"
                                             >
                                                     ${nA.title}
                                             </p>
@@ -616,40 +616,40 @@
                     <div class="flex flex-col mt-5">
                         <!-- List articles right side -->
                         <c:forEach items="${randomArticles}" var="rA" begin="0" end="4">
-                        <a href="${pageContext.request.contextPath}/Home/Article?id=${rA.articleID}">
-                            <div
-                                    class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <c:choose>
-                                        <c:when test="${rA.premium}">
-                                            <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                                Premium
-                                            </p>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <p class="bg-gray-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                                Guest
-                                            </p>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                            ${rA.title};
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                            ${rA.publish_date}
-                                    </p>
+                            <a href="${pageContext.request.contextPath}/Home/Article?id=${rA.articleID}">
+                                <div
+                                        class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
+                                >
+                                    <div class="flex flex-col gap-y-1">
+                                        <c:choose>
+                                            <c:when test="${rA.premium}">
+                                                <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                    Premium
+                                                </p>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <p class="bg-gray-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                    Guest
+                                                </p>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <p
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer font-semibold"
+                                        >
+                                                ${rA.title};
+                                        </p>
+                                        <p
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                        >
+                                                ${rA.publish_date}
+                                        </p>
+                                    </div>
+                                    <img
+                                            src="${rA.thumbs_img}"
+                                            class="rounded-lg h-[80px] w-[100px]"
+                                    />
                                 </div>
-                                <img
-                                        src="${rA.thumbs_img}"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                        </a>
+                            </a>
                         </c:forEach>
                     </div>
                 </div>
@@ -678,40 +678,40 @@
                     <div class="flex flex-col mt-5">
                         <!-- List articles right side -->
                         <c:forEach items="${randomArticles}" var="rA" begin="5" end="9">
-                        <a href="${pageContext.request.contextPath}/Home/Article?id=${rA.articleID}">
-                            <div
-                                    class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <c:choose>
-                                        <c:when test="${rA.premium}">
-                                            <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                                Premium
-                                            </p>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <p class="bg-gray-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                                Guest
-                                            </p>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                            ${rA.title}
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                            ${rA.publish_date}
-                                    </p>
+                            <a href="${pageContext.request.contextPath}/Home/Article?id=${rA.articleID}">
+                                <div
+                                        class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
+                                >
+                                    <div class="flex flex-col gap-y-1">
+                                        <c:choose>
+                                            <c:when test="${rA.premium}">
+                                                <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                    Premium
+                                                </p>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <p class="bg-gray-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                    Guest
+                                                </p>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <p
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer font-semibold"
+                                        >
+                                                ${rA.title}
+                                        </p>
+                                        <p
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                        >
+                                                ${rA.publish_date}
+                                        </p>
+                                    </div>
+                                    <img
+                                            src="${rA.thumbs_img}"
+                                            class="rounded-lg h-[80px] w-[100px]"
+                                    />
                                 </div>
-                                <img
-                                        src="${rA.thumbs_img}"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                        </a>
+                            </a>
                         </c:forEach>
                     </div>
                 </div>
@@ -740,45 +740,52 @@
                     <div class="flex flex-col mt-5">
                         <!-- List articles right side -->
                         <c:forEach items="${randomArticles}" var="rA" begin="10" end="14">
-                        <a href="${pageContext.request.contextPath}/Home/Article?id=${rA.articleID}">
-                            <div
-                                    class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <c:choose>
-                                        <c:when test="${rA.premium}">
-                                            <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                                Premium
-                                            </p>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <p class="bg-gray-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                                Guest
-                                            </p>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                            ${rA.title};
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                            ${rA.publish_date}
-                                    </p>
+                            <a href="${pageContext.request.contextPath}/Home/Article?id=${rA.articleID}">
+                                <div
+                                        class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
+                                >
+                                    <div class="flex flex-col gap-y-1">
+                                        <c:choose>
+                                            <c:when test="${rA.premium}">
+                                                <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                    Premium
+                                                </p>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <p class="bg-gray-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                    Guest
+                                                </p>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <p
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer font-semibold"
+                                        >
+                                                ${rA.title};
+                                        </p>
+                                        <p
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                        >
+                                                ${rA.publish_date}
+                                        </p>
+                                    </div>
+                                    <img
+                                            src="${rA.thumbs_img}"
+                                            class="rounded-lg h-[80px] w-[100px]"
+                                    />
                                 </div>
-                                <img
-                                        src="${rA.thumbs_img}"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                        </a>
+                            </a>
                         </c:forEach>
                     </div>
                 </div>
             </div>
         </div>
-<%--        </div>--%>
+        <%--        </div>--%>
+
+        <script>
+            console.log(`${errPremium}`);
+            if (`${errPremium}`.length > 0){
+                alert(`${errPremium}`)
+            }
+        </script>
     </jsp:body>
 </t:main>
