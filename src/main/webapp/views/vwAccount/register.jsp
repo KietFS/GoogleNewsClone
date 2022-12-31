@@ -108,7 +108,7 @@
       </button>
       <!-- submit button -->
       <a href="${pageContext.request.contextPath}/Home/Login"
-              class="bg-blue-50 text-blue-900 font-bold rounded-full py-2 w-[300px] text-center hover:opacity-50"
+         class="bg-blue-50 text-blue-900 font-bold rounded-full py-2 w-[300px] text-center hover:opacity-50"
       >
         Chuyển sang đăng nhập
       </a>
@@ -129,13 +129,11 @@
         password: "required",
         roles: "required",
       },
-
       messages: {
         email: {
           required: "Please enter email",
           email: "Please enter a valid email address",
         },
-
         password: "Please enter password",
       },
     });

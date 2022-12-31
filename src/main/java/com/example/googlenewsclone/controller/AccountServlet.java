@@ -95,8 +95,13 @@ public class AccountServlet extends HttpServlet {
         int expiration = 10080; // 7 days
 
         User u = new User(username, password, name, issue_at, expiration, role, email);
-        UserService.add(u);
+        if (UserService.findByUsername(username).getUsername().equals(username)){
+            request.setAttribute("message", "Tên người dùng đã tồn tại, vui lòng chọn tên khác");
+        } else {
+            UserService.add(u);
+        }
         ServletUtils.forward("/views/vwAccount/register.jsp", request, response);
+
     }
 
     private static void loginUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
