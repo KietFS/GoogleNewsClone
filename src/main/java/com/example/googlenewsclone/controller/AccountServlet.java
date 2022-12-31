@@ -117,30 +117,22 @@ public class AccountServlet extends HttpServlet {
                 request.setAttribute("hasError", true);
                 request.setAttribute("message", "Mật khẩu không chính xác. Vui lòng thử lại");
                 ServletUtils.forward("/views/vwAccount/login.jsp", request, response);
-            } else if(perm == 1){
+            } else {
                 HttpSession session = request.getSession();
                 session.setAttribute("auth", true);
                 session.setAttribute("authUser", u);
-
-                ServletUtils.redirect(url, request, response);
-            } else if(perm == 2){
-                HttpSession session = request.getSession();
-                session.setAttribute("auth", true);
-                session.setAttribute("authUser", u);
-                url = "/Staff/Writer";
-                ServletUtils.redirect(url, request, response);
-            } else if (perm == 3){
-                HttpSession session = request.getSession();
-                session.setAttribute("auth", true);
-                session.setAttribute("authUser", u);
-                url = "/Staff/Editor";
-                ServletUtils.redirect(url, request, response);
-            } else if(perm == 4){
-                HttpSession session = request.getSession();
-                session.setAttribute("auth", true);
-                session.setAttribute("authUser", u);
-                url = "/Staff/Admin";
-                ServletUtils.redirect(url, request, response);
+                if(perm == 1){
+                    ServletUtils.redirect(url, request, response);
+                } else if(perm == 2){
+                    url = "/Staff/Writer";
+                    ServletUtils.redirect(url, request, response);
+                } else if (perm == 3){
+                    url = "/Staff/Editor";
+                    ServletUtils.redirect(url, request, response);
+                } else if(perm == 4){
+                    url = "/Staff/Admin";
+                    ServletUtils.redirect(url, request, response);
+                }
             }
         } else{
             request.setAttribute("hasError", true);

@@ -144,7 +144,7 @@
                     <c:forEach items="${comments}" var="com">
                         <c:forEach items="${userComts}" var="uC">
                             <div class="flex flex-col">
-                            <c:if test="${uC.userID == com.userID}">
+                            <c:if test="${(uC.userID == com.userID)}">
                                 <div
                                 class="flex gap-x-4 w-full border border-gray-100 shadow-lg bg-white w-full px-4 py-2 rounded-lg mt-2"
                                 >

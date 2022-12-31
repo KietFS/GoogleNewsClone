@@ -1,3 +1,9 @@
+<%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<jsp:useBean
+        id="profileUser"
+        scope="request"
+        type="com.example.googlenewsclone.beans.User"/>
 
 <t:main>
     <jsp:body>
@@ -15,6 +21,7 @@
                 </h1>
                 <div class="flex flex-col gap-y-1">
                     <p class="text-gray-600 font-bold ml-2">Tên</p>
+                    <input hidden type="text" value="${profileUser.userID}">
                     <input
                             type="text"
                             id="name"
@@ -23,6 +30,31 @@
                             autofocus
                             required
                             class="w-full border-gray-200 border px-4 py-2 bg-gray-100 rounded-full"
+                            value="${profileUser.firstName}"
+                    />
+                </div>
+                <div class="flex flex-col gap-y-1">
+                    <p class="text-gray-600 font-bold ml-2">Họ</p>
+                    <input
+                            type="text"
+                            id="lastname"
+                            name="lastname"
+                            placeholder="họ của bạn"
+                            required
+                            class="w-full border-gray-200 border px-4 py-2 bg-gray-100 rounded-full"
+                            value="${profileUser.lastName}"
+                    />
+                </div>
+                <div class="flex flex-col gap-y-1">
+                    <p class="text-gray-600 font-bold ml-2">Ngày sinh</p>
+                    <input
+                            type="date"
+                            id="dob"
+                            name="dob"
+                            placeholder="họ của bạn"
+                            required
+                            class="w-full border-gray-200 border px-4 py-2 bg-gray-100 rounded-full"
+                            value="${profileUser.dob}"
                     />
                 </div>
                 <!-- input email -->
@@ -33,11 +65,12 @@
                             id="email"
                             name="email"
                             placeholder="Email của bạn"
-                            autofocus
                             required
                             class="w-full border-gray-200 border px-4 py-2 bg-gray-100 rounded-full"
+                            value="${profileUser.email}"
                     />
                 </div>
+
 
                 <button
                         type="submit"
