@@ -322,9 +322,18 @@
                                     >
                                         <div class="flex flex-col gap-y-1">
                                             <div class="flex items-center gap-x-1">
-                                                <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                                    Premium
-                                                </p>
+                                                <c:choose>
+                                                    <c:when test="${tA.premium}">
+                                                        <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                            Premium
+                                                        </p>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <p class="bg-gray-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                            Guest
+                                                        </p>
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </div>
                                             <p
                                                     class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
@@ -377,9 +386,18 @@
                                     >
                                         <div class="flex flex-col gap-y-1">
                                             <div class="flex items-center gap-x-1">
-                                                <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                                    Premium
-                                                </p>
+                                                <c:choose>
+                                                    <c:when test="${tA.premium}">
+                                                        <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                            Premium
+                                                        </p>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <p class="bg-gray-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                            Guest
+                                                        </p>
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </div>
                                             <p
                                                     class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
@@ -432,9 +450,18 @@
                                     >
                                         <div class="flex flex-col gap-y-1">
                                             <div class="flex items-center gap-x-1">
-                                                <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                                    Premium
-                                                </p>
+                                                <c:choose>
+                                                    <c:when test="${tA.premium}">
+                                                        <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                            Premium
+                                                        </p>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <p class="bg-gray-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                            Guest
+                                                        </p>
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </div>
                                             <p
                                                     class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
@@ -498,9 +525,18 @@
                                     >
                                         <div class="flex flex-col gap-y-1">
                                             <div class="flex items-center gap-x-1">
-                                                <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                                    Premium
-                                                </p>
+                                                <c:choose>
+                                                    <c:when test="${tA.premium}">
+                                                        <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                            Premium
+                                                        </p>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <p class="bg-gray-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                            Guest
+                                                        </p>
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </div>
                                             <p
                                                     class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
@@ -553,9 +589,18 @@
                                     >
                                         <div class="flex flex-col gap-y-1">
                                             <div class="flex items-center gap-x-1">
-                                                <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                                    Premium
-                                                </p>
+                                                <c:choose>
+                                                    <c:when test="${nA.premium}">
+                                                        <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                            Premium
+                                                        </p>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <p class="bg-gray-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                            Guest
+                                                        </p>
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </div>
                                             <p
                                                     class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
@@ -608,9 +653,18 @@
                                     >
                                         <div class="flex flex-col gap-y-1">
                                             <div class="flex items-center gap-x-1">
-                                                <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                                    Premium
-                                                </p>
+                                                <c:choose>
+                                                    <c:when test="${nA.premium}">
+                                                        <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                            Premium
+                                                        </p>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <p class="bg-gray-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                            Guest
+                                                        </p>
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </div>
                                             <p
                                                     class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
@@ -668,13 +722,23 @@
                     <div class="flex flex-col mt-5">
                         <!-- List articles right side -->
                         <c:forEach items="${randomArticles}" var="rA" begin="0" end="4">
+                        <a href="${pageContext.request.contextPath}/Home/Article?id=${rA.articleID}">
                             <div
                                     class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
                             >
                                 <div class="flex flex-col gap-y-1">
-                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                        Premium
-                                    </p>
+                                    <c:choose>
+                                        <c:when test="${rA.premium}">
+                                            <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                Premium
+                                            </p>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <p class="bg-gray-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                Guest
+                                            </p>
+                                        </c:otherwise>
+                                    </c:choose>
                                     <p
                                             class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
                                     >
@@ -691,6 +755,7 @@
                                         class="rounded-lg h-[80px] w-[100px]"
                                 />
                             </div>
+                        </a>
                         </c:forEach>
                     </div>
                 </div>
@@ -719,13 +784,23 @@
                     <div class="flex flex-col mt-5">
                         <!-- List articles right side -->
                         <c:forEach items="${randomArticles}" var="rA" begin="5" end="9">
+                        <a href="${pageContext.request.contextPath}/Home/Article?id=${rA.articleID}">
                             <div
                                     class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
                             >
                                 <div class="flex flex-col gap-y-1">
-                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                        Premium
-                                    </p>
+                                    <c:choose>
+                                        <c:when test="${rA.premium}">
+                                            <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                Premium
+                                            </p>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <p class="bg-gray-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                Guest
+                                            </p>
+                                        </c:otherwise>
+                                    </c:choose>
                                     <p
                                             class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
                                     >
@@ -742,6 +817,7 @@
                                         class="rounded-lg h-[80px] w-[100px]"
                                 />
                             </div>
+                        </a>
                         </c:forEach>
                     </div>
                 </div>
@@ -770,13 +846,23 @@
                     <div class="flex flex-col mt-5">
                         <!-- List articles right side -->
                         <c:forEach items="${randomArticles}" var="rA" begin="10" end="14">
+                        <a href="${pageContext.request.contextPath}/Home/Article?id=${rA.articleID}">
                             <div
                                     class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
                             >
                                 <div class="flex flex-col gap-y-1">
-                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                        Premium
-                                    </p>
+                                    <c:choose>
+                                        <c:when test="${rA.premium}">
+                                            <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                Premium
+                                            </p>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <p class="bg-gray-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                Guest
+                                            </p>
+                                        </c:otherwise>
+                                    </c:choose>
                                     <p
                                             class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
                                     >
@@ -793,6 +879,7 @@
                                         class="rounded-lg h-[80px] w-[100px]"
                                 />
                             </div>
+                        </a>
                         </c:forEach>
                     </div>
                 </div>
