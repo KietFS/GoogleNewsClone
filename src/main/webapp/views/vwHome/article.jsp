@@ -6,10 +6,14 @@
 <jsp:useBean id="user" scope="request" type="com.example.googlenewsclone.beans.User"/>
 <jsp:useBean id="tags" scope="request" type="java.util.List<com.example.googlenewsclone.beans.Tag>"/>
 <jsp:useBean id="revelantArticles" scope="request" type="java.util.List<com.example.googlenewsclone.beans.Article>"/>
-<jsp:useBean id="comments" scope="request" type="java.util.List<com.example.googlenewsclone.beans.Comment>"/>
-<jsp:useBean id="userComts" scope="request" type="java.util.List<com.example.googlenewsclone.beans.User>"/>
 <jsp:useBean id="authUser" scope="session" type="com.example.googlenewsclone.beans.User"/>
+<jsp:useBean id="comments" scope="request" type="java.util.List<com.example.googlenewsclone.beans.Comment>"/>
+<%--Neu khong co cmt thi se khong di tim username--%>
+<c:if test="${!(comments.size() == 0)}">
+    <jsp:useBean id="userComts" scope="request" type="java.util.List<com.example.googlenewsclone.beans.User>"/>
+</c:if>
 <script src="https://cdn.tailwindcss.com"></script>
+
 <t:main>
     <jsp:body>
         <div>
@@ -68,6 +72,39 @@
                         <!-- List articles right side -->
                         <c:forEach items="${revelantArticles}" var="rA">
                             <c:if test="${rA.articleID != article.articleID}">
+                                <a href="${pageContext.request.contextPath}/Home/Article?id=${rA.articleID}">
+                                    <div
+                                            class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
+                                    >
+                                        <div class="flex flex-col gap-y-1">
+                                                <%--                                            <div class="flex items-center gap-x-1">--%>
+                                                <%--                                                <img--%>
+                                                <%--                                                        src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"--%>
+                                                <%--                                                        width="15"--%>
+                                                <%--                                                        height="15"--%>
+                                                <%--                                                        class="rounded-full mr-0.5"--%>
+                                                <%--                                                />--%>
+                                                <%--                                                <p class="text-gray-500 text-xs font-semibold">--%>
+                                                <%--                                                    Báo lao động--%>
+                                                <%--                                                </p>--%>
+                                                <%--                                            </div>--%>
+                                            <p
+                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                            >
+                                                    ${rA.title}
+                                            </p>
+                                            <p
+                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                            >
+                                                    ${rA.publish_date}
+                                            </p>
+                                        </div>
+                                        <img
+                                                src="${rA.thumbs_img}"
+                                                class="rounded-lg h-[80px] w-[100px]"
+                                        />
+                                    </div>
+                                </a>
                                 <div
                                         class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
                                 >

@@ -49,33 +49,76 @@ public class HomeServlet extends HttpServlet {
                 //Truy xuất thông tin chi tiết của bài báo
                 Article a = ArticleService.findByID(id);
                 if(a != null){
-                    //Tìm tác giả viết bài theo Writter ID
-                    User user = UserService.findByID(a.getWritterID());
-                    request.setAttribute("user", user);
+                    if(a.isPremium()){
 
-                    //Tìm chuyên mục của bài viết
-                    Category cat = CategoryService.findByID(a.getCatID());
-                    request.setAttribute("category", cat);
+                        HttpSession session = request.getSession();
+                        if((boolean) session.getAttribute("auth")){
+                            //Cộng 1 view cho bài viết
+                            ArticleService.plusView(a.getArticleID());
 
-                    //Tìm các tag của bài viết đó
-                    List<Tag> tagList = TagService.findByArticle(a.getArticleID());
-                    request.setAttribute("tags", tagList);
+                            //Tìm tác giả viết bài theo Writter ID
+                            User user = UserService.findByID(a.getWritterID());
+                            request.setAttribute("user", user);
 
-                    //Truy xuất các bài liên quan (cùng chuyên mục)
-                    List<Article> revArticles = ArticleService.findByCatID(a.getCatID());
-                    request.setAttribute("revelantArticles", revArticles);
+                            //Tìm chuyên mục của bài viết
+                            Category cat = CategoryService.findByID(a.getCatID());
+                            request.setAttribute("category", cat);
 
-                    //Tìm các comment có trong bài báo đó
-                    List<Comment> comList = CommentService.findAllCommentinArticle(a.getArticleID());
-                    request.setAttribute("comments", comList);
+                            //Tìm các tag của bài viết đó
+                            List<Tag> tagList = TagService.findByArticle(a.getArticleID());
+                            request.setAttribute("tags", tagList);
 
-                    //Tìm username của các comment
-                    List<User> userComList = UserService.findAllUsernameCommentinArticle(a.getArticleID());
-                    request.setAttribute("userComts", userComList);
+                            //Truy xuất các bài liên quan (cùng chuyên mục)
+                            List<Article> revArticles = ArticleService.findByCatID(a.getCatID());
+                            request.setAttribute("revelantArticles", revArticles);
 
-                    //Truy xuất thông tin các comment trong bài viết
-                    request.setAttribute("article", a);
-                    ServletUtils.forward("/views/vwHome/article.jsp", request, response);
+                            //Tìm các comment có trong bài báo đó
+                            List<Comment> comList = CommentService.findAllCommentinArticle(a.getArticleID());
+                            request.setAttribute("comments", comList);
+
+                            //Tìm username của các comment
+                            List<User> userComList = UserService.findAllUsernameCommentinArticle(a.getArticleID());
+                            request.setAttribute("userComts", userComList);
+
+                            //Truy xuất thông tin các comment trong bài viết
+                            request.setAttribute("article", a);
+                            ServletUtils.forward("/views/vwHome/article.jsp", request, response);
+                        } else{
+                            request.setAttribute("message", "Bạn cần tài khoản premium để có thể đọc bài báo này");
+                            ServletUtils.forward("/Home/", request, response);
+                        }
+                    } else{
+                        //Cộng 1 view cho bài viết
+                        ArticleService.plusView(a.getArticleID());
+
+                        //Tìm tác giả viết bài theo Writter ID
+                        User user = UserService.findByID(a.getWritterID());
+                        request.setAttribute("user", user);
+
+                        //Tìm chuyên mục của bài viết
+                        Category cat = CategoryService.findByID(a.getCatID());
+                        request.setAttribute("category", cat);
+
+                        //Tìm các tag của bài viết đó
+                        List<Tag> tagList = TagService.findByArticle(a.getArticleID());
+                        request.setAttribute("tags", tagList);
+
+                        //Truy xuất các bài liên quan (cùng chuyên mục)
+                        List<Article> revArticles = ArticleService.findByCatID(a.getCatID());
+                        request.setAttribute("revelantArticles", revArticles);
+
+                        //Tìm các comment có trong bài báo đó
+                        List<Comment> comList = CommentService.findAllCommentinArticle(a.getArticleID());
+                        request.setAttribute("comments", comList);
+
+                        //Tìm username của các comment
+                        List<User> userComList = UserService.findAllUsernameCommentinArticle(a.getArticleID());
+                        request.setAttribute("userComts", userComList);
+
+                        //Truy xuất thông tin các comment trong bài viết
+                        request.setAttribute("article", a);
+                        ServletUtils.forward("/views/vwHome/article.jsp", request, response);
+                    }
                 } else{
                     ServletUtils.redirect("/Home", request, response);
                 }

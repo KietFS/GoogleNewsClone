@@ -50,9 +50,9 @@ public class AccountServlet extends HttpServlet {
                 }
                 break;
             case "/IsAvailable":
-                String user = request.getParameter("user");
+                String user = request.getParameter("username");
                 User u = UserService.findByUsername(user);
-                boolean isAvaiable = (user == null);
+                boolean isAvaiable = (u == null);
                 PrintWriter out = response.getWriter();
                 response.setContentType("application/json");
                 out.print(isAvaiable);

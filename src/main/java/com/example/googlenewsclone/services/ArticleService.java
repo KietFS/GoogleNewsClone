@@ -81,4 +81,13 @@ public class ArticleService {
             return list.get(0);
         }
     }
+    public static void plusView(int id){
+        try(Connection con = DbUtils.getConnection()){
+            final String query = "update articles set views=views+1 where articleid = :articleid;";
+
+            con.createQuery(query)
+                    .addParameter("articleid", id)
+                    .executeUpdate();
+        }
+    }
 }
