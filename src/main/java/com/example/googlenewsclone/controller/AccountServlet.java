@@ -53,11 +53,8 @@ public class AccountServlet extends HttpServlet {
                 String user = request.getParameter("user");
                 User u = UserService.findByUsername(user);
                 boolean isAvaiable = (user == null);
-
                 PrintWriter out = response.getWriter();
                 response.setContentType("application/json");
-                response.setCharacterEncoding("utf-8");
-
                 out.print(isAvaiable);
                 out.flush();
                 break;

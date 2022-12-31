@@ -9,9 +9,10 @@
 <jsp:useBean id="comments" scope="request" type="java.util.List<com.example.googlenewsclone.beans.Comment>"/>
 <jsp:useBean id="userComts" scope="request" type="java.util.List<com.example.googlenewsclone.beans.User>"/>
 <jsp:useBean id="authUser" scope="session" type="com.example.googlenewsclone.beans.User"/>
-
+<script src="https://cdn.tailwindcss.com"></script>
 <t:main>
     <jsp:body>
+        <div>
         <!-- container left side va right side -->
         <div
                 class="py-10 h-fit px-4 md:px-8 lg:px-56 mx-auto bg-gray-50 flex flex-col gap-y-10"
@@ -71,17 +72,7 @@
                                         class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
                                 >
                                     <div class="flex flex-col gap-y-1">
-                                            <%--                                            <div class="flex items-center gap-x-1">--%>
-                                            <%--                                                <img--%>
-                                            <%--                                                        src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"--%>
-                                            <%--                                                        width="15"--%>
-                                            <%--                                                        height="15"--%>
-                                            <%--                                                        class="rounded-full mr-0.5"--%>
-                                            <%--                                                />--%>
-                                            <%--                                                <p class="text-gray-500 text-xs font-semibold">--%>
-                                            <%--                                                    Báo lao động--%>
-                                            <%--                                                </p>--%>
-                                            <%--                                            </div>--%>
+
                                         <p
                                                 class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
                                         >
@@ -107,15 +98,16 @@
         <!-- phan binh luan -->
         <div class="lg:px-56 md:px-8 px-4 mt-10">
             <p class="text-lg text-gray-600 font-semibold mb-4">
-                Bình luận của người dùng
+                Bình luận của người đọc
             </p>
             <!-- chua cac binh luan -->
             <div class="flex flex-col gap-y-2">
                 <c:forEach items="${comments}" var="com">
                     <c:forEach items="${userComts}" var="uC">
+                        <div class="flex flex-col">
                         <c:if test="${uC.userID == com.userID}">
                             <div
-                            class="flex gap-x-4 w-full border border-gray-100 shadow-lg bg-white w-full px-4 py-2 rounded-lg"
+                            class="flex gap-x-4 w-full border border-gray-100 shadow-lg bg-white w-full px-4 py-2 rounded-lg mt-2"
                             >
                             <img
                                     src="https://pbs.twimg.com/profile_images/1564398871996174336/M-hffw5a_400x400.jpg"
@@ -133,6 +125,7 @@
                                 </p>
                             </div>
                         </c:if>
+                        </div>
                     </c:forEach>
                     </div>
                 </c:forEach>
@@ -143,7 +136,7 @@
                             <input type="hidden" id="userid" name="userid" value="${authUser.userID}">
                             <input type="hidden" id="articleid" name="articleid" value="${article.articleID}">
                             <div
-                                    class="flex gap-x-4 w-full border border-gray-100 shadow-lg bg-white w-full px-4 py-2 rounded-lg"
+                                    class="flex gap-x-4 w-full border border-gray-100 shadow-lg bg-white w-full px-4 py-2 rounded-lg mt-2"
                             >
                                 <img
                                         src="https://pbs.twimg.com/profile_images/1564398871996174336/M-hffw5a_400x400.jpg"
@@ -151,7 +144,7 @@
                                 />
                                 <div class="flex flex-col gap-y-1 w-full">
                                     <p class="text-blue-500 font-bold text-sm w-full">
-                                        ${authUser.username}
+                                            ${authUser.username}
                                     </p>
                                     <textarea
                                             class="border border-gray-200 h-[80px] rounded-lg w-[100%] flex items-start text-xs px-2 py-1"
@@ -170,12 +163,11 @@
                         </form>
                     </c:when>
                     <c:otherwise>
-                        <h1>Đăng nhập tại
-                            <a href="${pageContext.request.contextPath}/Account/Login">đây để bắt đầu bình luận nào</a>
-                        </h1>
+                            <a class=" py-2 bg-blue-50 mt-4  text-blue-900 font-bold rounded-lg text-center" href="${pageContext.request.contextPath}/Account/Login"> Đăng nhập ngay để bình luận</a>
                     </c:otherwise>
                 </c:choose>
             </div>
+        </div>
         </div>
         </div>
     </jsp:body>
