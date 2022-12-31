@@ -43,10 +43,10 @@
                 </div>
                 <!-- Right Side ( width 1/3) -->
                 <div
-                        class="border-gray-100 rounded-lg border w-full  h-fit bg-white shadow-lg p-4"
+                        class="border-gray-100 rounded-lg border w-full mt-10  h-fit bg-white shadow-lg p-4"
                 >
                     <!-- Title trong the bao noi bat -->
-                    <div class="flex items-center gap-x-1 w-fit cursor-pointer mt-12">
+                    <div class="flex items-center gap-x-1 w-fit cursor-pointer">
                         <h1 class="text-xl text-red-500">Bài viết liên quan</h1>
                         <svg
                                 xmlns="http://www.w3.org/2000/svg"
