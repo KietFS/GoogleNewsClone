@@ -49,15 +49,6 @@ public class AccountServlet extends HttpServlet {
                     ServletUtils.forward("/views/vwAccount/profile.jsp", request, response);
                 }
                 break;
-            case "/IsAvailable":
-                String user = request.getParameter("username");
-                User u = UserService.findByUsername(user);
-                boolean isAvaiable = (u == null);
-                PrintWriter out = response.getWriter();
-                response.setContentType("application/json");
-                out.print(isAvaiable);
-                out.flush();
-                break;
             default:
                 ServletUtils.forward("/views/404.jsp", request, response);
                 break;
@@ -76,8 +67,8 @@ public class AccountServlet extends HttpServlet {
                 break;
             case "/Register":
                 registerUser(request, response);
-            case "/Edit":
-//                editAccount(request, response);             //Edit dob, firstname, lastname, email, upload avatar
+            case "/Update":
+                updateUser(request, response);
                 break;
             default:
                 ServletUtils.forward("/views/404.jsp", request, response);
@@ -146,5 +137,16 @@ public class AccountServlet extends HttpServlet {
         session.setAttribute("authUser", new User());
         String url ="/Home";
         ServletUtils.redirect(url, request, response);
+    }
+    private static void updateUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int userid = Integer.parseInt(request.getParameter("userid"));
+        String firstname = request.getParameter("firstname");
+        String lastname = request.getParameter("lastname");
+        Date dob = Date.valueOf(request.getParameter("dob"));
+        String email = request.getParameter("email");
+
+        User u = new User(userid, firstname, lastname, dob, email);
+        UserService.update(u);
+        ServletUtils.redirect("/Account/Profile?id=" + request.getParameter("userid"), request, response);
     }
 }
