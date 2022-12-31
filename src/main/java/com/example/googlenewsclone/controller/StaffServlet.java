@@ -20,7 +20,7 @@ public class StaffServlet extends HttpServlet {
                 ServletUtils.forward("/views/vwWriter/index.jsp", request, response);
                 break;
             case "/Admin":
-                ServletUtils.forward("/views/vwAdmin/index.jsp", request, response);
+                ServletUtils.forward("/views/vwAdmin/vwAdminUser/index.jsp", request, response);
                 break;
             case "/AddArticle":
                 ServletUtils.forward("/views/vwWriter/addArticle.jsp", request, response);
