@@ -7,7 +7,6 @@
 <jsp:useBean id="newestArticles" scope="request" type="java.util.List<com.example.googlenewsclone.beans.Article>"/>
 <jsp:useBean id="randomArticles" scope="request" type="java.util.List<com.example.googlenewsclone.beans.Article>"/>
 
-
 <script src="https://cdn.tailwindcss.com"></script>
 
 <t:main>
@@ -46,164 +45,73 @@
                         </div>
 
                         <!-- Big left articles -->
-                        <div
-                                class="px-2 py-8 border-t border-b-1 border-gray-200 w-full h-[320px] flex items-center gap-x-5"
-                        >
-                            <!-- Main articles -->
-                            <div class="w-2/5 flex flex-col gap-y-2">
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        width="250"
-                                        height="200"
-                                        class="rounded-lg"
-                                />
-                                <a href="${pageContext.request.contextPath}/Home/Article?id=1"
-                                   class="text-sm md:text-lg lg:text-xl hover:underline text-gray-500 font-semibold cursor-pointer"
-                                >
-                                    HLV Park phát biểu sau khi nhận huân chương Heungin
-                                </a>
-                                <div class="flex justify-between items-center w-full">
-                                    <p class="text-gray-500 mt-1 text-sm">12 giờ trước</p>
-                                    <p
-                                            class="text-white rounded-full px-2 py-1 bg-blue-500 w-fit text-xs"
+                        <c:forEach items="${topArticles}" var="tA" begin="0" end="1">
+                            <div
+                                    class="px-2 py-8 border-t border-b-1 border-gray-200 w-full h-[320px] flex items-center gap-x-5"
+                            >
+                                <!-- Main articles -->
+                                <div class="w-2/5 flex flex-col gap-y-2">
+                                    <img
+                                            src="${tA.thumbs_img}"
+                                            width="250"
+                                            height="200"
+                                            class="rounded-lg"
+                                    />
+                                    <a href="${pageContext.request.contextPath}/Home/Article?id=${tA.articleID}"
+                                       class="text-sm md:text-lg lg:text-xl hover:underline text-gray-500 font-semibold cursor-pointer"
                                     >
-                                        Premium
+                                        ${tA.title}
+                                    </a>
+                                    <div class="flex justify-between items-center w-full">
+                                        <p class="text-gray-500 mt-1 text-sm">${tA.publish_date}</p>
+                                        <c:choose>
+                                            <c:when test="${tA.premium}">
+                                                <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                    Premium
+                                                </p>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <p class="bg-gray-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                    Guest
+                                                </p>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </div>
+                                    <p class="text-sm text-red-500 font-bold">
+                                        Chính trị
                                     </p>
                                 </div>
-                                <p class="text-sm text-red-500 font-bold">Chính trị</p>
-                            </div>
-                            <!-- List articles -->
-                            <div class="flex flex-col gap-y-4">
-                                <div class="flex flex-col gap-y-1">
-                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                        Premium
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <div class="flex flex-col gap-y-1">
-
-                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                        Premium
-                                    </p>
-
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <div class="flex flex-col gap-y-1">
-                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                        Premium
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
+                                <!-- List articles -->
+                                <div class="flex flex-col gap-y-4">
+                                    <c:forEach items="${topArticles}" var="tA" begin="2" end="4">
+                                        <div class="flex flex-col gap-y-1">
+                                            <c:choose>
+                                                <c:when test="${tA.premium}">
+                                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                        Premium
+                                                    </p>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <p class="bg-gray-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                        Guest
+                                                    </p>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        <p
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                        >
+                                            ${tA.title}
+                                        </p>
+                                        <p
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                        >
+                                            ${tA.publish_date}
+                                        </p>
+                                    </div>
+                                    </c:forEach>
                                 </div>
                             </div>
-                        </div>
-                        <div
-                                class="px-2 py-4 border-t border-b-2 border-gray-200 w-full h-[320px] flex items-center gap-x-5"
-                        >
-                            <!-- Main articles -->
-                            <div class="w-2/5 flex flex-col gap-y-2">
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        width="250"
-                                        height="200"
-                                        class="rounded-lg"
-                                />
-                                <a href="article?id=1"
-                                   class="text-sm md:text-lg lg:text-xl text-gray-500 font-semibold cursor-pointer"
-                                >
-                                    HLV Park phát biểu sau khi nhận huân chương Heungin
-                                </a>
-                                <div class="flex justify-between items-center w-full">
-                                    <p class="text-gray-500 mt-1 text-sm">12 giờ trước</p>
-                                    <p
-                                            class="text-white rounded-full px-2 py-1 bg-blue-500 w-fit text-xs"
-                                    >
-                                        Premium
-                                    </p>
-                                </div>
-                                <p class="text-sm text-red-500 font-bold">Chính trị</p>
-                            </div>
-                            <!-- List articles -->
-                            <div class="flex flex-col gap-y-4">
-                                <div class="flex flex-col gap-y-1">
-                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                        Premium
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <div class="flex flex-col gap-y-1">
-                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                        Premium
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <div class="flex flex-col gap-y-1">
-                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                        Premium
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        </c:forEach>
                     </div>
                     <!-- Right Side ( width 1/3) -->
                     <div
@@ -230,54 +138,40 @@
 
                         <div class="flex flex-col mt-5">
                             <!-- List articles right side -->
-                            <div
-                                    class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                        Premium
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
+                            <c:forEach items="${topArticles}" var="tA" begin="6" end="9">
+                                <div
+                                        class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
+                                >
+                                    <div class="flex flex-col gap-y-1">
+                                        <c:choose>
+                                            <c:when test="${tA.premium}">
+                                                <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                    Premium
+                                                </p>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <p class="bg-gray-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                    Guest
+                                                </p>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <p
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                        >
+                                            ${tA.title}
+                                        </p>
+                                        <p
+                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                        >
+                                            ${tA.publish_date}
+                                        </p>
+                                    </div>
+                                    <img
+                                            src="${tA.thumbs_img}"
+                                            class="rounded-lg h-[80px] w-[100px]"
+                                    />
                                 </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
-                            <div
-                                    class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
-                            >
-                                <div class="flex flex-col gap-y-1">
-                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                        Premium
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        Chủ tịch nước kết thúc thăm Hàn Quốc, mang về cam kết 15 tỉ
-                                        USD
-                                    </p>
-                                    <p
-                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                    >
-                                        1 giờ trước
-                                    </p>
-                                </div>
-                                <img
-                                        src="https://znews-photo.zingcdn.me/w960/Uploaded/ihvunvj/2022_12_06/park_1.jpeg"
-                                        class="rounded-lg h-[80px] w-[100px]"
-                                />
-                            </div>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>

@@ -84,7 +84,7 @@ public class HomeServlet extends HttpServlet {
                             request.setAttribute("article", a);
                             ServletUtils.forward("/views/vwHome/article.jsp", request, response);
                         } else{
-                            request.setAttribute("message", "Bạn cần tài khoản premium để có thể đọc bài báo này");
+                            request.setAttribute("errPremium", "Bạn cần tài khoản premium để có thể đọc bài báo này");
                             ServletUtils.forward("/Home/", request, response);
                         }
                     } else{
