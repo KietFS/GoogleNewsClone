@@ -130,9 +130,24 @@ public class HomeServlet extends HttpServlet {
                 }catch (NumberFormatException e){
 
                 }
+                Category cat = CategoryService.findByID(catID);
                 List<Article> articleByCat = ArticleService.findByCatID(catID);
                 request.setAttribute("articlesByCat", articleByCat);
+                request.setAttribute("Category", cat);
                 ServletUtils.forward("/views/vwHome/byCat.jsp", request, response);
+                break;
+            case "/Tag":
+                int tagID = 0;
+                try{
+                    tagID = Integer.parseInt(request.getParameter("id"));
+                }catch (NumberFormatException e){
+
+                }
+                Tag tag = TagService.findByID(tagID);
+                List<Article> articleByTag = ArticleService.findByTag(tagID);
+                request.setAttribute("articlesByTag", articleByTag);
+                request.setAttribute("Tag", tag);
+                ServletUtils.forward("/views/vwHome/byTag.jsp", request, response);
                 break;
             default:
                 ServletUtils.forward("/views/404.jsp", request, response);

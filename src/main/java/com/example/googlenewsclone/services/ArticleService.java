@@ -90,4 +90,16 @@ public class ArticleService {
                     .executeUpdate();
         }
     }
+    public static List<Article> findByTag(int tagid){
+        try(Connection con = DbUtils.getConnection()){
+            final String query = "select tha.articleid, title, views, subcontent, content, catid, premium, writterid, statusid, publish_date, thumbs_img from articles inner join tags_has_articles tha on articles.articleid = tha.articleid where tha.tagid = :tagid and publish_date IS NOT NULL;";
+            List<Article> list = con.createQuery(query)
+                    .addParameter("tagid", tagid)
+                    .executeAndFetch(Article.class);
+            if(list.size() == 0){
+                return null;
+            }
+            return list;
+        }
+    }
 }

@@ -38,6 +38,7 @@
                                 <c:forEach items="${tags}" var="t">
                                     <a
                                             class="px-2 py-1 rounded-full text-red-900 font-bold bg-red-50 cursor-pointer text-xs"
+                                            href="${pageContext.request.contextPath}/Home/Tag?id=${t.tagID}"
                                     >${t.tagName}</a
                                     >
                                 </c:forEach>
