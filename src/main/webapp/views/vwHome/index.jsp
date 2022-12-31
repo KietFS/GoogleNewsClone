@@ -75,17 +75,9 @@
                             <!-- List articles -->
                             <div class="flex flex-col gap-y-4">
                                 <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
+                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                        Premium
+                                    </p>
                                     <p
                                             class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
                                     >
@@ -99,17 +91,11 @@
                                     </p>
                                 </div>
                                 <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
+
+                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                        Premium
+                                    </p>
+
                                     <p
                                             class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
                                     >
@@ -123,17 +109,9 @@
                                     </p>
                                 </div>
                                 <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
+                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                        Premium
+                                    </p>
                                     <p
                                             class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
                                     >
@@ -177,17 +155,9 @@
                             <!-- List articles -->
                             <div class="flex flex-col gap-y-4">
                                 <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
+                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                        Premium
+                                    </p>
                                     <p
                                             class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
                                     >
@@ -201,17 +171,9 @@
                                     </p>
                                 </div>
                                 <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
+                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                        Premium
+                                    </p>
                                     <p
                                             class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
                                     >
@@ -225,17 +187,9 @@
                                     </p>
                                 </div>
                                 <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
+                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                        Premium
+                                    </p>
                                     <p
                                             class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
                                     >
@@ -280,17 +234,9 @@
                                     class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
                             >
                                 <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
+                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                        Premium
+                                    </p>
                                     <p
                                             class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
                                     >
@@ -312,17 +258,9 @@
                                     class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
                             >
                                 <div class="flex flex-col gap-y-1">
-                                    <div class="flex items-center gap-x-1">
-                                        <img
-                                                src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                width="15"
-                                                height="15"
-                                                class="rounded-full mr-0.5"
-                                        />
-                                        <p class="text-gray-500 text-xs font-semibold">
-                                            Báo lao động
-                                        </p>
-                                    </div>
+                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                        Premium
+                                    </p>
                                     <p
                                             class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
                                     >
@@ -378,36 +316,33 @@
                         <div class="flex flex-col mt-3">
                             <!-- List articles right side -->
                             <c:forEach items="${topArticles}" var="tA" begin="0" end="2">
-                            <a href="${pageContext.request.contextPath}/Home/Article?id=${tA.articleID}">
-                                <div
-                                        class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
-                                >
-                                    <div class="flex flex-col gap-y-1">
-                                        <div class="flex items-center gap-x-1">
-                                            <img
-                                                    src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                    width="15"
-                                                    height="15"
-                                                    class="rounded-full mr-0.5"
-                                            />
+                                <a href="${pageContext.request.contextPath}/Home/Article?id=${tA.articleID}">
+                                    <div
+                                            class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
+                                    >
+                                        <div class="flex flex-col gap-y-1">
+                                            <div class="flex items-center gap-x-1">
+                                                <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                    Premium
+                                                </p>
+                                            </div>
+                                            <p
+                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                            >
+                                                    ${tA.title}
+                                            </p>
+                                            <p
+                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                            >
+                                                    ${tA.publish_date}
+                                            </p>
                                         </div>
-                                        <p
-                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                        >
-                                                ${tA.title}
-                                        </p>
-                                        <p
-                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                        >
-                                                ${tA.publish_date}
-                                        </p>
+                                        <img
+                                                src="${tA.thumbs_img}"
+                                                class="rounded-lg h-[80px] w-[100px]"
+                                        />
                                     </div>
-                                    <img
-                                            src="${tA.thumbs_img}"
-                                            class="rounded-lg h-[80px] w-[100px]"
-                                    />
-                                </div>
-                            </a>
+                                </a>
                             </c:forEach>
                         </div>
                     </div>
@@ -436,36 +371,33 @@
                         <div class="flex flex-col mt-3">
                             <!-- List articles right side -->
                             <c:forEach items="${topArticles}" var="tA" begin="3" end="5">
-                            <a href="${pageContext.request.contextPath}/Home/Article?id=${tA.articleID}">
-                                <div
-                                        class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
-                                >
-                                    <div class="flex flex-col gap-y-1">
-                                        <div class="flex items-center gap-x-1">
-                                            <img
-                                                    src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                    width="15"
-                                                    height="15"
-                                                    class="rounded-full mr-0.5"
-                                            />
+                                <a href="${pageContext.request.contextPath}/Home/Article?id=${tA.articleID}">
+                                    <div
+                                            class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
+                                    >
+                                        <div class="flex flex-col gap-y-1">
+                                            <div class="flex items-center gap-x-1">
+                                                <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                    Premium
+                                                </p>
+                                            </div>
+                                            <p
+                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                            >
+                                                    ${tA.title}
+                                            </p>
+                                            <p
+                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                            >
+                                                    ${tA.publish_date}
+                                            </p>
                                         </div>
-                                        <p
-                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                        >
-                                                ${tA.title}
-                                        </p>
-                                        <p
-                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                        >
-                                                ${tA.publish_date}
-                                        </p>
+                                        <img
+                                                src="${tA.thumbs_img}"
+                                                class="rounded-lg h-[80px] w-[100px]"
+                                        />
                                     </div>
-                                    <img
-                                            src="${tA.thumbs_img}"
-                                            class="rounded-lg h-[80px] w-[100px]"
-                                    />
-                                </div>
-                            </a>
+                                </a>
                             </c:forEach>
                         </div>
                     </div>
@@ -494,36 +426,33 @@
                         <div class="flex flex-col mt-3">
                             <!-- List articles right side -->
                             <c:forEach items="${topArticles}" var="tA" begin="6" end="8">
-                            <a href="${pageContext.request.contextPath}/Home/Article?id=${tA.articleID}">
-                                <div
-                                        class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
-                                >
-                                    <div class="flex flex-col gap-y-1">
-                                        <div class="flex items-center gap-x-1">
-                                            <img
-                                                    src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                    width="15"
-                                                    height="15"
-                                                    class="rounded-full mr-0.5"
-                                            />
+                                <a href="${pageContext.request.contextPath}/Home/Article?id=${tA.articleID}">
+                                    <div
+                                            class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
+                                    >
+                                        <div class="flex flex-col gap-y-1">
+                                            <div class="flex items-center gap-x-1">
+                                                <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                    Premium
+                                                </p>
+                                            </div>
+                                            <p
+                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                            >
+                                                    ${tA.title}
+                                            </p>
+                                            <p
+                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                            >
+                                                    ${tA.publish_date}
+                                            </p>
                                         </div>
-                                        <p
-                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                        >
-                                                ${tA.title}
-                                        </p>
-                                        <p
-                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                        >
-                                                ${tA.publish_date}
-                                        </p>
+                                        <img
+                                                src="${tA.thumbs_img}"
+                                                class="rounded-lg h-[80px] w-[100px]"
+                                        />
                                     </div>
-                                    <img
-                                            src="${tA.thumbs_img}"
-                                            class="rounded-lg h-[80px] w-[100px]"
-                                    />
-                                </div>
-                            </a>
+                                </a>
                             </c:forEach>
                         </div>
                     </div>
@@ -565,33 +494,30 @@
                             <c:forEach items="${newestArticles}" var="nA" begin="0" end="2">
                                 <a href="${pageContext.request.contextPath}/Home/Article?id=${nA.articleID}">
                                     <div
-                                        class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
-                                >
-                                    <div class="flex flex-col gap-y-1">
-                                        <div class="flex items-center gap-x-1">
-                                            <img
-                                                    src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                    width="15"
-                                                    height="15"
-                                                    class="rounded-full mr-0.5"
-                                            />
+                                            class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
+                                    >
+                                        <div class="flex flex-col gap-y-1">
+                                            <div class="flex items-center gap-x-1">
+                                                <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                    Premium
+                                                </p>
+                                            </div>
+                                            <p
+                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                            >
+                                                    ${nA.title}
+                                            </p>
+                                            <p
+                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                            >
+                                                    ${nA.publish_date}
+                                            </p>
                                         </div>
-                                        <p
-                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                        >
-                                                ${nA.title}
-                                        </p>
-                                        <p
-                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                        >
-                                                ${nA.publish_date}
-                                        </p>
+                                        <img
+                                                src="${nA.thumbs_img}"
+                                                class="rounded-lg h-[80px] w-[100px]"
+                                        />
                                     </div>
-                                    <img
-                                            src="${nA.thumbs_img}"
-                                            class="rounded-lg h-[80px] w-[100px]"
-                                    />
-                                </div>
                                 </a>
                             </c:forEach>
                         </div>
@@ -621,36 +547,33 @@
                         <div class="flex flex-col mt-3">
                             <!-- List articles right side -->
                             <c:forEach items="${newestArticles}" var="nA" begin="3" end="5">
-                            <a href="${pageContext.request.contextPath}/Home/Article?id=${nA.articleID}">
-                                <div
-                                        class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
-                                >
-                                    <div class="flex flex-col gap-y-1">
-                                        <div class="flex items-center gap-x-1">
-                                            <img
-                                                    src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                    width="15"
-                                                    height="15"
-                                                    class="rounded-full mr-0.5"
-                                            />
+                                <a href="${pageContext.request.contextPath}/Home/Article?id=${nA.articleID}">
+                                    <div
+                                            class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
+                                    >
+                                        <div class="flex flex-col gap-y-1">
+                                            <div class="flex items-center gap-x-1">
+                                                <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                    Premium
+                                                </p>
+                                            </div>
+                                            <p
+                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                            >
+                                                    ${nA.title}
+                                            </p>
+                                            <p
+                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                            >
+                                                    ${nA.publish_date}
+                                            </p>
                                         </div>
-                                        <p
-                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                        >
-                                                ${nA.title}
-                                        </p>
-                                        <p
-                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                        >
-                                                ${nA.publish_date}
-                                        </p>
+                                        <img
+                                                src="${nA.thumbs_img}"
+                                                class="rounded-lg h-[80px] w-[100px]"
+                                        />
                                     </div>
-                                    <img
-                                            src="${nA.thumbs_img}"
-                                            class="rounded-lg h-[80px] w-[100px]"
-                                    />
-                                </div>
-                            </a>
+                                </a>
                             </c:forEach>
                         </div>
                     </div>
@@ -685,12 +608,9 @@
                                     >
                                         <div class="flex flex-col gap-y-1">
                                             <div class="flex items-center gap-x-1">
-                                                <img
-                                                        src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                        width="15"
-                                                        height="15"
-                                                        class="rounded-full mr-0.5"
-                                                />
+                                                <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                    Premium
+                                                </p>
                                             </div>
                                             <p
                                                     class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
@@ -748,39 +668,29 @@
                     <div class="flex flex-col mt-5">
                         <!-- List articles right side -->
                         <c:forEach items="${randomArticles}" var="rA" begin="0" end="4">
-                            <a href="${pageContext.request.contextPath}/Home/Article?id=${nA.articleID}">
-                                <div
-                                        class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
-                                >
-                                    <div class="flex flex-col gap-y-1">
-                                        <div class="flex items-center gap-x-1">
-                                            <img
-                                                    src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                    width="15"
-                                                    height="15"
-                                                    class="rounded-full mr-0.5"
-                                            />
-                                            <p class="text-gray-500 text-xs font-semibold">
-                                                Báo lao động
-                                            </p>
-                                        </div>
-                                        <p
-                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                        >
+                            <div
+                                    class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
+                            >
+                                <div class="flex flex-col gap-y-1">
+                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                        Premium
+                                    </p>
+                                    <p
+                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                    >
                                             ${rA.title};
-                                        </p>
-                                        <p
-                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                        >
+                                    </p>
+                                    <p
+                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                    >
                                             ${rA.publish_date}
-                                        </p>
-                                    </div>
-                                    <img
-                                            src="${rA.thumbs_img}"
-                                            class="rounded-lg h-[80px] w-[100px]"
-                                    />
+                                    </p>
                                 </div>
-                            </a>
+                                <img
+                                        src="${rA.thumbs_img}"
+                                        class="rounded-lg h-[80px] w-[100px]"
+                                />
+                            </div>
                         </c:forEach>
                     </div>
                 </div>
@@ -809,39 +719,29 @@
                     <div class="flex flex-col mt-5">
                         <!-- List articles right side -->
                         <c:forEach items="${randomArticles}" var="rA" begin="5" end="9">
-                            <a href="${pageContext.request.contextPath}/Home/Article?id=${nA.articleID}">
-                                <div
-                                        class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
-                                >
-                                    <div class="flex flex-col gap-y-1">
-                                        <div class="flex items-center gap-x-1">
-                                            <img
-                                                    src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                    width="15"
-                                                    height="15"
-                                                    class="rounded-full mr-0.5"
-                                            />
-                                            <p class="text-gray-500 text-xs font-semibold">
-                                                Báo lao động
-                                            </p>
-                                        </div>
-                                        <p
-                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                        >
-                                                ${rA.title}
-                                        </p>
-                                        <p
-                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                        >
-                                                ${rA.publish_date}
-                                        </p>
-                                    </div>
-                                    <img
-                                            src="${rA.thumbs_img}"
-                                            class="rounded-lg h-[80px] w-[100px]"
-                                    />
+                            <div
+                                    class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
+                            >
+                                <div class="flex flex-col gap-y-1">
+                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                        Premium
+                                    </p>
+                                    <p
+                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                    >
+                                            ${rA.title}
+                                    </p>
+                                    <p
+                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                    >
+                                            ${rA.publish_date}
+                                    </p>
                                 </div>
-                            </a>
+                                <img
+                                        src="${rA.thumbs_img}"
+                                        class="rounded-lg h-[80px] w-[100px]"
+                                />
+                            </div>
                         </c:forEach>
                     </div>
                 </div>
@@ -870,39 +770,29 @@
                     <div class="flex flex-col mt-5">
                         <!-- List articles right side -->
                         <c:forEach items="${randomArticles}" var="rA" begin="10" end="14">
-                            <a href="${pageContext.request.contextPath}/Home/Article?id=${nA.articleID}">
-                                <div
-                                        class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
-                                >
-                                    <div class="flex flex-col gap-y-1">
-                                        <div class="flex items-center gap-x-1">
-                                            <img
-                                                    src="https://cdn.tgdd.vn/GameApp/3/225241/Screentshots/bao-lao-dong-tin-tuc-va-tap-chi-cap-nhat-lien-tuc-225241-logo-27-06-2020.png"
-                                                    width="15"
-                                                    height="15"
-                                                    class="rounded-full mr-0.5"
-                                            />
-                                            <p class="text-gray-500 text-xs font-semibold">
-                                                Báo lao động
-                                            </p>
-                                        </div>
-                                        <p
-                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                        >
-                                                ${rA.title};
-                                        </p>
-                                        <p
-                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                        >
-                                                ${rA.publish_date}
-                                        </p>
-                                    </div>
-                                    <img
-                                            src="${rA.thumbs_img}"
-                                            class="rounded-lg h-[80px] w-[100px]"
-                                    />
+                            <div
+                                    class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
+                            >
+                                <div class="flex flex-col gap-y-1">
+                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                        Premium
+                                    </p>
+                                    <p
+                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                    >
+                                            ${rA.title};
+                                    </p>
+                                    <p
+                                            class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                    >
+                                            ${rA.publish_date}
+                                    </p>
                                 </div>
-                            </a>
+                                <img
+                                        src="${rA.thumbs_img}"
+                                        class="rounded-lg h-[80px] w-[100px]"
+                                />
+                            </div>
                         </c:forEach>
                     </div>
                 </div>
