@@ -135,7 +135,7 @@ public class HomeServlet extends HttpServlet {
                 ServletUtils.forward("/views/vwHome/byCat.jsp", request, response);
                 break;
             default:
-                ServletUtils.forward("../../404.jsp", request, response);
+                ServletUtils.forward("/views/404.jsp", request, response);
                 break;
         }
     }
@@ -148,7 +148,7 @@ public class HomeServlet extends HttpServlet {
                 addComment(request, response);
                 break;
             default:
-                ServletUtils.forward("../../views/404.jsp", request, response);
+                ServletUtils.forward("/views/404.jsp", request, response);
                 break;
         }
     }

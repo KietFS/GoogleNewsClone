@@ -59,7 +59,7 @@ public class AccountServlet extends HttpServlet {
                 out.flush();
                 break;
             default:
-                ServletUtils.forward("../../404.jsp", request, response);
+                ServletUtils.forward("/views/404.jsp", request, response);
                 break;
         }
     }
@@ -80,7 +80,7 @@ public class AccountServlet extends HttpServlet {
 //                editAccount(request, response);             //Edit dob, firstname, lastname, email, upload avatar
                 break;
             default:
-                ServletUtils.forward("../../views/404.jsp", request, response);
+                ServletUtils.forward("/views/404.jsp", request, response);
                 break;
         }
     }

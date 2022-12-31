@@ -11,11 +11,11 @@ import java.io.IOException;
 public class DefaultServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ServletUtils.forward("../../views/404.jsp", request, response);
+        ServletUtils.forward("views/404.jsp", request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ServletUtils.forward("../../views/404.jsp", request, response);
+        ServletUtils.forward("views/404.jsp", request, response);
     }
 }

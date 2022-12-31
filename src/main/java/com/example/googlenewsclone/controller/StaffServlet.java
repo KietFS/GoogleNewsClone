@@ -26,7 +26,7 @@ public class StaffServlet extends HttpServlet {
                 ServletUtils.forward("/views/vwWriter/addArticle.jsp", request, response);
                 break;
             default:
-                ServletUtils.forward("../../404.jsp", request, response);
+                ServletUtils.forward("/views/404.jsp", request, response);
                 break;
         }
     }
@@ -39,7 +39,7 @@ public class StaffServlet extends HttpServlet {
                 addArticle(request, response);
                 break;
             default:
-                ServletUtils.forward("../../views/404.jsp", request, response);
+                ServletUtils.forward("/views/404.jsp", request, response);
                 break;
     }
 }
