@@ -22,10 +22,10 @@ public class EditorServlet extends HttpServlet {
         if (perm == 3) {
             String path = request.getPathInfo();
             if (path == null || path.equals("/")) {
-                path = "/Article";
+                path = "/Index";
             }
             switch (path) {
-                case "/Article":
+                case "/Index":
                     List<Article> allArticles = ArticleService.findAll();
                     request.setAttribute("allArticles", allArticles);
                     ServletUtils.forward("/views/vwEditor/index.jsp", request, response);

@@ -116,7 +116,7 @@
               </c:if>
               <c:if test="${authUser.roleID == 2}">
                 <a
-                        href="${pageContext.request.contextPath}/Staff/Writer/"
+                        href="${pageContext.request.contextPath}/Staff/Writer"
                 >
                   <li
                           class="rounded-sm px-3 py-1 hover:text-blue-500 text-gray-500 text-lg cursor-pointer"
