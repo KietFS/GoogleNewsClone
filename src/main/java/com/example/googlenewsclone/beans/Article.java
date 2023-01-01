@@ -50,6 +50,12 @@ public class Article {
         this.statusID = statusid;
     }
 
+    public Article(int articleid, int statusid, Date publish_date) {
+        this.articleID = articleid;
+        this.statusID = statusid;
+        this.publish_date = publish_date;
+    }
+
     public String getThumbs_img() {
         return thumbs_img;
     }

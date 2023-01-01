@@ -119,4 +119,13 @@ public class ArticleService {
                     .executeUpdate();
         }
     }
+    public static void publishArticle(Article a){
+        try(Connection con = DbUtils.getConnection()){
+            final String query ="UPDATE articles SET statusid = :statusid, publish_date = :publish_date WHERE articleid = :articleid";
+            con.createQuery(query)
+                    .addParameter("articleid", a.getArticleID())
+                    .addParameter("statusid", a.getStatusID())
+                    .executeUpdate();
+        }
+    }
 }
