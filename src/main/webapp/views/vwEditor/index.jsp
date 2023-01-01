@@ -67,7 +67,12 @@
                                         </p>
                                     </td>
                                     <td class="py-4 px-6">
+
                                         <div class="flex gap-x-1 w-fit items-center">
+                                            <form method="post" action="${pageContext.request.contextPath}/Staff/Editor/UpdateStatus">
+                                                <input name="articleid" type="hidden" value=${a.articleID} />
+                                                <input name="statusid" type="hidden" value="3" />
+
                                             <button
                                                     type="submit"
                                                     class="rounded-full p-2 hover:bg-gray-200"
@@ -87,6 +92,12 @@
                                                     />
                                                 </svg>
                                             </button>
+                                            </form>
+
+                                                    <form method="post" action="${pageContext.request.contextPath}/Staff/Editor/UpdateStatus">
+                                                    <input name="articleid" type="hidden" value=${a.articleID} />
+                                                    <input name="statusid" type="hidden" value="2" />
+
                                             <button
                                                     type="submit"
                                                     class="rounded-full p-2 hover:bg-gray-200"
@@ -106,6 +117,8 @@
                                                     />
                                                 </svg>
                                             </button>
+                                                    </form>
+
                                         </div>
                                     </td>
                                     <td class="py-4 px-6">
