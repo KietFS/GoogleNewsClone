@@ -84,6 +84,15 @@ public class AdminServlet extends HttpServlet {
                 case "/DeleteTag":
                     deleteTag(request, response);
                     break;
+                case "/AddCategory":
+                    addCategory(request, response);
+                    break;
+                case "/EditCategory":
+                    editCategory(request, response);
+                    break;
+                case "/DeleteCategory":
+                    deleteCategory(request, response);
+                    break;
                 default:
                     ServletUtils.forward("/views/404.jsp", request, response);
                     break;
@@ -142,5 +151,30 @@ public class AdminServlet extends HttpServlet {
         int tagid = Integer.parseInt(request.getParameter("tagid"));
         TagService.delete(tagid);
         ServletUtils.redirect("/Staff/Admin/Tag", request, response);
+    }
+    private static void addCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int pcatid = Integer.parseInt(request.getParameter("pcatid"));
+        String catname = request.getParameter("catname");
+
+        Category c = new Category(catname, pcatid);
+        CategoryService.add(c);
+
+        ServletUtils.redirect("/Staff/Admin/Category", request, response);
+    }
+    private static void editCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int catid = Integer.parseInt(request.getParameter("catid"));
+        int pcatid = Integer.parseInt(request.getParameter("pcatid"));
+        String catname = request.getParameter("catname");
+
+        CategoryService.update(catid, pcatid, catname);
+
+        ServletUtils.redirect("/Staff/Admin/Category", request, response);
+    }
+    private static void deleteCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int catid = Integer.parseInt(request.getParameter("catid"));
+
+        CategoryService.delete(catid);
+
+        ServletUtils.redirect("/Staff/Admin/Category", request, response);
     }
 }

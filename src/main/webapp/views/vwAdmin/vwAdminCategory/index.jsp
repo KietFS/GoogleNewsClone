@@ -27,18 +27,18 @@
                 <h1 class="text-gray-600 text-3xl font-bold w-fit">
                     Quản lý danh mục
                 </h1>
-                <form class="flex gap-x-2 items-center">
+                <form class="flex gap-x-2 items-center" method="post" action="${pageContext.request.contextPath}/Staff/Admin/AddCategory">
                     <div>
                         <input
                                 type="text"
-                                id="first_name"
+                                name="catname"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm w-[300px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Tên danh mục"
                                 required
                         />
                     </div>
                     <select
-                            id="parentId"
+                            name="pcatid"
                             class="bg-gray-50 w-[200px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     >
 
@@ -49,7 +49,7 @@
                     </select>
 
                     <button
-                            type="button"
+                            type="submit"
                             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                     >
                         Thêm danh mục
@@ -70,7 +70,7 @@
                         <th scope="col" class="py-3 px-6">ID</th>
 
                         <th scope="col" class="py-3 px-6">Tên danh mục</th>
-                        <th scope="lol" class="py-3 px-6">Danh mục cha</th>
+                        <th scope="col" class="py-3 px-6">Danh mục cha</th>
                         <th scope="col" class="py-3 px-6 flex">Hành động</th>
                     </tr>
                     </thead>
@@ -88,14 +88,21 @@
                             ${c.catID}
                         </th>
                         <td class="py-4 px-6">
+                            <form
+                                    method="post"
+                                    action="${pageContext.request.contextPath}/Staff/Admin/EditCategory"
+                                    class="flex gap-x-2"
+                            >
                             <input
                                     class="truncate text-gray-500 text-sm w-[450px] px-2 py-2 border border-gray-200 bg-gray-100 rounded-lg"
+                                    name="catname"
                                     value="${c.catName}"
                             />
                         </td>
                         <td class="py-4 px-6">
                             <select
                                     id="countries"
+                                    name="pcatid"
                                     class="bg-gray-50 w-[350px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             >
                                 <c:forEach items="${allParentCategories}" var="p">
@@ -104,18 +111,10 @@
 
                             </select>
                         </td>
-
                         <td class="py-4 px-6 flex gap-x-2 items-center">
-                            <form
-                                    method="post"
-                                    action="${pageContext.request.contextPath}/Staff/Admin/DeleteUser"
-                                    class="flex gap-x-2"
-                            >
+                            <input type="hidden" name="catid" value=${c.catID}  />
                                 <button
                                         type="submit"
-                                        id="id"
-                                        name="id"
-                                        value="thayidvaoday"
                                         class="font-medium text-blue-600 dark:text-blue-500 hover:underline p-2 rounded-full items-center justify-center hover:bg-gray-200"
                                 >
                                     <svg
@@ -136,14 +135,13 @@
                             </form>
                             <form
                                     method="post"
-                                    action="${pageContext.request.contextPath}/Staff/Admin/DeleteUser"
+                                    action="${pageContext.request.contextPath}/Staff/Admin/DeleteCategory"
                                     class="flex gap-x-2"
                             >
                                 <button
                                         type="submit"
-                                        id="id"
-                                        name="id"
-                                        value="thayidvaoday"
+                                        name="catid"
+                                        value="${c.catID}"
                                         class="font-medium text-blue-600 dark:text-blue-500 hover:underline p-2 rounded-full items-center justify-center hover:bg-gray-200"
                                 >
                                     <svg
