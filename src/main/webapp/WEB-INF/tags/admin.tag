@@ -43,9 +43,9 @@
     </style>
 </head>
 <body>
-<div class="w-screen h-fit flex">
+<div class="w-screen h-full flex">
     <jsp:include page="../../partials/sidebar.jsp"/>
-    <div class="w-4/5 bg-gray-50 h-screen">
+    <div class="w-4/5 bg-gray-50 h-fit">
         <jsp:include page="../../partials/adminHeader.jsp"/>
 
         <!-- data table here -->

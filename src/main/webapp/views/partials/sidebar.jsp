@@ -1,7 +1,7 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div
-        class="w-1/5 border-r border-gray-200 bg-white h-screen flex flex-col py-0"
+        class="w-1/5 bg-white h-full flex flex-col py-0"
 >
   <!-- list mangaments -->
   <a
