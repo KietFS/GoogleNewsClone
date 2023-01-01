@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:postgresql://ec2-3-229-161-70.compute-1.amazonaws.com:5432/d86g9mu73tide7</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="newspaper@localhost" uuid="4ee105f0-60cd-4974-8df6-0f36d67e0d37">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/newspaper</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

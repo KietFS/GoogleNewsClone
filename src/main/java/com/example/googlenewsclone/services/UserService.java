@@ -44,7 +44,7 @@ public class UserService {
     }
     public static List<User> findAllUsernameCommentinArticle(int articleid){
         try (Connection con = DbUtils.getConnection()) {
-            final String query = "select u.userid, username from comments inner join users u on u.userid = comments.userid where articleid = :articleid;";
+            final String query = "select distinct u.userid, username from comments inner join users u on u.userid = comments.userid where articleid = :articleid;";
 
             List<User> list = con.createQuery(query)
                     .addParameter("articleid", articleid)
