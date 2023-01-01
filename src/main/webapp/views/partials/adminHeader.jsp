@@ -5,7 +5,7 @@
         type="com.example.googlenewsclone.beans.User"
 />
 <div
-        class="shadow-lg p-4 flex w-full h-[70px] bg-white justify-between items-center"
+        class="p-4 flex w-full h-[94px] bg-white justify-between items-center border-b border-gray-200"
 >
     <img src="${pageContext.request.contextPath}/assets/images/Logo.png" width="160" height="40" />
     <form

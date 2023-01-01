@@ -45,7 +45,7 @@
 <body>
 <div class="w-screen h-full flex">
     <jsp:include page="../../partials/sidebar.jsp"/>
-    <div class="w-4/5 bg-gray-50 h-fit">
+    <div class="w-4/5 bg-gray-50 min-h-screen h-fit pb-10">
         <jsp:include page="../../partials/adminHeader.jsp"/>
 
         <!-- data table here -->
