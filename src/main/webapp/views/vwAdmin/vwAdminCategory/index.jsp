@@ -14,6 +14,11 @@
         scope="request"
         type="java.util.List<com.example.googlenewsclone.beans.Category>"
 />
+<jsp:useBean
+        id="allParentCategories"
+        scope="request"
+        type="java.util.List<com.example.googlenewsclone.beans.ParentCategory>"
+/>
 
 <t:admin>
     <jsp:body>
@@ -33,14 +38,14 @@
                         />
                     </div>
                     <select
-                            id="countries"
+                            id="parentId"
                             class="bg-gray-50 w-[200px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     >
-                        <option selected>Chọn danh mục cha</option>
-                        <option value="US">Chính trị</option>
-                        <option value="CA">Giáo dục</option>
-                        <option value="FR">Y tế</option>
-                        <option value="DE">Giải trí</option>
+
+                        <c:forEach items="${allParentCategories}" var="p">
+                            <option value="${p.pCatID}">${p.pCatName}</option>
+                        </c:forEach>
+
                     </select>
 
                     <button
@@ -93,11 +98,10 @@
                                     id="countries"
                                     class="bg-gray-50 w-[350px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             >
-                                <option selected>Chọn danh mục cha</option>
-                                <option value="US">Chính trị</option>
-                                <option value="CA">Giáo dục</option>
-                                <option value="FR">Y tế</option>
-                                <option value="DE">Giải trí</option>
+                                <c:forEach items="${allParentCategories}" var="p">
+                                    <option ${p.pCatID == c.pCatID ? "selected" : ""} value="${p.pCatID}">${p.pCatName}</option>
+                                </c:forEach>
+
                             </select>
                         </td>
 

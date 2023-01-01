@@ -1,11 +1,7 @@
 package com.example.googlenewsclone.controller;
 
-import com.example.googlenewsclone.beans.Article;
-import com.example.googlenewsclone.beans.Category;
-import com.example.googlenewsclone.beans.User;
-import com.example.googlenewsclone.services.ArticleService;
-import com.example.googlenewsclone.services.CategoryService;
-import com.example.googlenewsclone.services.UserService;
+import com.example.googlenewsclone.beans.*;
+import com.example.googlenewsclone.services.*;
 import com.example.googlenewsclone.utils.ServletUtils;
 
 import javax.servlet.*;
@@ -39,10 +35,14 @@ public class AdminServlet extends HttpServlet {
                     ServletUtils.forward("/views/vwAdmin/vwAdminArticle/index.jsp", request, response);
                     break;
                 case "/Tag":
+                    List<Tag> allTags = TagService.findAll();
+                    request.setAttribute("allTags", allTags);
                     ServletUtils.forward("/views/vwAdmin/vwAdminTag/index.jsp", request, response);
                     break;
                 case "/Category":
                     List <Category> allCategories = CategoryService.findAll();
+                    List <ParentCategory> allParentCategories = ParentCategoryService.findAll();
+                    request.setAttribute("allParentCategories", allParentCategories);
                     request.setAttribute("allCategories", allCategories);
                     ServletUtils.forward("/views/vwAdmin/vwAdminCategory/index.jsp", request, response);
                     break;
