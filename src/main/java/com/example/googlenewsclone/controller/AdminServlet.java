@@ -69,6 +69,12 @@ public class AdminServlet extends HttpServlet {
                 case "/DeleteUser":
                     deleteUser(request, response);
                     break;
+                case "/ChangeArticleStatus":
+                    changeArticleStatus(request, response);
+                    break;
+                case "/DeleteArticle":
+                    deleteArticle(request, response);
+                    break;
                 default:
                     ServletUtils.forward("/views/404.jsp", request, response);
                     break;
@@ -92,5 +98,21 @@ public class AdminServlet extends HttpServlet {
         UserService.delete(userid);
 
         ServletUtils.redirect("/Staff/Admin/User", request, response);
+    }
+    private static void changeArticleStatus(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int articleid = Integer.parseInt(request.getParameter("articleid"));
+        int statusid = Integer.parseInt(request.getParameter("statusid"));
+
+        Article a = new Article(articleid, statusid);
+        ArticleService.updateStatus(a);
+
+        ServletUtils.redirect("/Staff/Admin/Article", request, response);
+    }
+    private static void deleteArticle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int articleid = Integer.parseInt(request.getParameter("articleid"));
+
+        ArticleService.delete(articleid);
+
+        ServletUtils.redirect("/Staff/Admin/Article", request, response);
     }
 }

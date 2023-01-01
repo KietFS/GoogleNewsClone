@@ -9,7 +9,7 @@ import java.util.List;
 public class ArticleService {
     public static List<Article> findAll(){
         try (Connection con = DbUtils.getConnection()) {
-            final String query = "select * from articles;";
+            final String query = "select * from articles ORDER BY articleid;";
             List<Article> list = con.createQuery(query)
                     .executeAndFetch(Article.class);
             return list;
@@ -100,6 +100,23 @@ public class ArticleService {
                 return null;
             }
             return list;
+        }
+    }
+    public static void delete(int articleid){
+        try(Connection con = DbUtils.getConnection()){
+            final String query ="DELETE FROM articles WHERE articleid = :articleid;";
+            con.createQuery(query)
+                    .addParameter("articleid", articleid)
+                    .executeUpdate();
+        }
+    }
+    public static void updateStatus(Article a){
+        try(Connection con = DbUtils.getConnection()){
+            final String query ="UPDATE articles SET statusid = :statusid WHERE articleid = :articleid";
+            con.createQuery(query)
+                    .addParameter("articleid", a.getArticleID())
+                    .addParameter("statusid", a.getStatusID())
+                    .executeUpdate();
         }
     }
 }

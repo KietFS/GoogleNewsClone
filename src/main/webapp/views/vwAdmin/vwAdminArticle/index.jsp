@@ -57,35 +57,35 @@
                         <td class="py-4 px-6">${a.views}</td>
                         <td class="py-4 px-6">
                             <form
-                                    name="changeRole"
+                                    name="changeArticleStatus"
                                     method="post"
-                                    action="${pageContext.request.contextPath}/Staff/Admin/ChangeUserRole"
+                                    action="${pageContext.request.contextPath}/Staff/Admin/ChangeArticleStatus"
                             >
+                                <input type="hidden" name="articleid" id="articleid" value="${a.articleID}">
                                 <select
                                         onchange="this.form.submit()"
-                                        name="role"
-                                        id="role"
+                                        name="statusid"
+                                        id="statusid"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 >
-                                    <option value="Subcriber" ${a.statusID == 1 ? "selected" : ""}>
+                                    <option value="1" ${a.statusID == 1 ? "selected" : ""}>
                                         Chưa được duyệt
                                     </option>
-                                    <option value="Writer" ${a.statusID == 3 ? "selected" : ""}>Bị từ chối</option>
-                                    <option value="Editor" ${a.statusID == 4 ? "selected" : ""}>Đã xuất bản</option>
-                                    <option value="" ${a.statusID == 2 ? "selected" : ""}>Chờ xuất bản</option>
+                                    <option value="3" ${a.statusID == 3 ? "selected" : ""}>Bị từ chối</option>
+                                    <option value="4" ${a.statusID == 4 ? "selected" : ""}>Đã xuất bản</option>
+                                    <option value="2" ${a.statusID == 2 ? "selected" : ""}>Chờ xuất bản</option>
                                 </select>
                             </form>
                         </td>
                         <td class="py-4 px-6">
                             <form
                                     method="post"
-                                    action="${pageContext.request.contextPath}/Staff/Admin/DeleteUser"
+                                    action="${pageContext.request.contextPath}/Staff/Admin/DeleteArticle"
                             >
                                 <button
                                         type="submit"
-                                        id="id"
-                                        name="id"
-                                        value="thayidvaoday"
+                                        name="articleid"
+                                        value="${a.articleID}"
                                         class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                                 >
                                     Xóa bài viết

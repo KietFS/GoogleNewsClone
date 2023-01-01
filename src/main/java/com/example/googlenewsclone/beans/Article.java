@@ -44,6 +44,12 @@ public class Article {
         this.statusID = statusID;
         this.thumbs_img = thumbs_img;
     }
+
+    public Article(int articleid, int statusid) {
+        this.articleID = articleid;
+        this.statusID = statusid;
+    }
+
     public String getThumbs_img() {
         return thumbs_img;
     }
