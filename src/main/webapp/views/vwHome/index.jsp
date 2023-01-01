@@ -139,7 +139,8 @@
                         <div class="flex flex-col mt-5">
                             <!-- List articles right side -->
                             <c:forEach items="${topArticles}" var="tA" begin="6" end="9">
-                                <div
+                                <a href="${pageContext.request.contextPath}/Home/Article?id=${tA.articleID}">
+                                    <div
                                         class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
                                 >
                                     <div class="flex flex-col gap-y-1">
@@ -171,6 +172,7 @@
                                             class="rounded-lg h-[80px] w-[100px]"
                                     />
                                 </div>
+                                </a>
                             </c:forEach>
                         </div>
                     </div>

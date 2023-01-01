@@ -54,7 +54,7 @@
                                 <a class="text-lg text-gray-600 font-bold" href="${pageContext.request.contextPath}/Home/Article?id=${byCat.articleID}">
                                         ${byCat.title}
                                 </a>
-                                <p class="text-gray-500 text-sm">1 giờ trước</p>
+                                <p class="text-gray-500 text-sm">${byCat.publish_date}</p>
                             </div>
                             <!-- right side chua description-->
                             <p class="text-sm text-gray-500 font-regular w-full lg:w-3/5">
