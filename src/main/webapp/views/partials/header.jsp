@@ -82,7 +82,7 @@
                     class="bg-white border rounded-sm transform scale-0 group-hover:scale-100 absolute transition duration-150 ease-in-out origin-top"
             >
               <a
-                      href="${pageContext.request.contextPath}/Account/Profile?id=${authUser.userID}"
+                      href="${pageContext.request.contextPath}/Account/Profile"
               >
                 <li
                         class="rounded-sm px-3 py-1 hover:text-blue-500 text-gray-500 text-lg cursor-pointer"
@@ -190,7 +190,7 @@
                   class="bg-white border rounded-sm transform scale-0 group-hover:scale-100 absolute transition duration-150 ease-in-out origin-top"
           >
             <a
-                    href="${pageContext.request.contextPath}/Account/Profile?id=${authUser.userID}"
+                    href="${pageContext.request.contextPath}/Account/Profile"
             >
               <li
                       class="rounded-sm px-3 py-1 hover:text-blue-500 text-gray-500 text-lg cursor-pointer"

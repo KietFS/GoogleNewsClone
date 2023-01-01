@@ -42,6 +42,11 @@ public class User {
         this.email = email;
     }
 
+    public User(int userid, int roleid) {
+        this.userID = userid;
+        this.roleID = roleid;
+    }
+
     public int getUserID() {
         return userID;
     }

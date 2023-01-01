@@ -1,9 +1,9 @@
 package com.example.googlenewsclone.services;
 
-import com.example.googlenewsclone.beans.Comment;
 import com.example.googlenewsclone.beans.User;
 import com.example.googlenewsclone.utils.DbUtils;
 import org.sql2o.Connection;
+
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public class UserService {
     }
     public static User findByUsername (String username){
         try (Connection con = DbUtils.getConnection()) {
-            final String query = "select userid, username, password, roleID from users where username = :username;";
+            final String query = "select * from users where username = :username;";
 
             List<User> list = con.createQuery(query)
                     .addParameter("username", username)
@@ -80,6 +80,23 @@ public class UserService {
                     .addParameter("dob", u.getDob())
                     .addParameter("email", u.getEmail())
                     .addParameter("userid", u.getUserID())
+                    .executeUpdate();
+        }
+    }
+    public static void updateRole(User u){
+        try(Connection con =DbUtils.getConnection()){
+            final String query = "UPDATE users SET roleid = :roleid WHERE userid = :userid;";
+            con.createQuery(query)
+                    .addParameter("userid", u.getUserID())
+                    .addParameter("roleid", u.getRoleID())
+                    .executeUpdate();
+        }
+    }
+    public static void delete(int id) {
+        try (Connection con = DbUtils.getConnection()) {
+            final String query = "DELETE FROM users WHERE userid = :userid";
+            con.createQuery(query)
+                    .addParameter("userid", id)
                     .executeUpdate();
         }
     }

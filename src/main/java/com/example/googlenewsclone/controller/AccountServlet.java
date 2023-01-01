@@ -9,7 +9,6 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Date;
 import java.time.LocalDate;
 
@@ -38,14 +37,8 @@ public class AccountServlet extends HttpServlet {
                 if(!((boolean) session.getAttribute("auth"))){
                     ServletUtils.redirect("/Account/Login", request, response);
                 } else {
-                    int id = 0;
-                    try{
-                        id = Integer.parseInt(request.getParameter("id"));
-                    }catch (NumberFormatException e){
-
-                    }
-                    User user = UserService.findByID(id);
-                    request.setAttribute("profileUser", user);
+                    User user = ((User) session.getAttribute("authUser"));
+                    request.setAttribute("authUser", user);
                     ServletUtils.forward("/views/vwAccount/profile.jsp", request, response);
                 }
                 break;

@@ -1,7 +1,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <jsp:useBean
-        id="profileUser"
+        id="authUser"
         scope="request"
         type="com.example.googlenewsclone.beans.User"/>
 
@@ -22,7 +22,7 @@
                 <form action="${pageContext.request.contextPath}/Account/Update" method="post">
                     <div class="flex flex-col gap-y-1">
                         <p class="text-gray-600 font-bold ml-2">Tên</p>
-                        <input hidden type="text" id="userid" name="userid" value="${profileUser.userID}">
+                        <input hidden type="text" id="userid" name="userid" value="${authUser.userID}">
                         <input
                                 type="text"
                                 id="firstname"
@@ -31,7 +31,7 @@
                                 autofocus
                                 required
                                 class="w-full border-gray-200 border px-4 py-2 bg-gray-100 rounded-full"
-                                value="${profileUser.firstName}"
+                                value="${authUser.firstName}"
                         />
                     </div>
                     <div class="flex flex-col gap-y-1">
@@ -43,7 +43,7 @@
                                 placeholder="họ của bạn"
                                 required
                                 class="w-full border-gray-200 border px-4 py-2 bg-gray-100 rounded-full"
-                                value="${profileUser.lastName}"
+                                value="${authUser.lastName}"
                         />
                     </div>
                     <div class="flex flex-col gap-y-1">
@@ -55,7 +55,7 @@
                                 placeholder="họ của bạn"
                                 required
                                 class="w-full border-gray-200 border px-4 py-2 bg-gray-100 rounded-full"
-                                value="${profileUser.dob}"
+                                value="${authUser.dob}"
                         />
                     </div>
                     <!-- input email -->
@@ -68,7 +68,7 @@
                                 placeholder="Email của bạn"
                                 required
                                 class="w-full border-gray-200 border px-4 py-2 bg-gray-100 rounded-full"
-                                value="${profileUser.email}"
+                                value="${authUser.email}"
                         />
                     </div>
                     <button
