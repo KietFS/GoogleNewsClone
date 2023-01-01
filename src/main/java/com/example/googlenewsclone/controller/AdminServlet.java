@@ -37,12 +37,15 @@ public class AdminServlet extends HttpServlet {
                     List<Article> allArticles = ArticleService.findAll();
                     request.setAttribute("allArticles", allArticles );
                     ServletUtils.forward("/views/vwAdmin/vwAdminArticle/index.jsp", request, response);
+                    break;
                 case "/Tag":
                     ServletUtils.forward("/views/vwAdmin/vwAdminTag/index.jsp", request, response);
+                    break;
                 case "/Category":
                     List <Category> allCategories = CategoryService.findAll();
                     request.setAttribute("allCategories", allCategories);
                     ServletUtils.forward("/views/vwAdmin/vwAdminCategory/index.jsp", request, response);
+                    break;
                 default:
                     ServletUtils.forward("/views/404.jsp", request, response);
                     break;
