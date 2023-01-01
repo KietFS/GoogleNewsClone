@@ -20,11 +20,12 @@
         <div class="mt-10">
             <div class="flex w-full justify-between items-center px-4">
                 <h1 class="text-gray-600 text-3xl font-bold w-fit">Quản lý tags</h1>
-                <form class="flex gap-x-2 items-center">
+                <form class="flex gap-x-2 items-center" method="post" action="${pageContext.request.contextPath}/Staff/Admin/AddTag">
                     <div>
                         <input
                                 type="text"
-                                id="first_name"
+                                id="tagname"
+                                name="tagname"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm w-[300px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Tên tags"
                                 required
@@ -69,23 +70,24 @@
                                 ${t.tagID}
                         </th>
                         <td class="py-4 px-6">
+                            <form
+                                    method="post"
+                                    action="${pageContext.request.contextPath}/Staff/Admin/UpdateTag"
+                                    class="flex gap-x-2"
+                            >
                             <input
+                                    name="tagname"
                                     class="truncate text-gray-500 text-sm w-[800px] px-2 py-2 border border-gray-200 bg-gray-100 rounded-lg"
                                     value=${t.tagName}
+
                             />
                         </td>
 
                         <td class="py-4 px-6 flex gap-x-2 items-center">
-                            <form
-                                    method="post"
-                                    action="${pageContext.request.contextPath}/Staff/Admin/DeleteUser"
-                                    class="flex gap-x-2"
-                            >
+
+                                <input type="hidden" name="tagid" value=${t.tagID}>
                                 <button
                                         type="submit"
-                                        id="id"
-                                        name="id"
-                                        value="thayidvaoday"
                                         class="font-medium text-blue-600 dark:text-blue-500 hover:underline p-2 rounded-full items-center justify-center hover:bg-gray-200"
                                 >
                                     <svg
@@ -106,14 +108,12 @@
                             </form>
                             <form
                                     method="post"
-                                    action="${pageContext.request.contextPath}/Staff/Admin/DeleteUser"
+                                    action="${pageContext.request.contextPath}/Staff/Admin/DeleteTag"
                                     class="flex gap-x-2"
                             >
+                                <input type="hidden" name="tagid" value=${t.tagID} />
                                 <button
                                         type="submit"
-                                        id="id"
-                                        name="id"
-                                        value="thayidvaoday"
                                         class="font-medium text-blue-600 dark:text-blue-500 hover:underline p-2 rounded-full items-center justify-center hover:bg-gray-200"
                                 >
                                     <svg

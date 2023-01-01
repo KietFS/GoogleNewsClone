@@ -9,7 +9,7 @@ import java.util.List;
 public class TagService {
     public static List<Tag> findAll(){
         try (Connection con = DbUtils.getConnection()) {
-            final String query = "select * from tags;";
+            final String query = "select * from tags order by tagid;";
 
             return con.createQuery(query)
                     .executeAndFetch(Tag.class);
@@ -31,6 +31,37 @@ public class TagService {
             return con.createQuery(query)
                     .addParameter("tagid", tagid)
                     .executeAndFetchFirst(Tag.class);
+        }
+    }
+
+    public static void add (String tagname){
+        try (Connection con = DbUtils.getConnection()) {
+            final String query = "INSERT INTO tags(tagname) VALUES (:tagname);";
+
+             con.createQuery(query)
+                    .addParameter("tagname", tagname)
+                    .executeUpdate();
+        }
+    }
+
+    public static void update (String tagname, int tagid){
+        try (Connection con = DbUtils.getConnection()) {
+            final String query = "UPDATE tags SET tagname = :tagname where tagid = :tagid ";
+
+            con.createQuery(query)
+                    .addParameter("tagname", tagname)
+                    .addParameter("tagid", tagid)
+                    .executeUpdate();
+        }
+    }
+
+    public static void delete (int tagid){
+        try (Connection con = DbUtils.getConnection()) {
+            final String query = "DELETE from tags WHERE tagid = :tagid ";
+
+            con.createQuery(query)
+                    .addParameter("tagid", tagid)
+                    .executeUpdate();
         }
     }
 }

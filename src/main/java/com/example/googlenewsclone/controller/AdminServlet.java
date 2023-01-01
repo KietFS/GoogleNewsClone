@@ -75,6 +75,15 @@ public class AdminServlet extends HttpServlet {
                 case "/DeleteArticle":
                     deleteArticle(request, response);
                     break;
+                case "/AddTag":
+                    addTag(request, response);
+                    break;
+                case "/UpdateTag":
+                    updateTag(request, response);
+                    break;
+                case "/DeleteTag":
+                    deleteTag(request, response);
+                    break;
                 default:
                     ServletUtils.forward("/views/404.jsp", request, response);
                     break;
@@ -114,5 +123,24 @@ public class AdminServlet extends HttpServlet {
         ArticleService.delete(articleid);
 
         ServletUtils.redirect("/Staff/Admin/Article", request, response);
+    }
+
+    private static void addTag(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String tagname = request.getParameter("tagname");
+        TagService.add(tagname);
+        ServletUtils.redirect("/Staff/Admin/Tag", request, response);
+    }
+
+    private static void updateTag(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String tagname = request.getParameter("tagname");
+        int tagid = Integer.parseInt(request.getParameter("tagid"));
+        TagService.update(tagname, tagid);
+        ServletUtils.redirect("/Staff/Admin/Tag", request, response);
+    }
+
+    private static void deleteTag(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int tagid = Integer.parseInt(request.getParameter("tagid"));
+        TagService.delete(tagid);
+        ServletUtils.redirect("/Staff/Admin/Tag", request, response);
     }
 }
