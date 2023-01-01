@@ -36,6 +36,7 @@
                         <th scope="col" class="py-3 px-6">Lượt xem</th>
                         <th scope="col" class="py-3 px-6">Trạng thái</th>
                         <th scope="col" class="py-3 px-6">Hành động</th>
+                        <th scope="col" class="py-3 px-3">Xem</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -92,6 +93,15 @@
                                 </button>
                             </form>
                         </td>
+                        <td class="py-4 px-6">
+                            <a href="${pageContext.request.contextPath}/Home/Article?id=${a.articleID}">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="gray" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+                                </svg>
+
+                            </a>
+                        </td>
+
                     </tr>
                     </c:forEach>
                     </tbody>
