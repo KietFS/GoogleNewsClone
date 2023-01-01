@@ -125,6 +125,7 @@ public class ArticleService {
             con.createQuery(query)
                     .addParameter("articleid", a.getArticleID())
                     .addParameter("statusid", a.getStatusID())
+                    .addParameter("publish_date", a.getPublish_date())
                     .executeUpdate();
         }
     }
