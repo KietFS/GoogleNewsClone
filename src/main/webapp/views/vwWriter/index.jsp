@@ -1,16 +1,14 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: TUF
-  Date: 12/30/2022
-  Time: 11:02 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:useBean
+        id="articles"
+        scope="request"
+        type="java.util.List<com.example.googlenewsclone.beans.Article>"
+/>
 
-</body>
-</html>
+<t:writer>
+    <jsp:body>
+        <h1>Allo Alo</h1>
+    </jsp:body>
+</t:writer>
