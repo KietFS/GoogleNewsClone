@@ -8,6 +8,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "AdminServlet", value = "/Staff/Admin/*")
 public class AdminServlet extends HttpServlet {
@@ -23,6 +24,10 @@ public class AdminServlet extends HttpServlet {
             }
             switch (path){
                 case "/User":
+                    //Lay tat ca user
+                    List<User> allUsers = UserService.findAll();
+                    request.setAttribute("allUsers", allUsers);
+
                     ServletUtils.forward("/views/vwAdmin/vwAdminUser/index.jsp", request, response);
                     break;
                 case "/Article":
