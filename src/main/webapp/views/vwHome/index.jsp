@@ -47,22 +47,22 @@
                         <!-- Big left articles -->
                         <c:forEach items="${topArticles}" var="tA" begin="0" end="1">
                             <div
-                                    class="px-2 py-8 border-t border-b-1 border-gray-200 w-full h-[320px] flex items-center gap-x-5"
+                                    class="px-2 py-8 border-t border-b-1 border-gray-200 w-full h-[320px] flex gap-x-5"
                             >
                                 <!-- Main articles -->
                                 <div class="w-2/5 flex flex-col gap-y-2">
                                     <img
                                             src="${tA.thumbs_img}"
-                                            width="250"
-                                            height="200"
-                                            class="rounded-lg"
+                                            width="400"
+                                            height="300"
+                                            class="rounded-lg w-full"
                                     />
                                     <a href="${pageContext.request.contextPath}/Home/Article?id=${tA.articleID}"
                                        class="text-sm md:text-lg lg:text-xl hover:underline text-gray-500 font-semibold cursor-pointer"
                                     >
                                             ${tA.title}
                                     </a>
-                                    <div class="flex justify-between items-center w-full">
+                                    <div class="flex justify-between items-center w-2/3">
                                         <p class="text-gray-500 mt-1 text-sm">${tA.publish_date}</p>
                                         <c:choose>
                                             <c:when test="${tA.premium}">
@@ -82,33 +82,8 @@
                                     </p>
                                 </div>
                                 <!-- List articles -->
-                                <div class="flex flex-col gap-y-4">
-                                    <c:forEach items="${topArticles}" var="tA" begin="2" end="4">
-                                        <div class="flex flex-col gap-y-1">
-                                            <c:choose>
-                                                <c:when test="${tA.premium}">
-                                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                                        Premium
-                                                    </p>
-                                                </c:when>
-                                                <c:otherwise>
-                                                    <p class="bg-gray-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                                        Guest
-                                                    </p>
-                                                </c:otherwise>
-                                            </c:choose>
-                                            <p
-                                                    class="text-gray-600 text-xs lg:text-sm hover:underline font-semibold cursor-pointer"
-                                            >
-                                                    ${tA.title}
-                                            </p>
-                                            <p
-                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                            >
-                                                    ${tA.publish_date}
-                                            </p>
-                                        </div>
-                                    </c:forEach>
+                                <div class="flex flex-col w-3/5 gap-y-4">
+                                    <p class="text-gray-600 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis ex autem corporis consectetur laudantium molestias corrupti, quidem adipisci. Dicta distinctio sunt deleniti obcaecati porro aut libero iusto alias similique doloribus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae provident, sint numquam dolor minima adipisci maiores aspernatur delectus? Molestiae officia omnis quia consequuntur deleniti maiores ipsa cupiditate asperiores alias nulla.</p>
                                 </div>
                             </div>
                         </c:forEach>
@@ -141,37 +116,37 @@
                             <c:forEach items="${topArticles}" var="tA" begin="6" end="9">
                                 <a href="${pageContext.request.contextPath}/Home/Article?id=${tA.articleID}">
                                     <div
-                                        class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
-                                >
-                                    <div class="flex flex-col gap-y-1">
-                                        <c:choose>
-                                            <c:when test="${tA.premium}">
-                                                <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                                    Premium
-                                                </p>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <p class="bg-gray-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
-                                                    Guest
-                                                </p>
-                                            </c:otherwise>
-                                        </c:choose>
-                                        <p
-                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer font-semibold"
-                                        >
-                                                ${tA.title}
-                                        </p>
-                                        <p
-                                                class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
-                                        >
-                                                ${tA.publish_date}
-                                        </p>
+                                            class="flex flex-row justify-between gap-x-4 h-fit border-t border-gray-100 py-4"
+                                    >
+                                        <div class="flex flex-col gap-y-1">
+                                            <c:choose>
+                                                <c:when test="${tA.premium}">
+                                                    <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                        Premium
+                                                    </p>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <p class="bg-gray-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
+                                                        Guest
+                                                    </p>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            <p
+                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer font-semibold"
+                                            >
+                                                    ${tA.title}
+                                            </p>
+                                            <p
+                                                    class="text-gray-600 text-xs lg:text-sm hover:underline cursor-pointer"
+                                            >
+                                                    ${tA.publish_date}
+                                            </p>
+                                        </div>
+                                        <img
+                                                src="${tA.thumbs_img}"
+                                                class="rounded-lg h-[80px] w-[100px]"
+                                        />
                                     </div>
-                                    <img
-                                            src="${tA.thumbs_img}"
-                                            class="rounded-lg h-[80px] w-[100px]"
-                                    />
-                                </div>
                                 </a>
                             </c:forEach>
                         </div>
