@@ -22,7 +22,7 @@ public class EditorServlet extends HttpServlet {
         if (perm == 3) {
             String path = request.getPathInfo();
             if (path == null || path.equals("/")) {
-                path = "/Index";
+                path = "/Article";
             }
             switch (path) {
                 case "/Article":
