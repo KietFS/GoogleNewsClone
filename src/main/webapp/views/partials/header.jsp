@@ -90,6 +90,18 @@
                   Thông tin cá nhân
                 </li>
               </a>
+              <c:if test="${authUser.roleID == 4}">
+                <a
+                        href="${pageContext.request.contextPath}/Staff/Admin"
+                >
+                  <li
+                          class="rounded-sm px-3 py-1 hover:text-blue-500 text-gray-500 text-lg cursor-pointer"
+                  >
+                    Quản lý
+                  </li>
+
+                </a>
+              </c:if>
               <a href="javascript: $('#frmLogout').submit()">
                 <li
                         class="rounded-sm px-3 py-1 hover:text-blue-500 text-gray-500 text-lg cursor-pointer"
