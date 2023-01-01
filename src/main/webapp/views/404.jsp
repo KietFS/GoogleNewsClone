@@ -26,7 +26,7 @@
     Vui lòng liên hệ quản trị viên để tìm hiểu thêm
     </p>
     <a
-            href="/Home"
+            href="${pageContext.request.contextPath}/Home"
             class="px-4 py-2 text-sm text-blue-900 font-bold hover:opacity-50 mt-2 bg-blue-100 rounded-full"
     >
         Quay về trang chủ
