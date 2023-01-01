@@ -24,6 +24,9 @@ public class HomeServlet extends HttpServlet {
         }
         switch (path) {
             case "/Index":
+                //Tìm tất cả chuyên mục
+                List<Category> categories = CategoryService.findAll();
+                request.setAttribute("categories", categories);
 
                 //Tìm top 9 bài viết có nhiều lượt views cao nhất
                 List<Article> topViews = ArticleService.sortbyView();

@@ -6,6 +6,7 @@
 <jsp:useBean id="topArticles" scope="request" type="java.util.List<com.example.googlenewsclone.beans.Article>"/>
 <jsp:useBean id="newestArticles" scope="request" type="java.util.List<com.example.googlenewsclone.beans.Article>"/>
 <jsp:useBean id="randomArticles" scope="request" type="java.util.List<com.example.googlenewsclone.beans.Article>"/>
+<jsp:useBean id="categories" scope="request" type="java.util.List<com.example.googlenewsclone.beans.Category>"/>
 
 <script src="https://cdn.tailwindcss.com"></script>
 
@@ -77,13 +78,19 @@
                                             </c:otherwise>
                                         </c:choose>
                                     </div>
-                                    <p class="text-sm text-red-500 font-bold">
-                                        Chính trị
-                                    </p>
+                                    <c:forEach items="${categories}" var="c">
+                                        <c:if test="${c.catID == tA.catID}">
+                                            <p class="text-sm text-red-500 font-bold">
+                                                    ${c.catName}
+                                            </p>
+                                        </c:if>
+                                    </c:forEach>
                                 </div>
                                 <!-- List articles -->
                                 <div class="flex flex-col w-3/5 gap-y-4">
-                                    <p class="text-gray-600 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis ex autem corporis consectetur laudantium molestias corrupti, quidem adipisci. Dicta distinctio sunt deleniti obcaecati porro aut libero iusto alias similique doloribus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae provident, sint numquam dolor minima adipisci maiores aspernatur delectus? Molestiae officia omnis quia consequuntur deleniti maiores ipsa cupiditate asperiores alias nulla.</p>
+                                    <p class="text-gray-600 text-sm">
+                                        ${tA.subContent}
+                                    </p>
                                 </div>
                             </div>
                         </c:forEach>
