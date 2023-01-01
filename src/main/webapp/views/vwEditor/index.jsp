@@ -122,7 +122,7 @@
                                         </div>
                                     </td>
                                     <td class="py-4 px-6">
-                                        <a href="${pageContext.request.contextPath}/Home/Aricle?id=${a.articleID}" class="rounded-full p-2 hover:bg-gray-200">
+                                        <a href="${pageContext.request.contextPath}/Home/Article?id=${a.articleID}" class="rounded-full p-2 hover:bg-gray-200">
                                             <svg
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     fill="none"
