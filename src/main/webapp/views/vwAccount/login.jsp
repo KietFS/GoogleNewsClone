@@ -71,7 +71,7 @@
       </button>
       <!-- submit button -->
 
-        <a href="${pageContext.request.contextPath}/Home/Register" class="bg-blue-50 text-blue-900 font-bold rounded-full py-2 w-[300px] text-center hover:opacity-50">
+        <a href="${pageContext.request.contextPath}/Account/Register" class="bg-blue-50 text-blue-900 font-bold rounded-full py-2 w-[300px] text-center hover:opacity-50">
           <span>Tạo tài khoản</span>
         </a>
 

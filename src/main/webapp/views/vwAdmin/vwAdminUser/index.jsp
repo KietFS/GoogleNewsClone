@@ -50,6 +50,7 @@
                                         method="post"
                                         action="${pageContext.request.contextPath}/Staff/Admin/ChangeUserRole"
                                 >
+                                    <input type="hidden" name="userid" id="userid" value="${u.userID}">
                                     <select
                                             onchange="this.form.submit()"
                                             name="roleid"

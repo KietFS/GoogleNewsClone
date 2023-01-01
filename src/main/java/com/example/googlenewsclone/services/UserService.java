@@ -10,7 +10,7 @@ import java.util.List;
 public class UserService {
     public static List<User> findAll(){
         try (Connection con = DbUtils.getConnection()) {
-            final String query = "select * from users;";
+            final String query = "select * from users ORDER BY username;";
 
             return con.createQuery(query)
                     .executeAndFetch(User.class);

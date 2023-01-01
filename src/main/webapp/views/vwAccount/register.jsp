@@ -9,7 +9,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-<form id="formRegister" action="Register" method="post">
+<form id="formRegister" action="${pageContext.request.contextPath}/Account/Register" method="post">
   <div
           class="flex flex-col items-center justify-center h-screen w-screen gap-y-5"
   >

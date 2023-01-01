@@ -65,6 +65,7 @@ public class AdminServlet extends HttpServlet {
                     break;
                 case "/DeleteUser":
                     deleteUser(request, response);
+                    break;
                 default:
                     ServletUtils.forward("/views/404.jsp", request, response);
                     break;
