@@ -170,15 +170,22 @@ public class AccountServlet extends HttpServlet {
         ServletUtils.redirect(url, request, response);
     }
     private static void updateUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+
         int userid = Integer.parseInt(request.getParameter("userid"));
+        String username = ((User) session.getAttribute("authUser")).getUsername();
+
         String firstname = request.getParameter("firstname");
         String lastname = request.getParameter("lastname");
         Date dob = Date.valueOf(request.getParameter("dob"));
         String email = request.getParameter("email");
 
-        User u = new User(userid, firstname, lastname, dob, email);
+        User u = new User(userid, username, firstname, lastname, dob, email);
         UserService.update(u);
-        ServletUtils.redirect("/Account/Profile?id=" + request.getParameter("userid"), request, response);
+
+        //Cập nhật lại session với thông tin user vừa update
+        session.setAttribute("authUser", u);
+        ServletUtils.redirect("/Account/Profile", request, response);
     }
     private void forgetPassword(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {

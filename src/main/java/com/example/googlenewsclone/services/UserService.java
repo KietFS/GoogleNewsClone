@@ -91,7 +91,7 @@ public class UserService {
     }
     public static void update(User u){
         try(Connection con =DbUtils.getConnection()){
-            final String query = "UPDATE users SET  firstname = :firstname, lastname = :lastname, dob = :dob, email = :email WHERE userid = :userid;";
+            final String query = "UPDATE users SET firstname = :firstname, lastname = :lastname, dob = :dob, email = :email WHERE userid = :userid;";
             con.createQuery(query)
                     .addParameter("firstname", u.getFirstName())
                     .addParameter("lastname", u.getLastName())

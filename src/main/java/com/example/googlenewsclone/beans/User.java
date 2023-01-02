@@ -34,8 +34,9 @@ public class User {
     public User() {
     }
 
-    public User(int userID, String firstName, String lastName, Date dob, String email) {
+    public User(int userID, String username, String firstName, String lastName, Date dob, String email) {
         this.userID = userID;
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dob = dob;
