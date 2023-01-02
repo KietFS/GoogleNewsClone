@@ -107,7 +107,7 @@
         Đăng ký ngay
       </button>
       <!-- submit button -->
-      <a href="${pageContext.request.contextPath}/Home/Login"
+      <a href="${pageContext.request.contextPath}/Account/Login"
          class="bg-blue-50 text-blue-900 font-bold rounded-full py-2 w-[300px] text-center hover:opacity-50"
       >
         Chuyển sang đăng nhập

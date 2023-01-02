@@ -7,4 +7,17 @@
         <servlet-name>default</servlet-name>
         <url-pattern>/assets/*</url-pattern>
     </servlet-mapping>
+
+    <context-param>
+        <param-name>host</param-name>
+        <param-value>smtp.gmail.com</param-value>
+    </context-param>
+    <context-param>
+        <param-name>port</param-name>
+        <param-value>587</param-value>
+    </context-param>
+    <context-param>
+        <param-name>user</param-name>
+        <param-value>vipfo123@gmail.com</param-value>
+    </context-param>
 </web-app>

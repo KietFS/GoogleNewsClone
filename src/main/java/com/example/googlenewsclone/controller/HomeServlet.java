@@ -3,8 +3,11 @@ package com.example.googlenewsclone.controller;
 import com.example.googlenewsclone.beans.*;
 import com.example.googlenewsclone.services.*;
 import com.example.googlenewsclone.utils.ServletUtils;
+import net.bytebuddy.utility.RandomString;
 import org.mindrot.jbcrypt.BCrypt;
 
+import javax.mail.MessagingException;
+import javax.servlet.ServletContext;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
@@ -205,6 +208,9 @@ public class HomeServlet extends HttpServlet {
                 request.setAttribute("Tag", tag);
                 ServletUtils.forward("/views/vwHome/byTag.jsp", request, response);
                 break;
+            case "/Search":
+                ftxSearch(request, response);
+                break;
             default:
                 ServletUtils.forward("/views/404.jsp", request, response);
                 break;
@@ -223,6 +229,7 @@ public class HomeServlet extends HttpServlet {
                 break;
         }
     }
+
     private static void addComment(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String content = request.getParameter("content");
@@ -233,5 +240,17 @@ public class HomeServlet extends HttpServlet {
         CommentService.add(c);
 
         ServletUtils.redirect("/Home/Article?id=" + request.getParameter("articleid"), request, response);
+    }
+    private static void ftxSearch(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String keywords = request.getParameter("ftxsearch");
+        List<Article> articleslist = ArticleService.ftxSearch(keywords);
+        request.setAttribute("keywords", keywords);
+        request.setAttribute("ftxSearchArticles", articleslist);
+
+        List<Category> catList = CategoryService.findAll();
+        request.setAttribute("categories", catList);
+
+        ServletUtils.forward("/views/vwHome/bySearch.jsp", request, response);
     }
 }

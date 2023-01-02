@@ -1,10 +1,12 @@
 package com.example.googlenewsclone.controller;
 
 import com.example.googlenewsclone.beans.User;
+import com.example.googlenewsclone.services.EmailService;
 import com.example.googlenewsclone.services.UserService;
 import com.example.googlenewsclone.utils.ServletUtils;
 import org.mindrot.jbcrypt.BCrypt;
 
+import javax.mail.MessagingException;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -14,6 +16,18 @@ import java.time.LocalDate;
 
 @WebServlet(name = "AccountServlet", value = "/Account/*")
 public class AccountServlet extends HttpServlet {
+    private String host;
+    private String port;
+    private String user;
+    private String pass;
+
+    public void init() {
+        ServletContext context = getServletContext();
+        host = context.getInitParameter("host");
+        port = context.getInitParameter("port");
+        user = context.getInitParameter("user");
+        pass = System.getenv("SMTP_PASSWORD");
+    }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String path = request.getPathInfo();
@@ -31,6 +45,24 @@ public class AccountServlet extends HttpServlet {
             case "/Register":
                 ServletUtils.forward("/views/vwAccount/register.jsp", request, response);
                 break;
+            case "/ForgetPassword":
+                ServletUtils.forward("/views/vwAccount/recovery.jsp", request, response);
+                break;
+            case "/Verify":
+                String otp = request.getParameter("otp");
+                User u = UserService.findUserByOTP(otp);
+                if(u != null){
+                    //Sau khi đã verify rồi thì sẽ xóa OTP của user đó
+                    UserService.deleteOTP(u.getUserID());
+
+                    request.setAttribute("verifiedUser", u);
+                    ServletUtils.forward("/views/vwAccount/newpwd.jsp", request, response);
+                }
+                else {
+                    request.setAttribute("errVerify","Mã OTP không đúng!");
+                    ServletUtils.forward("/views/vwAccount/recovery.jsp", request, response);
+                }
+                    break;
             case "/Profile":
                 //Check xem user da login chua
                 session = request.getSession();
@@ -63,6 +95,12 @@ public class AccountServlet extends HttpServlet {
                 break;
             case "/Update":
                 updateUser(request, response);
+                break;
+            case "/ForgetPassword":
+                forgetPassword(request, response);
+                break;
+            case "/UpdatePassword":
+                updatePassword(request, response);
                 break;
             default:
                 ServletUtils.forward("/views/404.jsp", request, response);
@@ -141,5 +179,24 @@ public class AccountServlet extends HttpServlet {
         User u = new User(userid, firstname, lastname, dob, email);
         UserService.update(u);
         ServletUtils.redirect("/Account/Profile?id=" + request.getParameter("userid"), request, response);
+    }
+    private void forgetPassword(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            String email = request.getParameter("email");
+            EmailService.sendEmail(host, port, user, pass, email, "mã OTP xác thực để khôi phục mật khẩu",
+                    EmailService.recoveryEmail, new User());
+            request.setAttribute("message", "Vui lòng kiểm tra Email của bạn!");
+            ServletUtils.forward("/views/vwAccount/recovery.jsp", request, response);
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    private static void updatePassword(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int userid = Integer.parseInt(request.getParameter("userid"));
+        String password = BCrypt.hashpw(request.getParameter("password"), BCrypt.gensalt());
+        UserService.updatePassword(userid, password);
+
+        request.setAttribute("completeRecovery", "Khôi phục mật khẩu thành công! Hãy chuyển sang trang đăng nhập");
+        ServletUtils.forward("/views/vwAccount/recovery.jsp", request, response);
     }
 }

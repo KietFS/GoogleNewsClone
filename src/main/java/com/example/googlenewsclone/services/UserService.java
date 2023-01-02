@@ -55,6 +55,24 @@ public class UserService {
             return list;
         }
     }
+    public static User findUserByEmail(String email){
+        try (Connection con = DbUtils.getConnection()){
+            final String query = "select * from users where email = :email";
+
+            return con.createQuery(query)
+                    .addParameter("email", email)
+                    .executeAndFetchFirst(User.class);
+        }
+    }
+    public static User findUserByOTP(String otp){
+        try (Connection con = DbUtils.getConnection()){
+            final String query = "select * from users where otp = :otp";
+
+            return con.createQuery(query)
+                    .addParameter("otp", otp)
+                    .executeAndFetchFirst(User.class);
+        }
+    }
     public static void add(User u) {
 
         try (Connection con = DbUtils.getConnection()) {
@@ -89,6 +107,34 @@ public class UserService {
             con.createQuery(query)
                     .addParameter("userid", u.getUserID())
                     .addParameter("roleid", u.getRoleID())
+                    .executeUpdate();
+        }
+    }
+    public static void updateOTP(int id, String otp){
+        try(Connection con =DbUtils.getConnection()){
+            final String query = "UPDATE users SET otp = :otp WHERE userid = :userid;";
+            con.createQuery(query)
+                    .addParameter("userid", id)
+
+                    .addParameter("otp", otp)
+                    .executeUpdate();
+        }
+    }
+    public static void updatePassword(int id, String password){
+        try(Connection con =DbUtils.getConnection()){
+            final String query = "UPDATE users SET password = :password WHERE userid = :userid;";
+            con.createQuery(query)
+                    .addParameter("userid", id)
+
+                    .addParameter("password", password)
+                    .executeUpdate();
+        }
+    }
+    public static void deleteOTP(int id){
+        try(Connection con =DbUtils.getConnection()){
+            final String query = "UPDATE users SET otp = NULL WHERE userid = :userid;";
+            con.createQuery(query)
+                    .addParameter("userid", id)
                     .executeUpdate();
         }
     }
