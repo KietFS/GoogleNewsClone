@@ -69,8 +69,6 @@ public class AccountServlet extends HttpServlet {
                 if(!((boolean) session.getAttribute("auth"))){
                     ServletUtils.redirect("/Account/Login", request, response);
                 } else {
-                    User user = ((User) session.getAttribute("authUser"));
-                    request.setAttribute("authUser", user);
                     ServletUtils.forward("/views/vwAccount/profile.jsp", request, response);
                 }
                 break;
@@ -119,8 +117,9 @@ public class AccountServlet extends HttpServlet {
 
         User u = new User(username, password, name, issue_at, expiration, role, email);
         if(UserService.findByUsername(username) != null){
-                request.setAttribute("message", "Tên người dùng đã tồn tại, vui lòng chọn tên khác");
+                request.setAttribute("existedUser", "Tên người dùng đã tồn tại, vui lòng chọn tên khác");
             } else {
+                request.setAttribute("successfulRegistration", "Đăng ký thành công!");
                 UserService.add(u);
             }
         ServletUtils.forward("/views/vwAccount/register.jsp", request, response);
@@ -185,7 +184,8 @@ public class AccountServlet extends HttpServlet {
 
         //Cập nhật lại session với thông tin user vừa update
         session.setAttribute("authUser", u);
-        ServletUtils.redirect("/Account/Profile", request, response);
+        request.setAttribute("successfulUpdate", "Cập nhật thông tin thành công!");
+        ServletUtils.forward("/views/vwAccount/profile.jsp", request, response);
     }
     private void forgetPassword(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
@@ -203,7 +203,7 @@ public class AccountServlet extends HttpServlet {
         String password = BCrypt.hashpw(request.getParameter("password"), BCrypt.gensalt());
         UserService.updatePassword(userid, password);
 
-        request.setAttribute("completeRecovery", "Khôi phục mật khẩu thành công! Hãy chuyển sang trang đăng nhập");
+        request.setAttribute("completeRecovery", "Khôi phục mật khẩu thành công! Hãy quay về trang đăng nhập");
         ServletUtils.forward("/views/vwAccount/recovery.jsp", request, response);
     }
 }

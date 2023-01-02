@@ -21,7 +21,8 @@
       Trang đăng ký
     </div>
     <div class="flex flex-start w-[300px]">
-      <p class="text-red-500 font-semibold text-sm">${message}</p>
+      <p class="text-red-500 font-semibold text-sm">${existedUser}</p>
+      <p class="text-green-500 font-semibold text-sm">${successfulRegistration}</p>
     </div>
     <!-- input name -->
     <div class="flex flex-col gap-y-1">

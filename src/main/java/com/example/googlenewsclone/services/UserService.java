@@ -82,7 +82,7 @@ public class UserService {
                     .addParameter("password", u.getPassword())
                     .addParameter("first_name", u.getFirstName())
                     .addParameter("role_id", u.getRoleID())
-                    .addParameter("email", u.getUsername())
+                    .addParameter("email", u.getEmail())
                     .addParameter("expiration", u.getExpiration())
                     .addParameter("issue_at", u.getIssueAt())
                     .executeUpdate();

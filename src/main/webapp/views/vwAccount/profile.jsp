@@ -2,7 +2,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <jsp:useBean
         id="authUser"
-        scope="request"
+        scope="session"
         type="com.example.googlenewsclone.beans.User"/>
 
 <t:main>
@@ -19,6 +19,9 @@
                 <h1 class="text-gray-500 text-xl font-semibold text-center">
                     Cập nhật thông tin cá nhân của bạn
                 </h1>
+                <div class="flex flex-start w-[500px]">
+                    <p class="text-green-500 font-semibold text-sm text-right">${successfulUpdate}</p>
+                </div>
                 <form action="${pageContext.request.contextPath}/Account/Update" method="post">
                     <div class="flex flex-col gap-y-1">
                         <p class="text-gray-600 font-bold ml-2">Tên</p>
