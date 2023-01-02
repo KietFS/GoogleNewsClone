@@ -71,6 +71,6 @@ public class EditorServlet extends HttpServlet {
             ArticleService.updateStatus(a);
         }
 
-        ServletUtils.redirect("/Staff/Editor/Article", request, response);
+        ServletUtils.redirect("/Staff/Editor/Index", request, response);
     }
 }
