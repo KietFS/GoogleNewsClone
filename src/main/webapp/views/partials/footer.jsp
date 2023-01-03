@@ -17,56 +17,34 @@
                 <p
                         class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
                 >
-                    Điều khoản
+                    Lớp lập trình Website
                 </p>
                 <p
                         class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
                 >
-                    Chính sách bảo mật
+                    Học kì 1 năm 2022/2023
                 </p>
                 <p
                         class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
                 >
-                    Trần Quốc Siêu
+                    Giảng viên hướng dẫn:
                 </p>
                 <p
                         class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
                 >
-                    Võ Huỳnh anh Nhật
-                </p>
-            </div>
-            <div class="space-y-2">
-                <p
-                        class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
-                >
-                    Điều khoản
-                </p>
-                <p
-                        class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
-                >
-                    Chính sách bảo mật
-                </p>
-                <p
-                        class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
-                >
-                    Trần Quốc Siêu
-                </p>
-                <p
-                        class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
-                >
-                    Võ Huỳnh anh Nhật
+                    Thầy Ngô Ngọc Đăng Khoa
                 </p>
             </div>
             <div class="space-y-2">
                 <p
                         class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
                 >
-                    Điều khoản
+                    Võ Huỳnh Anh Nhật
                 </p>
                 <p
                         class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
                 >
-                    Chính sách bảo mật
+                    Huỳnh Ngọc Tuấn Kiệt
                 </p>
                 <p
                         class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
@@ -76,19 +54,41 @@
                 <p
                         class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
                 >
-                    Võ Huỳnh anh Nhật
+                    Phạm Viết Tiên
                 </p>
             </div>
             <div class="space-y-2">
                 <p
                         class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
                 >
-                    Điều khoản
+                    Lớp lập trình Website
                 </p>
                 <p
                         class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
                 >
-                    Chính sách bảo mật
+                    Học kì 1 năm 2022/2023
+                </p>
+                <p
+                        class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
+                >
+                    Giảng viên hướng dẫn:
+                </p>
+                <p
+                        class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
+                >
+                    Thầy Ngô Ngọc Đăng Khoa
+                </p>
+            </div>
+            <div class="space-y-2">
+                <p
+                        class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
+                >
+                    Võ Huỳnh Anh Nhật
+                </p>
+                <p
+                        class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
+                >
+                    Huỳnh Ngọc Tuấn Kiệt
                 </p>
                 <p
                         class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
@@ -98,7 +98,51 @@
                 <p
                         class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
                 >
-                    Võ Huỳnh anh Nhật
+                    Phạm Viết Tiên
+                </p>
+            </div>
+            <div class="space-y-2">
+                <p
+                        class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
+                >
+                    Lớp lập trình Website
+                </p>
+                <p
+                        class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
+                >
+                    Học kì 1 năm 2022/2023
+                </p>
+                <p
+                        class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
+                >
+                    Giảng viên hướng dẫn:
+                </p>
+                <p
+                        class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
+                >
+                    Thầy Ngô Ngọc Đăng Khoa
+                </p>
+            </div>
+            <div class="space-y-2">
+                <p
+                        class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
+                >
+                    Võ Huỳnh Anh Nhật
+                </p>
+                <p
+                        class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
+                >
+                    Huỳnh Ngọc Tuấn Kiệt
+                </p>
+                <p
+                        class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
+                >
+                    Trần Quốc Siêu
+                </p>
+                <p
+                        class="text-sm text-gray-400 font-normal text-left hover:text-gray-700 cursor-pointer"
+                >
+                    Phạm Viết Tiên
                 </p>
             </div>
         </div>
