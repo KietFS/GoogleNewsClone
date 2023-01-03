@@ -74,12 +74,17 @@
                                 value="${authUser.email}"
                         />
                     </div>
+<%--                    <button--%>
+<%--                            type="submit"--%>
+<%--                            class="bg-blue-500 text-white py-2 rounded-full font-bold mt-4 hover:opacity-50"--%>
+<%--                    >--%>
+<%--                        Thay đổi--%>
+<%--                    </button>--%>
                     <button
                             type="submit"
-                            class="bg-blue-500 text-white py-2 rounded-full font-bold mt-4 hover:opacity-50"
+                            class="bg-blue-500 text-white font-bold rounded-full py-2 w-[367px] text-center mt-4 hover:opacity-50"
                     >
                         Thay đổi
-                    </button>
                 </form>
             </div>
         </div>

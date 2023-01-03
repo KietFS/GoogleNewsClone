@@ -231,6 +231,7 @@ public class HomeServlet extends HttpServlet {
     }
 
     private static void addComment(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
 
         String content = request.getParameter("content");
         Date date = Date.valueOf(LocalDate.now());

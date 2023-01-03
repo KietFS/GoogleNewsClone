@@ -54,6 +54,11 @@
     </div>
     <!-- button section -->
     <div class="flex flex-col gap-y-4">
+      <a
+              href="${pageContext.request.contextPath}/Account/ForgetPassword"
+              class="text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out text-center"
+      >Quên mật khẩu?</a
+      >
       <!-- login button -->
 
       <button

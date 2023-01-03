@@ -139,7 +139,7 @@
                                     <p class="text-black-500 text-sm">
                                             ${com.date}
                                     </p>
-                                    <p class="text-gray-600 text-sm">
+                                    <p class="text-gray-600 text-lg">
                                             ${com.content}
                                     </p>
                                 </div>
