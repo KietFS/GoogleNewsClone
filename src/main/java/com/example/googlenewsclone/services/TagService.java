@@ -9,7 +9,7 @@ import java.util.List;
 public class TagService {
     public static List<Tag> findAll(){
         try (Connection con = DbUtils.getConnection()) {
-            final String query = "select * from tags order by tagid;";
+            final String query = "select  * from tags order by tagid;";
 
             return con.createQuery(query)
                     .executeAndFetch(Tag.class);

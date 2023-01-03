@@ -174,6 +174,19 @@ public class ArticleService {
                     .executeUpdate();
         }
     }
+
+    public static void update(int articleid, String title, String subcontent,  String content, String thumbs_img){
+        try(Connection con = DbUtils.getConnection()){
+            final String query ="UPDATE articles SET title = :title, content = :content, subcontent = :subcontent, thumbs_img = :thumbs_img WHERE articleid = :id;";
+            con.createQuery(query)
+                    .addParameter("id", articleid)
+                    .addParameter("title", title)
+                    .addParameter("content", content)
+                    .addParameter("thumbs_img", thumbs_img)
+                    .addParameter("subcontent", subcontent)
+                    .executeUpdate();
+        }
+    }
     public static void updateStatus(Article a){
         try(Connection con = DbUtils.getConnection()){
             final String query ="UPDATE articles SET statusid = :statusid WHERE articleid = :articleid";

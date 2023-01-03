@@ -1,14 +1,17 @@
 package com.example.googlenewsclone.controller;
 
-import com.example.googlenewsclone.beans.Article;
-import com.example.googlenewsclone.beans.User;
+import com.example.googlenewsclone.beans.*;
 import com.example.googlenewsclone.services.ArticleService;
+import com.example.googlenewsclone.services.CategoryService;
+import com.example.googlenewsclone.services.TagHasArticleService;
+import com.example.googlenewsclone.services.TagService;
 import com.example.googlenewsclone.utils.ServletUtils;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "WriterServlet", value = "/Staff/Writer/*")
@@ -34,6 +37,24 @@ public class WriterServlet extends HttpServlet {
                     ServletUtils.forward("/views/vwWriter/add.jsp", request, response);
                     break;
                 case "/Edit":
+                    int id = 0;
+                    try{
+                        id = Integer.parseInt(request.getParameter("id"));
+                    }catch (NumberFormatException e){
+
+                    }
+                    Article article = ArticleService.findByID(id);
+                    List<Category> categories = CategoryService.findAll();
+                    List <Tag_Has_Article> tag_has_articles = TagHasArticleService.findAll(id);
+                    List <Integer> finalTagsHasArticle = new ArrayList<>();
+                    tag_has_articles.forEach(tA -> finalTagsHasArticle.add(tA.getTagID()));
+
+                    List <Tag> tags = TagService.findAll();
+                    request.setAttribute("article", article);
+                    request.setAttribute("categories", categories);
+                    request.setAttribute("tags_has_articles", finalTagsHasArticle);
+                    request.setAttribute("tags", tags);
+                    request.setCharacterEncoding("UTF-8");
                     ServletUtils.forward("/views/vwWriter/edit.jsp", request, response);
                     break;
                 default:
@@ -51,7 +72,8 @@ public class WriterServlet extends HttpServlet {
                 addArticle(request, response);
                 break;
             case "/Edit":
-//                editArticle(request, response);
+                editArticle(request, response);
+
                 break;
             default:
                 ServletUtils.forward("/views/404.jsp", request, response);
@@ -65,5 +87,18 @@ public class WriterServlet extends HttpServlet {
         request.setAttribute("content", content);
 
         ServletUtils.forward("/views/vwWriter/add.jsp", request, response);
+    }
+
+    private static void editArticle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        String id = request.getParameter("id");
+        String title = request.getParameter("title");
+        String thumbs_img = request.getParameter("thumbs_img");
+        String content = request.getParameter("content");
+        String subcontent = request.getParameter("subcontent");
+
+        ArticleService.update( Integer.parseInt(id), title, subcontent,  content, thumbs_img);
+
+        ServletUtils.redirect("/Staff/Writer/Index", request, response);
     }
 }

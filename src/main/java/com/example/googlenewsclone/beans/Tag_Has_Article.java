@@ -37,4 +37,6 @@ public class Tag_Has_Article {
         this.tagID = tagID;
         this.articleID = articleID;
     }
+
+
 }
