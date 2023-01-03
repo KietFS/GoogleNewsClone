@@ -4,7 +4,15 @@ import com.example.googlenewsclone.beans.Article;
 import com.example.googlenewsclone.utils.DbUtils;
 import org.sql2o.Connection;
 
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class ArticleService {
     public static List<Article> findAll(){
@@ -13,6 +21,53 @@ public class ArticleService {
             List<Article> list = con.createQuery(query)
                     .executeAndFetch(Article.class);
             return list;
+        }
+    }
+    public static List<Article> ftxSearch(String search){
+        try (Connection con = DbUtils.getConnection()) {
+            List<Article> result = new ArrayList<>();
+            String[] keywords = search.split(" ");
+            List<Integer> articleidList = new ArrayList<>();
+            for(String kw : keywords){
+                String finalKw = "%"+kw+"%";
+                //Sql2o
+//                final String query = "select * from articles where to_tsvector(title, subcontent, content) @@ to_tsquery(:keyword);";
+//                final String query = "select * from articles where publish_date IS NOT NULL AND (articles.title ilike :keyword or articles.subcontent or ilike :keyword or articles.content ilike :keyword);";
+
+                //PreparedStatement
+                final String query = "select * from articles where publish_date is not null and (articles.title ilike ? or articles.subcontent ilike ? or articles.content ilike ?);";
+                PreparedStatement pstmt = con.getJdbcConnection().prepareStatement(query);
+                pstmt.setString(1,finalKw);
+                pstmt.setString(2,finalKw);
+                pstmt.setString(3,finalKw);
+
+                //Sql2o
+//                List<Article> list = con.createQuery(query)
+//                        .addParameter("keyword", finalKw)
+//                        .executeAndFetch(Article.class);
+
+                //PreparedStatement
+                ResultSet rs = pstmt.executeQuery();
+
+                while(rs.next()){
+                    int articleid = rs.getInt("articleid");
+                    String title = rs.getString("title");
+                    String subcontent = rs.getString("subcontent");
+                    int catid = rs.getInt("catid");
+                    boolean premium = rs.getBoolean("premium");
+                    Date publish_date = rs.getDate("publish_date");
+                    String thumbs_img = rs.getString("thumbs_img");
+
+                    Article a = new Article(articleid, title, subcontent, catid, premium, publish_date, thumbs_img);
+                    if(!(articleidList.contains(a.getArticleID()))){
+                        articleidList.add(a.getArticleID());
+                        result.add(a);
+                    }
+                }
+            }
+            return result;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
     public static List<Article> findArticlesByWriterID(int id){

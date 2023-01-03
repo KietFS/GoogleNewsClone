@@ -45,11 +45,14 @@
                 d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
         />
       </svg>
-
-      <input
-              class="w-[100px] md:w-[200px] lg:w-[500px] h-10 ring-0 bg-gray-100"
-              placeholder="Tìm kiếm tin tức"
-      />
+      <form method="get" action="${pageContext.request.contextPath}/Home/Search">
+        <input
+                class="w-[100px] md:w-[200px] lg:w-[500px] h-10 ring-0 bg-gray-100"
+                name="ftxsearch"
+                placeholder="Tìm kiếm tin tức"
+                onsubmit="this.form.submit()"
+        />
+      </form>
     </div>
 
     <div class="hidden lg:flex justify-between items-center gap-x-2">

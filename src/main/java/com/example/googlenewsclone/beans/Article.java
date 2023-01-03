@@ -56,6 +56,16 @@ public class Article {
         this.publish_date = publish_date;
     }
 
+    public Article(int articleid, String title, String subcontent, int catid, boolean premium, Date publish_date, String thumbs_img) {
+        this.articleID = articleid;
+        this.title = title;
+        this.subContent = subcontent;
+        this.catID =catid;
+        this.premium = premium;
+        this.publish_date = publish_date;
+        this.thumbs_img = thumbs_img;
+    }
+
     public String getThumbs_img() {
         return thumbs_img;
     }

@@ -29,11 +29,13 @@ public class WriterServlet extends HttpServlet {
                     request.setAttribute("articles", writerArticle);
 
                     ServletUtils.forward("/views/vwWriter/index.jsp", request, response);
+                    break;
                 case "/Add":
                     ServletUtils.forward("/views/vwWriter/add.jsp", request, response);
                     break;
                 case "/Edit":
                     ServletUtils.forward("/views/vwWriter/edit.jsp", request, response);
+                    break;
                 default:
                     ServletUtils.forward("/views/404.jsp", request, response);
                     break;
@@ -50,6 +52,7 @@ public class WriterServlet extends HttpServlet {
                 break;
             case "/Edit":
 //                editArticle(request, response);
+                break;
             default:
                 ServletUtils.forward("/views/404.jsp", request, response);
                 break;

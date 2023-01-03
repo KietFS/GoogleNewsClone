@@ -6,7 +6,9 @@
         scope="request"
         type="java.util.List<com.example.googlenewsclone.beans.Article>"
 />
+
 <jsp:useBean id="Category" scope="request" type="com.example.googlenewsclone.beans.Category"/>
+
 <t:main>
     <jsp:body>
         <div
