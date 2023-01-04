@@ -28,6 +28,7 @@
       />
     </a>
     <!-- input search -->
+    <form method="get" action="${pageContext.request.contextPath}/Home/Search">
     <div
             class="w-[180px] md:w-[300px] lg:w-[600px] border border-gray-200 h-12 rounded-full pl-4 flex items-center bg-gray-100"
     >
@@ -45,15 +46,15 @@
                 d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
         />
       </svg>
-      <form method="get" action="${pageContext.request.contextPath}/Home/Search">
+
         <input
                 class="w-[100px] md:w-[200px] lg:w-[500px] h-10 ring-0 bg-gray-100"
                 name="ftxsearch"
                 placeholder="Tìm kiếm tin tức"
                 onsubmit="this.form.submit()"
         />
-      </form>
     </div>
+    </form>
 
     <div class="hidden lg:flex justify-between items-center gap-x-2">
       <c:choose>
