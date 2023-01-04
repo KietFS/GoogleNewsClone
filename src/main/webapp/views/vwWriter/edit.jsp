@@ -56,12 +56,14 @@
                         <div class="flex flex-col gap-y-2">
                             <p class="text-lg font-bold text-gray-500">Tóm tắt</p>
                             <textarea
-                                    class="truncate  h-fit w-full px-2 py-2 border border-gray-300 bg-white rounded-md"
-                                    name="subcontent"
 
+                                    id="tinysub"
+                                    name="subcontent"
+                                    class="border-gray-200 border rounded-lg bg-gray-100 w-full shadow-lg"
                             >
                                     ${article.subContent}
-                            </textarea>
+                            </textarea
+                            >
                         </div>
                         <div class="flex flex-col gap-y-1">
                             <p class="text-gray-600 text-lg font-bold">Danh mục</p>
@@ -124,6 +126,37 @@
             });
         </script>
         <script>
+            $("textarea#tinysub").tinymce({
+                height: 300,
+                menubar: false,
+                plugins: [
+                    "a11ychecker",
+                    "advlist",
+                    "advcode",
+                    "advtable",
+                    "autolink",
+                    "checklist",
+                    "export",
+                    "lists",
+                    "link",
+                    "image",
+                    "charmap",
+                    "preview",
+                    "anchor",
+                    "searchreplace",
+                    "visualblocks",
+                    "powerpaste",
+                    "fullscreen",
+                    "formatpainter",
+                    "insertdatetime",
+                    "media",
+                    "table",
+                    "help",
+                    "wordcount",
+                ],
+                toolbar:
+                    "undo redo | a11ycheck casechange blocks | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist checklist outdent indent | removeformat | code table help",
+            });
             $("textarea#tiny").tinymce({
                 height: 500,
                 menubar: false,

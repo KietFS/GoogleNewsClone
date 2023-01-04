@@ -34,7 +34,17 @@ public class WriterServlet extends HttpServlet {
                     ServletUtils.forward("/views/vwWriter/index.jsp", request, response);
                     break;
                 case "/Add":
-                    ServletUtils.forward("/views/vwWriter/add.jsp", request, response);
+                    session = request.getSession();
+                    if(!((boolean) session.getAttribute("auth"))){
+                        ServletUtils.redirect("/Account/Login", request, response);
+                    } else {
+                        List<Category> listcategories = CategoryService.findAll();
+                        List <Tag> listtags = TagService.findAll();
+                        request.setAttribute("categories", listcategories);
+                        request.setAttribute("tags", listtags);
+                        request.setCharacterEncoding("UTF-8");
+                        ServletUtils.forward("/views/vwWriter/add.jsp", request, response);
+                    }
                     break;
                 case "/Edit":
                     int id = 0;
@@ -81,12 +91,22 @@ public class WriterServlet extends HttpServlet {
         }
     }
     private static void addArticle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String id = request.getParameter("id");
-        String content = request.getParameter("content");
-        request.setAttribute("id", id);
-        request.setAttribute("content", content);
+        String title = request.getParameter("title");
+        String[] tags = request.getParameterValues("tags");
 
-        ServletUtils.forward("/views/vwWriter/add.jsp", request, response);
+        String subcontent = request.getParameter("subcontent");
+        String thumbs_img = request.getParameter("thumbs_img");
+        String content = request.getParameter("content");
+        int catid = Integer.parseInt(request.getParameter("catid"));
+        int writerid = Integer.parseInt(request.getParameter("writerid"));
+        ArticleService.add(title, subcontent, content, thumbs_img, catid, writerid);
+        Article  excutedArticle = ArticleService.findLast();
+        for(String id:tags){
+            System.out.println("tag id" + Integer.parseInt(id));
+            System.out.println("article id"+ excutedArticle.getArticleID());
+            TagHasArticleService.add(Integer.parseInt(id), excutedArticle.getArticleID());
+        }
+        ServletUtils.redirect("/Staff/Writer/Index", request, response);
     }
 
     private static void editArticle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -96,9 +116,7 @@ public class WriterServlet extends HttpServlet {
         String thumbs_img = request.getParameter("thumbs_img");
         String content = request.getParameter("content");
         String subcontent = request.getParameter("subcontent");
-
         ArticleService.update( Integer.parseInt(id), title, subcontent,  content, thumbs_img);
-
         ServletUtils.redirect("/Staff/Writer/Index", request, response);
     }
 }

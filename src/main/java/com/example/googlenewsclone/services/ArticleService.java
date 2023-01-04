@@ -99,6 +99,14 @@ public class ArticleService {
             return list.get(0);
         }
     }
+    public static Article findLast(){
+        try (Connection con = DbUtils.getConnection()) {
+            final String query = "select * from articles ORDER BY articleid;";
+            List<Article> list = con.createQuery(query)
+                    .executeAndFetch(Article.class);
+            return list.get(list.size() -1 );
+        }
+    }
     public static List<Article> findByCatID(int id){
         try(Connection con = DbUtils.getConnection()){
             final String query = "select * from articles where catid = :id;";
@@ -145,6 +153,23 @@ public class ArticleService {
             return list.get(0);
         }
     }
+
+    public static Article findArticleByTitleAndWritterID(int id, String title){
+        try(Connection con = DbUtils.getConnection()){
+            final String query = "select * from articles where writterid = :writterid and title = :title;";
+            List<Article> list = con.createQuery(query)
+                    .addParameter("writterid", id)
+                    .addParameter("title", title)
+                    .executeAndFetch(Article.class);
+            if(list.size() == 0){
+                return null;
+            }
+            return list.get(0);
+        }
+    }
+
+
+
     public static void plusView(int id){
         try(Connection con = DbUtils.getConnection()){
             final String query = "update articles set views=views+1 where articleid = :articleid;";
@@ -187,6 +212,22 @@ public class ArticleService {
                     .executeUpdate();
         }
     }
+
+    public static void add(String title, String subcontent,  String content, String thumbs_img, int catid, int writterid ){
+        try(Connection con = DbUtils.getConnection()){
+            final String query ="INSERT INTO articles(title, views, subcontent, content, catid, premium, writterid, statusid, publish_date, thumbs_img) VALUES (:title, 0, :subcontent, :content, :catid, false, :writterid, 1, '2023-1-4',:thumbs_img  )";
+            con.createQuery(query)
+                    .addParameter("title", title)
+                    .addParameter("content", content)
+                    .addParameter("thumbs_img", thumbs_img)
+                    .addParameter("subcontent", subcontent)
+                    .addParameter("catid", catid)
+                    .addParameter("writterid", writterid)
+                    .executeUpdate();
+
+        }
+    }
+
     public static void updateStatus(Article a){
         try(Connection con = DbUtils.getConnection()){
             final String query ="UPDATE articles SET statusid = :statusid WHERE articleid = :articleid";

@@ -17,4 +17,16 @@ public class TagHasArticleService {
                     .executeAndFetch(Tag_Has_Article.class);
         }
     }
+
+    public static void add(int tagid, int articleid){
+        try (Connection con = DbUtils.getConnection()) {
+            final String query = "INSERT INTO tags_has_articles(tagid, articleid) VALUES (:tagid, :articleid)";
+
+            con.createQuery(query)
+                    .addParameter("tagid", tagid)
+                    .addParameter("articleid", articleid)
+                    .executeUpdate();
+        }
+    }
+
 }
