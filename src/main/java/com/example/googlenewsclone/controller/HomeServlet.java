@@ -191,6 +191,10 @@ public class HomeServlet extends HttpServlet {
                 }
                 Category cat = CategoryService.findByID(catID);
                 List<Article> articleByCat = ArticleService.findByCatID(catID);
+                if(articleByCat == null){
+                    request.setAttribute("errEmpty", true);
+                    request.setAttribute("msgEmpty", "Không có dữ liệu");
+                }
                 request.setAttribute("articlesByCat", articleByCat);
                 request.setAttribute("Category", cat);
                 ServletUtils.forward("/views/vwHome/byCat.jsp", request, response);

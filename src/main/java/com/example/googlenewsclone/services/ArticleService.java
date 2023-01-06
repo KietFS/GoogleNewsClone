@@ -109,7 +109,7 @@ public class ArticleService {
     }
     public static List<Article> findByCatID(int id){
         try(Connection con = DbUtils.getConnection()){
-            final String query = "select * from articles where catid = :id;";
+            final String query = "select * from articles where catid = :id and publish_date is not null;";
             List<Article> list = con.createQuery(query)
                     .addParameter("id", id)
                     .executeAndFetch(Article.class);
