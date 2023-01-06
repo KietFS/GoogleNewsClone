@@ -85,6 +85,9 @@ public class WriterServlet extends HttpServlet {
                 editArticle(request, response);
 
                 break;
+            case "/Delete":
+                deleteArticle(request, response);
+                break;
             default:
                 ServletUtils.forward("/views/404.jsp", request, response);
                 break;
@@ -117,6 +120,12 @@ public class WriterServlet extends HttpServlet {
         String content = request.getParameter("content");
         String subcontent = request.getParameter("subcontent");
         ArticleService.update( Integer.parseInt(id), title, subcontent,  content, thumbs_img);
+        ServletUtils.redirect("/Staff/Writer/Index", request, response);
+    }
+
+    private static void deleteArticle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id = request.getParameter("id");
+        ArticleService.delete(Integer.parseInt(id));
         ServletUtils.redirect("/Staff/Writer/Index", request, response);
     }
 }
