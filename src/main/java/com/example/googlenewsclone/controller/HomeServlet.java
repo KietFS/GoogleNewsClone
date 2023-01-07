@@ -208,6 +208,10 @@ public class HomeServlet extends HttpServlet {
                 }
                 Tag tag = TagService.findByID(tagID);
                 List<Article> articleByTag = ArticleService.findByTag(tagID);
+                if(articleByTag == null){
+                    request.setAttribute("errEmpty", true);
+                    request.setAttribute("msgEmpty", "Không có dữ liệu");
+                }
                 request.setAttribute("articlesByTag", articleByTag);
                 request.setAttribute("Tag", tag);
                 ServletUtils.forward("/views/vwHome/byTag.jsp", request, response);
