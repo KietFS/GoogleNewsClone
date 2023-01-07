@@ -120,7 +120,8 @@ public class WriterServlet extends HttpServlet {
         String thumbs_img = request.getParameter("thumbs_img");
         String content = request.getParameter("content");
         String subcontent = request.getParameter("subcontent");
-        ArticleService.update( Integer.parseInt(id), title, subcontent,  content, thumbs_img);
+        Boolean premium = Boolean.valueOf(request.getParameter("premium"));
+        ArticleService.update( Integer.parseInt(id), title, subcontent,  content, thumbs_img, premium);
         ServletUtils.redirect("/Staff/Writer/Index", request, response);
     }
 

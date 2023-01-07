@@ -34,6 +34,20 @@
                 <form action="${pageContext.request.contextPath}/Staff/Writer/Edit" method="post">
                     <input type="hidden" name="id" value=${article.articleID}>
                     <div class="flex flex-col gap-y-5">
+                        <div class="flex flex-col gap-y-1">
+                            <p class="text-gray-600 text-lg font-bold">Loại bài viết</p>
+                            <select
+                                    name="premium"
+                                    required
+                                    id="premium"
+                                    class="w-full h-[50px] border border-gray-300 px-2 py-1 rounded-md"
+                            >
+                                <option ${article.premium == true ? "selected" : ""} value="${true}">Premium</option>
+                                <option ${article.premium == false ? "selected" : ""} value="${false}">Thường</option>
+
+                            </select>
+                        </div>
+
                         <div class="flex flex-col gap-y-2 w-full">
                             <p class="text-lg font-bold text-gray-500">Tiêu đề bài viết</p>
                             <input
@@ -96,6 +110,8 @@
                                 </div>
                             </form>
                         </div>
+
+
 
                         <div class="flex flex-col gap-y-2">
                             <p class="text-lg font-bold text-gray-500">Nội dung bài viết</p>
