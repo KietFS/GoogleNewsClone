@@ -24,7 +24,7 @@
     <jsp:body>
         <div>
             <div class="px-8 py-10">
-                <h1 class="text-gray-600 text-2xl font-semibold mb-10">Chỉnh sửa bài viết</h1>
+                <h1 class="text-gray-600 text-2xl font-semibold mb-10">Đăng bài viết</h1>
                 <form action="${pageContext.request.contextPath}/Staff/Writer/Add" method="post">
                     <input hidden type="text" id="writerid" name="writerid" value="${authUser.userID}">
                     <div class="flex flex-col gap-y-5">
@@ -106,7 +106,7 @@
                                 type="submit"
                                 class="text-center text-white font-bold bg-blue-500 rounded-lg text-lg py-3 hover:opacity-50"
                         >
-                            Sửa bài viết
+                            Đăng bài
                         </button>
                     </div>
                 </form>
