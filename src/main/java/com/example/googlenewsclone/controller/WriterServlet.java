@@ -94,6 +94,7 @@ public class WriterServlet extends HttpServlet {
         }
     }
     private static void addArticle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String title = request.getParameter("title");
         String[] tags = request.getParameterValues("tags");
 
