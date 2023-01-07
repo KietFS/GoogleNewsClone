@@ -28,6 +28,19 @@
                 <form action="${pageContext.request.contextPath}/Staff/Writer/Add" method="post">
                     <input hidden type="text" id="writerid" name="writerid" value="${authUser.userID}">
                     <div class="flex flex-col gap-y-5">
+                        <div class="flex flex-col gap-y-1">
+                            <p class="text-gray-600 text-lg font-bold">Loại bài viết</p>
+                            <select
+                                    name="premium"
+                                    required
+                                    id="premium"
+                                    class="w-full h-[50px] border border-gray-300 px-2 py-1 rounded-md"
+                            >
+                                <option  value="${true}">Premium</option>
+                                <option  value="${false}">Thường</option>
+
+                            </select>
+                        </div>
                         <div class="flex flex-col gap-y-2 w-full">
                             <p class="text-lg font-bold text-gray-500">Tiêu đề bài viết</p>
                             <input

@@ -103,7 +103,8 @@ public class WriterServlet extends HttpServlet {
         String content = request.getParameter("content");
         int catid = Integer.parseInt(request.getParameter("catid"));
         int writerid = Integer.parseInt(request.getParameter("writerid"));
-        ArticleService.add(title, subcontent, content, thumbs_img, catid, writerid);
+        Boolean premium = Boolean.valueOf(request.getParameter("premium"));
+        ArticleService.add(title, subcontent, content, thumbs_img, catid, writerid, premium);
         Article  excutedArticle = ArticleService.findLast();
         for(String id:tags){
             System.out.println("tag id" + Integer.parseInt(id));

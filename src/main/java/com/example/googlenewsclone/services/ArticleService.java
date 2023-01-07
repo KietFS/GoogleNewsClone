@@ -214,15 +214,16 @@ public class ArticleService {
         }
     }
 
-    public static void add(String title, String subcontent,  String content, String thumbs_img, int catid, int writterid ){
+    public static void add(String title, String subcontent,  String content, String thumbs_img, int catid, int writterid, boolean premium){
         try(Connection con = DbUtils.getConnection()){
-            final String query ="INSERT INTO articles(title, views, subcontent, content, catid, premium, writterid, statusid, publish_date, thumbs_img) VALUES (:title, 0, :subcontent, :content, :catid, false, :writterid, 1, '2023-1-4',:thumbs_img  )";
+            final String query ="INSERT INTO articles(title, views, subcontent, content, catid, premium, writterid, statusid, publish_date, thumbs_img) VALUES (:title, 0, :subcontent, :content, :catid, :premium, :writterid, 1, '2023-1-4',:thumbs_img  )";
             con.createQuery(query)
                     .addParameter("title", title)
                     .addParameter("content", content)
                     .addParameter("thumbs_img", thumbs_img)
                     .addParameter("subcontent", subcontent)
                     .addParameter("catid", catid)
+                    .addParameter("premium", premium)
                     .addParameter("writterid", writterid)
                     .executeUpdate();
 
