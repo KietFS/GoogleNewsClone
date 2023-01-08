@@ -28,10 +28,19 @@ public class WriterServlet extends HttpServlet {
             }
             switch (path){
                 case "/Index":
-                    List<Article> writerArticle = ArticleService.findArticlesByWriterID(u.getUserID());
-                    request.setAttribute("articles", writerArticle);
+                    Integer statusid = Integer.parseInt(request.getParameter("statusid"));
+                    List<Article> writerArticle;
+                    if (statusid != null){
+                        writerArticle = ArticleService.findArticlesByWriterIDAndStatus(u.getUserID(), statusid);
 
+                    } else {
+                        writerArticle = ArticleService.findArticlesByWriterIDAndStatus(u.getUserID(), 1);
+
+                    }
+                    request.setAttribute("statusid", statusid);
+                    request.setAttribute("articles", writerArticle);
                     ServletUtils.forward("/views/vwWriter/index.jsp", request, response);
+
                     break;
                 case "/Add":
                     session = request.getSession();

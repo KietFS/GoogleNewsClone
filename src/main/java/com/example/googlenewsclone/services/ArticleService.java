@@ -70,13 +70,23 @@ public class ArticleService {
             throw new RuntimeException(e);
         }
     }
-    public static List<Article> findArticlesByWriterID(int id){
+    public static List<Article> findArticlesByWriterIDAndStatus(int id, int statusid){
         try(Connection con = DbUtils.getConnection()){
-            final String query = "select * from articles where writterid = :writterid;";
-            List<Article> list = con.createQuery(query)
-                    .addParameter("writterid", id)
-                    .executeAndFetch(Article.class);
-            return list;
+            if (statusid > 0 ){
+                final String query = "select * from articles where writterid = :writterid and statusid = :statusid;";
+                List<Article> list = con.createQuery(query)
+                        .addParameter("writterid", id)
+                        .addParameter("statusid", statusid)
+                        .executeAndFetch(Article.class);
+                return list;
+            } else {
+                final String query = "select * from articles where writterid = :writterid;";
+                List<Article> list = con.createQuery(query)
+                        .addParameter("writterid", id)
+                        .executeAndFetch(Article.class);
+                return list;
+            }
+
         }
     }
     public static List<Article> findArticlesbyRandom(){

@@ -10,9 +10,37 @@
 <t:writer>
     <jsp:body>
         <div class="mt-10">
-            <h1 class="text-gray-600 text-3xl font-bold mx-4">
-                Quản lý bài viết của bạn
-            </h1>
+            <div class="flex justify-between items-center px-4 w-full">
+                <h1 class="text-gray-600 text-3xl font-bold">
+                    Quản lý bài viết của bạn
+                </h1>
+
+
+                <form
+                        name="changeArticleStatus"
+                        method="get"
+                        action="${pageContext.request.contextPath}/Staff/Writer/Index"
+                >
+                    <select
+                            onchange="this.form.submit()"
+                            name="statusid"
+                            id="statusid"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    >
+                        <option value="0" ${statusid == 0 ? "selected" : ""}>
+                           Tất cả
+                        </option>
+                        <option value="1" ${statusid == 1 ? "selected" : ""}>
+                            Đang chờ
+                        </option>
+                        <option value="3" ${statusid == 3 ? "selected" : ""}>Bị từ chối</option>
+                        <option value="4" ${statusid == 4 ? "selected" : ""}>Đã xuất bản</option>
+                        <option value="2" ${statusid == 2 ? "selected" : ""}>Chờ xuất bản</option>
+                    </select>
+                </form>
+
+            </div>
+
             <div
                     class="overflow-x-auto relative shadow-md sm:rounded-lg mx-4 my-8 border border-gray-200"
             >
