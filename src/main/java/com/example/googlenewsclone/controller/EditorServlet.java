@@ -26,8 +26,10 @@ public class EditorServlet extends HttpServlet {
             }
             switch (path) {
                 case "/Index":
-                    List<Article> allArticles = ArticleService.findAll();
+                    Integer statusid = Integer.parseInt(request.getParameter("statusid"));
+                    List<Article> allArticles = ArticleService.findAllByStatusId(statusid);
                     request.setAttribute("allArticles", allArticles);
+                    request.setAttribute("statusid", statusid);
                     ServletUtils.forward("/views/vwEditor/index.jsp", request, response);
                     break;
                 default:

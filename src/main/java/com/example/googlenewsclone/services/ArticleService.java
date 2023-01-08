@@ -23,6 +23,23 @@ public class ArticleService {
             return list;
         }
     }
+
+    public static List<Article> findAllByStatusId(int statusid){
+        if (statusid == 0){
+            return findAll();
+        } else {
+            try (Connection con = DbUtils.getConnection()) {
+                final String query = "select * from articles where statusid = :statusid ORDER BY articleid;";
+                List<Article> list = con.createQuery(query)
+                        .addParameter("statusid", statusid)
+                        .executeAndFetch(Article.class);
+                return list;
+            }
+        }
+
+    }
+
+
     public static List<Article> ftxSearch(String search){
         try (Connection con = DbUtils.getConnection()) {
             List<Article> result = new ArrayList<>();

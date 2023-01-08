@@ -30,13 +30,7 @@ public class WriterServlet extends HttpServlet {
                 case "/Index":
                     Integer statusid = Integer.parseInt(request.getParameter("statusid"));
                     List<Article> writerArticle;
-                    if (statusid != null){
-                        writerArticle = ArticleService.findArticlesByWriterIDAndStatus(u.getUserID(), statusid);
-
-                    } else {
-                        writerArticle = ArticleService.findArticlesByWriterIDAndStatus(u.getUserID(), 1);
-
-                    }
+                    writerArticle = ArticleService.findArticlesByWriterIDAndStatus(u.getUserID(), statusid);
                     request.setAttribute("statusid", statusid);
                     request.setAttribute("articles", writerArticle);
                     ServletUtils.forward("/views/vwWriter/index.jsp", request, response);
