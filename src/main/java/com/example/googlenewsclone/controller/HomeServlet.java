@@ -25,6 +25,7 @@ public class HomeServlet extends HttpServlet {
         if (path == null || path.equals("/")) {
             path = "/Index";
         }
+        HttpSession session;
         switch (path) {
             case "/Index":
                 //Tìm tất cả chuyên mục
@@ -53,7 +54,7 @@ public class HomeServlet extends HttpServlet {
 
                 }
                 //Truy xuất thông tin người dùng session
-                HttpSession session = request.getSession();
+                session = request.getSession();
                 User u = (User) session.getAttribute("authUser");
 
                 //Truy xuất thông tin chi tiết của bài báo
@@ -189,8 +190,20 @@ public class HomeServlet extends HttpServlet {
                 }catch (NumberFormatException e){
 
                 }
-                Category cat = CategoryService.findByID(catID);
-                List<Article> articleByCat = ArticleService.findByCatID(catID);
+
+                session = request.getSession();
+                Category cat;
+                List<Article> articleByCat;
+
+                if((boolean) session.getAttribute("auth")) {
+                    cat = CategoryService.findByID(catID);
+                    articleByCat = ArticleService.findByCatIDPremiumFirst(catID);
+
+                }
+                else {
+                    cat = CategoryService.findByID(catID);
+                    articleByCat = ArticleService.findByCatID(catID);
+                }
                 if(articleByCat == null){
                     request.setAttribute("errEmpty", true);
                     request.setAttribute("msgEmpty", "Không có dữ liệu");
@@ -206,8 +219,18 @@ public class HomeServlet extends HttpServlet {
                 }catch (NumberFormatException e){
 
                 }
-                Tag tag = TagService.findByID(tagID);
-                List<Article> articleByTag = ArticleService.findByTag(tagID);
+
+                session = request.getSession();
+                Tag tag;
+                List<Article> articleByTag;
+
+                if((boolean) session.getAttribute("auth")) {
+                    tag = TagService.findByID(tagID);
+                    articleByTag = ArticleService.findByTagPremiumFirst(tagID);
+                } else {
+                    tag = TagService.findByID(tagID);
+                    articleByTag = ArticleService.findByTag(tagID);
+                }
                 if(articleByTag == null){
                     request.setAttribute("errEmpty", true);
                     request.setAttribute("msgEmpty", "Không có dữ liệu");
@@ -217,7 +240,12 @@ public class HomeServlet extends HttpServlet {
                 ServletUtils.forward("/views/vwHome/byTag.jsp", request, response);
                 break;
             case "/Search":
-                ftxSearch(request, response);
+                //Truy xuất thông tin người dùng session
+                session = request.getSession();
+                if((boolean) session.getAttribute("auth"))
+                    ftxSearchPremiumFirst(request, response);
+                else
+                    ftxSearch(request, response);
                 break;
             default:
                 ServletUtils.forward("/views/404.jsp", request, response);
@@ -254,6 +282,18 @@ public class HomeServlet extends HttpServlet {
 
         String keywords = request.getParameter("ftxsearch");
         List<Article> articleslist = ArticleService.ftxSearch(keywords);
+        request.setAttribute("keywords", keywords);
+        request.setAttribute("ftxSearchArticles", articleslist);
+
+        List<Category> catList = CategoryService.findAll();
+        request.setAttribute("categories", catList);
+
+        ServletUtils.forward("/views/vwHome/bySearch.jsp", request, response);
+    }
+    private static void ftxSearchPremiumFirst(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String keywords = request.getParameter("ftxsearch");
+        List<Article> articleslist = ArticleService.ftxSearchPremiumFirst(keywords);
         request.setAttribute("keywords", keywords);
         request.setAttribute("ftxSearchArticles", articleslist);
 

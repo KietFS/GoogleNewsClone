@@ -87,6 +87,53 @@ public class ArticleService {
             throw new RuntimeException(e);
         }
     }
+    public static List<Article> ftxSearchPremiumFirst(String search){
+        try (Connection con = DbUtils.getConnection()) {
+            List<Article> result = new ArrayList<>();
+            String[] keywords = search.split(" ");
+            List<Integer> articleidList = new ArrayList<>();
+            for(String kw : keywords){
+                String finalKw = "%"+kw+"%";
+                //Sql2o
+//                final String query = "select * from articles where to_tsvector(title, subcontent, content) @@ to_tsquery(:keyword);";
+//                final String query = "select * from articles where publish_date IS NOT NULL AND (articles.title ilike :keyword or articles.subcontent or ilike :keyword or articles.content ilike :keyword);";
+
+                //PreparedStatement
+                final String query = "select * from articles where publish_date is not null and (articles.title ilike ? or articles.subcontent ilike ? or articles.content ilike ?) order by premium desc;";
+                PreparedStatement pstmt = con.getJdbcConnection().prepareStatement(query);
+                pstmt.setString(1,finalKw);
+                pstmt.setString(2,finalKw);
+                pstmt.setString(3,finalKw);
+
+                //Sql2o
+//                List<Article> list = con.createQuery(query)
+//                        .addParameter("keyword", finalKw)
+//                        .executeAndFetch(Article.class);
+
+                //PreparedStatement
+                ResultSet rs = pstmt.executeQuery();
+
+                while(rs.next()){
+                    int articleid = rs.getInt("articleid");
+                    String title = rs.getString("title");
+                    String subcontent = rs.getString("subcontent");
+                    int catid = rs.getInt("catid");
+                    boolean premium = rs.getBoolean("premium");
+                    Date publish_date = rs.getDate("publish_date");
+                    String thumbs_img = rs.getString("thumbs_img");
+
+                    Article a = new Article(articleid, title, subcontent, catid, premium, publish_date, thumbs_img);
+                    if(!(articleidList.contains(a.getArticleID()))){
+                        articleidList.add(a.getArticleID());
+                        result.add(a);
+                    }
+                }
+            }
+            return result;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public static List<Article> findArticlesByWriterIDAndStatus(int id, int statusid){
         try(Connection con = DbUtils.getConnection()){
             if (statusid > 0 ){
@@ -137,6 +184,18 @@ public class ArticleService {
     public static List<Article> findByCatID(int id){
         try(Connection con = DbUtils.getConnection()){
             final String query = "select * from articles where catid = :id and publish_date is not null;";
+            List<Article> list = con.createQuery(query)
+                    .addParameter("id", id)
+                    .executeAndFetch(Article.class);
+            if(list.size() == 0){
+                return null;
+            }
+            return list;
+        }
+    }
+    public static List<Article> findByCatIDPremiumFirst(int id){
+        try(Connection con = DbUtils.getConnection()){
+            final String query = "select * from articles where catid = :id and publish_date is not null order by premium desc;";
             List<Article> list = con.createQuery(query)
                     .addParameter("id", id)
                     .executeAndFetch(Article.class);
@@ -209,6 +268,18 @@ public class ArticleService {
     public static List<Article> findByTag(int tagid){
         try(Connection con = DbUtils.getConnection()){
             final String query = "select tha.articleid, title, views, subcontent, content, catid, premium, writterid, statusid, publish_date, thumbs_img from articles inner join tags_has_articles tha on articles.articleid = tha.articleid where tha.tagid = :tagid and publish_date IS NOT NULL;";
+            List<Article> list = con.createQuery(query)
+                    .addParameter("tagid", tagid)
+                    .executeAndFetch(Article.class);
+            if(list.size() == 0){
+                return null;
+            }
+            return list;
+        }
+    }
+    public static List<Article> findByTagPremiumFirst(int tagid){
+        try(Connection con = DbUtils.getConnection()){
+            final String query = "select tha.articleid, title, views, subcontent, content, catid, premium, writterid, statusid, publish_date, thumbs_img from articles inner join tags_has_articles tha on articles.articleid = tha.articleid where tha.tagid = :tagid and publish_date IS NOT NULL order by premium desc;";
             List<Article> list = con.createQuery(query)
                     .addParameter("tagid", tagid)
                     .executeAndFetch(Article.class);
