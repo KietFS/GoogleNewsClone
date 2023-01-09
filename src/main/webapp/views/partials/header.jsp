@@ -96,7 +96,7 @@
               </a>
               <c:if test="${authUser.roleID == 4}">
                 <a
-                        href="${pageContext.request.contextPath}/Staff/Admin"
+                        href="${pageContext.request.contextPath}/Staff/Admin/User?page=1"
                 >
                   <li
                           class="rounded-sm px-3 py-1 hover:text-blue-500 text-gray-500 text-lg cursor-pointer"
@@ -108,7 +108,7 @@
               </c:if>
               <c:if test="${authUser.roleID == 3}">
                 <a
-                        href="${pageContext.request.contextPath}/Staff/Editor"
+                        href="${pageContext.request.contextPath}/Staff/Editor?statusid=0&page=1"
                 >
                   <li
                           class="rounded-sm px-3 py-1 hover:text-blue-500 text-gray-500 text-lg cursor-pointer"
@@ -120,7 +120,7 @@
               </c:if>
               <c:if test="${authUser.roleID == 2}">
                 <a
-                        href="${pageContext.request.contextPath}/Staff/Writer"
+                        href="${pageContext.request.contextPath}/Staff/Writer?statusid=0&page=1"
                 >
                   <li
                           class="rounded-sm px-3 py-1 hover:text-blue-500 text-gray-500 text-lg cursor-pointer"
