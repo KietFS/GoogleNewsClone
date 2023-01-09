@@ -10,17 +10,18 @@
 <t:writer>
     <jsp:body>
         <div class="mt-10">
-            <div class="flex justify-between items-center px-4 w-full">
+            <div class="flex justify-between items-center px-8 w-full">
                 <h1 class="text-gray-600 text-3xl font-bold">
                     Quản lý bài viết của bạn
                 </h1>
 
-
+                <div class="flex items-center gap-x-4">
                 <form
                         name="changeArticleStatus"
                         method="get"
                         action="${pageContext.request.contextPath}/Staff/Writer/Index"
                 >
+                    <input type="hidden" name="page" value=${page}>
                     <select
                             onchange="this.form.submit()"
                             name="statusid"
@@ -38,11 +39,31 @@
                         <option value="2" ${statusid == 2 ? "selected" : ""}>Chờ xuất bản</option>
                     </select>
                 </form>
+                    <form
+                            name="changePage"
+                            method="get"
+                            action="${pageContext.request.contextPath}/Staff/Writer/Index"
+                    >
+                        <input type="hidden" name="statusid" value=${statusid}  />
+                        <select
+                                onchange="this.form.submit()"
+                                name="page"
+                                id="page"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        >
+                            <c:forEach begin="1" end="${maxPage}" var="p">
+                            <option value=${p} ${page == p ? "selected" : ""}>
+                              Trang ${p}
+                            </option>
+                            </c:forEach>
+                        </select>
+                    </form>
+                </div>
 
             </div>
 
             <div
-                    class="overflow-x-auto relative shadow-md sm:rounded-lg mx-4 my-8 border border-gray-200"
+                    class="overflow-x-auto relative shadow-md sm:rounded-lg mx-8 my-8 border border-gray-200"
             >
                 <table
                         class="w-full text-sm text-left text-gray-500 dark:text-gray-400"

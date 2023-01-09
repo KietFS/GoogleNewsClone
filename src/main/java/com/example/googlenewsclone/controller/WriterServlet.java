@@ -28,11 +28,16 @@ public class WriterServlet extends HttpServlet {
             }
             switch (path){
                 case "/Index":
+                    List<Article> originalArticles = ArticleService.findListArticleByWritterID(u.getUserID());
+                    int maxPage = originalArticles.size() / 10 + 1;
                     int statusid = Integer.parseInt(request.getParameter("statusid"));
+                    int page = Integer.parseInt(request.getParameter("page"));
                     List<Article> writerArticle;
-                    writerArticle = ArticleService.findArticlesByWriterIDAndStatus(u.getUserID(), statusid);
+                    writerArticle = ArticleService.findArticlesByWriterIDAndStatusAndPage(u.getUserID(), statusid, page);
                     request.setAttribute("statusid", statusid);
+                    request.setAttribute("page", page);
                     request.setAttribute("articles", writerArticle);
+                    request.setAttribute("maxPage", maxPage);
                     ServletUtils.forward("/views/vwWriter/index.jsp", request, response);
 
                     break;

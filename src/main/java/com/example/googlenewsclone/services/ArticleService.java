@@ -134,19 +134,22 @@ public class ArticleService {
             throw new RuntimeException(e);
         }
     }
-    public static List<Article> findArticlesByWriterIDAndStatus(int id, int statusid){
+    public static List<Article> findArticlesByWriterIDAndStatusAndPage(int id, int statusid, int page){
+        int currentOffset = (page - 1)*10;
         try(Connection con = DbUtils.getConnection()){
             if (statusid > 0 ){
-                final String query = "select * from articles where writterid = :writterid and statusid = :statusid;";
+                final String query = "select * from articles where writterid = :writterid and statusid = :statusid offset :offset limit  10;";
                 List<Article> list = con.createQuery(query)
                         .addParameter("writterid", id)
+                        .addParameter("offset", currentOffset)
                         .addParameter("statusid", statusid)
                         .executeAndFetch(Article.class);
                 return list;
             } else {
-                final String query = "select * from articles where writterid = :writterid;";
+                final String query = "select * from articles where writterid = :writterid offset :offset limit  10;";
                 List<Article> list = con.createQuery(query)
                         .addParameter("writterid", id)
+                        .addParameter("offset", currentOffset)
                         .executeAndFetch(Article.class);
                 return list;
             }
@@ -239,6 +242,16 @@ public class ArticleService {
             return list.get(0);
         }
     }
+    public static List<Article> findListArticleByWritterID(int id){
+        try(Connection con = DbUtils.getConnection()){
+            final String query = "select * from articles where writterid = :writterid;";
+            List<Article> list = con.createQuery(query)
+                    .addParameter("writterid", id)
+                    .executeAndFetch(Article.class);
+            return list;
+        }
+    }
+
 
     public static Article findArticleByTitleAndWritterID(int id, String title){
         try(Connection con = DbUtils.getConnection()){

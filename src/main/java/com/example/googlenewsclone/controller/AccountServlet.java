@@ -145,10 +145,10 @@ public class AccountServlet extends HttpServlet {
                 if(perm == 1){
                     ServletUtils.redirect(url, request, response);
                 } else if(perm == 2){
-                    url = "/Staff/Writer/Index?statusid=0";
+                    url = "/Staff/Writer/Index?statusid=0&page=1";
                     ServletUtils.redirect(url, request, response);
                 } else if (perm == 3){
-                    url = "/Staff/Editor/Index?statusid=0";
+                    url = "/Staff/Editor/Index?statusid=0&page=1";
                     ServletUtils.redirect(url, request, response);
                 } else if(perm == 4){
                     url = "/Staff/Admin";
