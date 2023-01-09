@@ -23,15 +23,28 @@ public class ArticleService {
             return list;
         }
     }
+    public static List<Article> findAllWithPaging(int page){
+        int currentOffSet = (page-1)*10;
+        try (Connection con = DbUtils.getConnection()) {
+            final String query = "select * from articles ORDER BY articleid offset :offset limit  10;";
+            List<Article> list = con.createQuery(query)
+                    .addParameter("offset", currentOffSet)
+                    .executeAndFetch(Article.class);
+            return list;
+        }
+    }
 
-    public static List<Article> findAllByStatusId(int statusid){
+
+    public static List<Article> findAllByStatusIdAndPaging(int statusid, int page){
+        int currentOffSet = (page-1)*10;
         if (statusid == 0){
-            return findAll();
+            return findAllWithPaging(page);
         } else {
             try (Connection con = DbUtils.getConnection()) {
-                final String query = "select * from articles where statusid = :statusid ORDER BY articleid;";
+                final String query = "select * from articles where statusid = :statusid ORDER BY articleid offset :offset limit  10;";
                 List<Article> list = con.createQuery(query)
                         .addParameter("statusid", statusid)
+                        .addParameter("offset", currentOffSet)
                         .executeAndFetch(Article.class);
                 return list;
             }

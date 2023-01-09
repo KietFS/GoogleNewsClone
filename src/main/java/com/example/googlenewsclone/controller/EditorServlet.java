@@ -26,10 +26,15 @@ public class EditorServlet extends HttpServlet {
             }
             switch (path) {
                 case "/Index":
+                    List<Article> allOriginalArticles = ArticleService.findAll();
                     int statusid = Integer.parseInt(request.getParameter("statusid"));
-                    List<Article> allArticles = ArticleService.findAllByStatusId(statusid);
+                    int page = Integer.parseInt(request.getParameter("page"));
+                    int maxPage = allOriginalArticles.size()/10 +1;
+                    List<Article> allArticles = ArticleService.findAllByStatusIdAndPaging(statusid,page);
                     request.setAttribute("allArticles", allArticles);
+                    request.setAttribute("page", page);
                     request.setAttribute("statusid", statusid);
+                    request.setAttribute("maxPage",maxPage);
                     ServletUtils.forward("/views/vwEditor/index.jsp", request, response);
                     break;
                 default:
