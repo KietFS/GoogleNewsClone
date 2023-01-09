@@ -6,7 +6,7 @@
   <!-- list mangaments -->
   <a
           class="flex gap-x-4 w-full px-4 py-8 border-gray-100 border-b border-t hover:bg-blue-50 cursor-pointer items-center"
-          href="${pageContext.request.contextPath}/Staff/Admin/User"
+          href="${pageContext.request.contextPath}/Staff/Admin/User?page=1"
   >
     <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +26,7 @@
   </a>
   <a
           class="flex gap-x-4 w-full px-4 py-8 border-gray-100 border-b border-t hover:bg-blue-50 cursor-pointer items-center"
-          href="${pageContext.request.contextPath}/Staff/Admin/Article"
+          href="${pageContext.request.contextPath}/Staff/Admin/Article?page=1"
   >
     <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,7 @@
   </a>
   <a
           class="flex gap-x-4 w-full px-4 py-8 border-gray-100 border-b border-t hover:bg-blue-50 cursor-pointer items-center"
-          href="${pageContext.request.contextPath}/Staff/Admin/Category"
+          href="${pageContext.request.contextPath}/Staff/Admin/Category?page=1"
   >
     <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@
   </a>
   <a
           class="flex gap-x-4 w-full px-4 py-8 border-gray-100 border-b border-t hover:bg-blue-50 cursor-pointer items-center"
-          href="${pageContext.request.contextPath}/Staff/Admin/Tag"
+          href="${pageContext.request.contextPath}/Staff/Admin/Tag?page=1"
   >
     <svg
             xmlns="http://www.w3.org/2000/svg"

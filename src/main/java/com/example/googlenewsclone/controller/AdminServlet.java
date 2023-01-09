@@ -25,25 +25,45 @@ public class AdminServlet extends HttpServlet {
             switch (path){
                 case "/User":
                     //Lay tat ca user
-                    List<User> allUsers = UserService.findAll();
+                    int page = Integer.parseInt(request.getParameter("page"));
+                    List<User> allOriginalUsers = UserService.findAll();
+                    List<User> allUsers = UserService.findAllWithPaging(page);
+                    int maxPage = allOriginalUsers.size()/10 + 1;
                     request.setAttribute("allUsers", allUsers);
+                    request.setAttribute("page", page);
+                    request.setAttribute("maxPage", maxPage);
                     ServletUtils.forward("/views/vwAdmin/vwAdminUser/index.jsp", request, response);
                     break;
                 case "/Article":
-                    List<Article> allArticles = ArticleService.findAll();
+                    int articlepage = Integer.parseInt(request.getParameter("page"));
+                    List<Article> allArticles = ArticleService.findAllWithPaging(articlepage);
+                    List<Article> allOriginalArticles = ArticleService.findAll();
+                    int maxArticlePage = allOriginalArticles.size()/10 +1;
+                    request.setAttribute("maxPage", maxArticlePage);
                     request.setAttribute("allArticles", allArticles );
+                    request.setAttribute("page", articlepage);
                     ServletUtils.forward("/views/vwAdmin/vwAdminArticle/index.jsp", request, response);
                     break;
                 case "/Tag":
-                    List<Tag> allTags = TagService.findAll();
+                    int tagPage = Integer.parseInt(request.getParameter("page"));
+                    List<Tag> allTags = TagService.findAllWithPaging(tagPage);
+                    List<Tag> allOrriginalTags = TagService.findAll();
+                    int maxTagPage = allOrriginalTags.size()/10 + 1;
                     request.setAttribute("allTags", allTags);
+                    request.setAttribute("maxPage", maxTagPage);
+                    request.setAttribute("page", tagPage);
                     ServletUtils.forward("/views/vwAdmin/vwAdminTag/index.jsp", request, response);
                     break;
                 case "/Category":
-                    List <Category> allCategories = CategoryService.findAll();
+                    int categoryPage = Integer.parseInt(request.getParameter("page"));
+                    List <Category> allCategories = CategoryService.findAllByPaging(categoryPage);
                     List <ParentCategory> allParentCategories = ParentCategoryService.findAll();
+                    List<Category> allOriginalCategories = CategoryService.findAll();
+                    int maxCategoryPage = allOriginalCategories.size()/10 + 1;
                     request.setAttribute("allParentCategories", allParentCategories);
                     request.setAttribute("allCategories", allCategories);
+                    request.setAttribute("page", categoryPage);
+                    request.setAttribute("maxPage", maxCategoryPage);
                     ServletUtils.forward("/views/vwAdmin/vwAdminCategory/index.jsp", request, response);
                     break;
                 default:

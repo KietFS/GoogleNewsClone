@@ -15,6 +15,18 @@ public class TagService {
                     .executeAndFetch(Tag.class);
         }
     }
+
+    public static List<Tag> findAllWithPaging(int page){
+        try (Connection con = DbUtils.getConnection()) {
+            int currentOffSet = (page-1) * 10;
+            final String query = "select  * from tags order by tagid offset :offset limit 10;";
+
+            return con.createQuery(query)
+                    .addParameter("offset", currentOffSet)
+                    .executeAndFetch(Tag.class);
+        }
+    }
+
     public static List<Tag> findByArticle(int articleid){
         try (Connection con = DbUtils.getConnection()) {
             final String query = "select tha.tagid, tagname from tags inner join tags_has_articles tha on tags.tagid = tha.tagid where articleid = :articleid";

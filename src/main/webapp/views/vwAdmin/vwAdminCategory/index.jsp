@@ -23,42 +23,63 @@
 <t:admin>
     <jsp:body>
         <div class="mt-10">
-            <div class="flex w-full justify-between items-center px-4">
+            <div class="flex w-full justify-between items-center px-8">
                 <h1 class="text-gray-600 text-3xl font-bold w-fit">
                     Quản lý danh mục
                 </h1>
-                <form class="flex gap-x-2 items-center" method="post" action="${pageContext.request.contextPath}/Staff/Admin/AddCategory">
-                    <div>
-                        <input
-                                type="text"
-                                name="catname"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm w-[300px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Tên danh mục"
-                                required
-                        />
-                    </div>
-                    <select
-                            name="pcatid"
-                            class="bg-gray-50 w-[200px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                <div class="flex items-center gap-x-4">
+                    <form class="flex gap-x-2 items-center" method="post" action="${pageContext.request.contextPath}/Staff/Admin/AddCategory">
+                        <div>
+                            <input
+                                    type="text"
+                                    name="catname"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm w-[300px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Tên danh mục"
+                                    required
+                            />
+                        </div>
+                        <select
+                                name="pcatid"
+                                class="bg-gray-50 w-[200px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        >
+
+                            <c:forEach items="${allParentCategories}" var="p">
+                                <option value="${p.pCatID}">${p.pCatName}</option>
+                            </c:forEach>
+
+                        </select>
+
+                        <button
+                                type="submit"
+                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                        >
+                            Thêm danh mục
+                        </button>
+                    </form>
+                    <form
+                            name="changePage"
+                            method="get"
+                            action="${pageContext.request.contextPath}/Staff/Admin/Tag"
                     >
+                        <select
+                                onchange="this.form.submit()"
+                                name="page"
+                                id="page"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        >
+                            <c:forEach begin="1" end="${maxPage}" var="p">
+                                <option value=${p} ${page == p ? "selected" : ""}>
+                                    Trang ${p}
+                                </option>
+                            </c:forEach>
+                        </select>
+                    </form>
+                </div>
 
-                        <c:forEach items="${allParentCategories}" var="p">
-                            <option value="${p.pCatID}">${p.pCatName}</option>
-                        </c:forEach>
-
-                    </select>
-
-                    <button
-                            type="submit"
-                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                    >
-                        Thêm danh mục
-                    </button>
-                </form>
             </div>
 
             <div
-                    class="overflow-x-auto relative shadow-md sm:rounded-lg mx-4 mt-8 border border-gray-100"
+                    class="overflow-x-auto relative shadow-md sm:rounded-lg mx-8 mt-8 border border-gray-100"
             >
                 <table
                         class="w-full text-sm text-left text-gray-500 dark:text-gray-400"

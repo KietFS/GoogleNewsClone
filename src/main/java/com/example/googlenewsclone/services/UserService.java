@@ -16,6 +16,20 @@ public class UserService {
                     .executeAndFetch(User.class);
         }
     }
+
+    public static List<User> findAllWithPaging(int page){
+        int currentOffSet = (page-1)*10;
+        try (Connection con = DbUtils.getConnection()) {
+            final String query = "select * from users ORDER BY username offset :offset limit 10;";
+
+            return con.createQuery(query)
+                    .addParameter("offset", currentOffSet)
+                    .executeAndFetch(User.class);
+        }
+    }
+
+
+
     public static User findByUsername (String username){
         try (Connection con = DbUtils.getConnection()) {
             final String query = "select * from users where username = :username;";

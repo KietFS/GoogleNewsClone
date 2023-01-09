@@ -17,12 +17,32 @@
 <t:admin>
     <jsp:body>
         <div class="mt-10">
-            <h1 class="text-gray-600 text-3xl font-bold mx-4">
-                Quản lý bài viết
-            </h1>
+            <div class="flex items-center px-8 justify-between">
+                <h1 class="text-gray-600 text-3xl font-bold">
+                    Quản lý bài viết
+                </h1>
+                <form
+                        name="changePage"
+                        method="get"
+                        action="${pageContext.request.contextPath}/Staff/Admin/Article"
+                >
+                    <select
+                            onchange="this.form.submit()"
+                            name="page"
+                            id="page"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    >
+                        <c:forEach begin="1" end="${maxPage}" var="p">
+                            <option value=${p} ${page == p ? "selected" : ""}>
+                                Trang ${p}
+                            </option>
+                        </c:forEach>
+                    </select>
+                </form>
+            </div>
 
             <div
-                    class="overflow-x-auto relative shadow-md sm:rounded-lg mx-4 mt-8 border border-gray-100"
+                    class="overflow-x-auto relative shadow-md sm:rounded-lg mx-8 mt-8 border border-gray-100"
             >
                 <table
                         class="w-full text-sm text-left text-gray-500 dark:text-gray-400"

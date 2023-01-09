@@ -15,6 +15,17 @@ public class CategoryService {
                     .executeAndFetch(Category.class);
         }
     }
+
+    public static List<Category> findAllByPaging(int page){
+        try (Connection con = DbUtils.getConnection()) {
+            int currentOffSet = (page-1) * 10;
+            final String query = "select * from categories order by catid offset :offset limit 10;";
+            return con.createQuery(query)
+                    .addParameter("offset", currentOffSet)
+                    .executeAndFetch(Category.class);
+        }
+    }
+
     public static Category findByID(int id){
         try (Connection con = DbUtils.getConnection()) {
             final String query = "select * from categories where catID = :id;";
