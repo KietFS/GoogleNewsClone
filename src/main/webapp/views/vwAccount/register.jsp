@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Đăng ký tài khoản</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 <form id="formRegister" action="${pageContext.request.contextPath}/Account/Register" method="post">
@@ -23,6 +24,7 @@
     <div class="flex flex-start w-[300px]">
       <p class="text-red-500 font-semibold text-sm">${existedUser}</p>
       <p class="text-green-500 font-semibold text-sm">${successfulRegistration}</p>
+      <p class="text-red-500 font-semibold text-sm">${errRegistration}</p>
     </div>
     <!-- input name -->
     <div class="flex flex-col gap-y-1">
@@ -53,7 +55,7 @@
     <div class="flex flex-col gap-y-1">
       <p class="text-gray-600 font-bold ml-2">Email</p>
       <input
-              type="text"
+              type="email"
               id="email"
               name="email"
               placeholder="Email của bạn"
@@ -99,6 +101,8 @@
       </select>
     </div>
     <!-- button section -->
+<%--    Captcha V2 Checkbox--%>
+    <div class="g-recaptcha" data-sitekey="6LcZW-EjAAAAAMlY0qR84jYZDU9twwZZLIi0cTF5"></div>
     <div class="flex flex-col gap-y-4">
       <!-- login button -->
       <button

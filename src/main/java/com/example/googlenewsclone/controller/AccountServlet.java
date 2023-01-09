@@ -4,6 +4,7 @@ import com.example.googlenewsclone.beans.User;
 import com.example.googlenewsclone.services.EmailService;
 import com.example.googlenewsclone.services.UserService;
 import com.example.googlenewsclone.utils.ServletUtils;
+import com.example.googlenewsclone.utils.VerifyRecaptcha;
 import org.mindrot.jbcrypt.BCrypt;
 
 import javax.mail.MessagingException;
@@ -13,6 +14,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
+
 
 @WebServlet(name = "AccountServlet", value = "/Account/*")
 public class AccountServlet extends HttpServlet {
@@ -119,8 +121,12 @@ public class AccountServlet extends HttpServlet {
         if(UserService.findByUsername(username) != null){
                 request.setAttribute("existedUser", "Tên người dùng đã tồn tại, vui lòng chọn tên khác");
             } else {
-                request.setAttribute("successfulRegistration", "Đăng ký thành công!");
-                UserService.add(u);
+                String gRecaptchaResponse = request.getParameter("g-recaptcha-response");
+                boolean verify = VerifyRecaptcha.verify(gRecaptchaResponse);
+                if(verify){
+                    UserService.add(u);
+                    request.setAttribute("successfulRegistration", "Đăng ký thành công!");
+                } else request.setAttribute("errRegistration", "Bạn chưa xác thực Captcha!");
             }
         ServletUtils.forward("/views/vwAccount/register.jsp", request, response);
     }
