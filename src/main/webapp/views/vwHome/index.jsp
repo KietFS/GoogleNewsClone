@@ -404,7 +404,7 @@
                                         <div class="flex flex-col gap-y-1">
                                             <div class="flex items-center gap-x-1">
                                                 <c:choose>
-                                                    <c:when test="${tA.premium}">
+                                                    <c:when test="${nA.premium}">
                                                         <p class="bg-blue-500 text-xs px-2 py-1 text-white  font-semibold w-fit rounded-full">
                                                             Premium
                                                         </p>
