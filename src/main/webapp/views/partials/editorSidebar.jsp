@@ -7,7 +7,7 @@
 
   <a
           class="flex gap-x-4 w-full px-4 py-8 border-gray-100 border-b border-t hover:bg-blue-50 cursor-pointer items-center"
-          href="${pageContext.request.contextPath}/Staff/Editor/Index?statusid=0?page=0"
+          href="${pageContext.request.contextPath}/Staff/Editor/Index?statusid=0&page=1"
   >
     <svg
             xmlns="http://www.w3.org/2000/svg"
