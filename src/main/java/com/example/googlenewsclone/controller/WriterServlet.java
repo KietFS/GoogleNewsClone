@@ -28,7 +28,7 @@ public class WriterServlet extends HttpServlet {
             }
             switch (path){
                 case "/Index":
-                    Integer statusid = Integer.parseInt(request.getParameter("statusid"));
+                    int statusid = Integer.parseInt(request.getParameter("statusid"));
                     List<Article> writerArticle;
                     writerArticle = ArticleService.findArticlesByWriterIDAndStatus(u.getUserID(), statusid);
                     request.setAttribute("statusid", statusid);
