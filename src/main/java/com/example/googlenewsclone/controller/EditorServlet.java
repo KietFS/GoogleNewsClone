@@ -78,6 +78,6 @@ public class EditorServlet extends HttpServlet {
             ArticleService.updateStatus(a);
         }
 
-        ServletUtils.redirect("/Staff/Editor/Index", request, response);
+        ServletUtils.redirect("/Staff/Editor/Index?statusid=0&page=1", request, response);
     }
 }

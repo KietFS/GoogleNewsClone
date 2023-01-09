@@ -119,7 +119,7 @@ public class WriterServlet extends HttpServlet {
             System.out.println("article id"+ excutedArticle.getArticleID());
             TagHasArticleService.add(Integer.parseInt(id), excutedArticle.getArticleID());
         }
-        ServletUtils.redirect("/Staff/Writer/Index", request, response);
+        ServletUtils.redirect("/Staff/Writer/Index?statusid=0&page=1", request, response);
     }
 
     private static void editArticle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -131,12 +131,12 @@ public class WriterServlet extends HttpServlet {
         String subcontent = request.getParameter("subcontent");
         Boolean premium = Boolean.valueOf(request.getParameter("premium"));
         ArticleService.update( Integer.parseInt(id), title, subcontent,  content, thumbs_img, premium);
-        ServletUtils.redirect("/Staff/Writer/Index", request, response);
+        ServletUtils.redirect("/Staff/Writer/Index?statusid=0&page=1", request, response);
     }
 
     private static void deleteArticle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
         ArticleService.delete(Integer.parseInt(id));
-        ServletUtils.redirect("/Staff/Writer/Index", request, response);
+        ServletUtils.redirect("/Staff/Writer/Index?statusid=0&page=1", request, response);
     }
 }

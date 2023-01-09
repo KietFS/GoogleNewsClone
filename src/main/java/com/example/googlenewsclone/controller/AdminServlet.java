@@ -128,14 +128,14 @@ public class AdminServlet extends HttpServlet {
         User u = new User(userid, roleid);
         UserService.updateRole(u);
 
-        ServletUtils.redirect("/Staff/Admin/User", request, response);
+        ServletUtils.redirect("/Staff/Admin/User?page=1", request, response);
     }
     private static void deleteUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int userid = Integer.parseInt(request.getParameter("userid"));
 
         UserService.delete(userid);
 
-        ServletUtils.redirect("/Staff/Admin/User", request, response);
+        ServletUtils.redirect("/Staff/Admin/User?page=1", request, response);
     }
     private static void changeArticleStatus(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int articleid = Integer.parseInt(request.getParameter("articleid"));
@@ -144,33 +144,33 @@ public class AdminServlet extends HttpServlet {
         Article a = new Article(articleid, statusid);
         ArticleService.updateStatus(a);
 
-        ServletUtils.redirect("/Staff/Admin/Article", request, response);
+        ServletUtils.redirect("/Staff/Admin/Article?page=1", request, response);
     }
     private static void deleteArticle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int articleid = Integer.parseInt(request.getParameter("articleid"));
 
         ArticleService.delete(articleid);
 
-        ServletUtils.redirect("/Staff/Admin/Article", request, response);
+        ServletUtils.redirect("/Staff/Admin/Article?page=1", request, response);
     }
 
     private static void addTag(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String tagname = request.getParameter("tagname");
         TagService.add(tagname);
-        ServletUtils.redirect("/Staff/Admin/Tag", request, response);
+        ServletUtils.redirect("/Staff/Admin/Tag?page=1", request, response);
     }
 
     private static void updateTag(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String tagname = request.getParameter("tagname");
         int tagid = Integer.parseInt(request.getParameter("tagid"));
         TagService.update(tagname, tagid);
-        ServletUtils.redirect("/Staff/Admin/Tag", request, response);
+        ServletUtils.redirect("/Staff/Admin/Tag?page=1", request, response);
     }
 
     private static void deleteTag(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int tagid = Integer.parseInt(request.getParameter("tagid"));
         TagService.delete(tagid);
-        ServletUtils.redirect("/Staff/Admin/Tag", request, response);
+        ServletUtils.redirect("/Staff/Admin/Tag?page=1", request, response);
     }
     private static void addCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int pcatid = Integer.parseInt(request.getParameter("pcatid"));
@@ -179,7 +179,7 @@ public class AdminServlet extends HttpServlet {
         Category c = new Category(catname, pcatid);
         CategoryService.add(c);
 
-        ServletUtils.redirect("/Staff/Admin/Category", request, response);
+        ServletUtils.redirect("/Staff/Admin/Category?page=1", request, response);
     }
     private static void editCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int catid = Integer.parseInt(request.getParameter("catid"));
@@ -188,13 +188,13 @@ public class AdminServlet extends HttpServlet {
 
         CategoryService.update(catid, pcatid, catname);
 
-        ServletUtils.redirect("/Staff/Admin/Category", request, response);
+        ServletUtils.redirect("/Staff/Admin/Category?page=1", request, response);
     }
     private static void deleteCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int catid = Integer.parseInt(request.getParameter("catid"));
 
         CategoryService.delete(catid);
 
-        ServletUtils.redirect("/Staff/Admin/Category", request, response);
+        ServletUtils.redirect("/Staff/Admin/Category?page=1", request, response);
     }
 }

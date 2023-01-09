@@ -17,6 +17,8 @@
           <element id="library" level="project" name="Maven: org.sql2o:sql2o:1.6.0" />
           <element id="library" level="project" name="Maven: org.apache.taglibs:taglibs-standard-spec:1.2.5" />
           <element id="library" level="project" name="Maven: org.apache.taglibs:taglibs-standard-impl:1.2.5" />
+          <element id="library" level="project" name="Maven: org.postgresql:postgresql:42.2.26" />
+          <element id="library" level="project" name="Maven: org.checkerframework:checker-qual:3.5.0" />
           <element id="library" level="project" name="Maven: javax.mail:mail:1.5.0-b01" />
           <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
           <element id="library" level="project" name="Maven: net.bytebuddy:byte-buddy:1.10.10" />
